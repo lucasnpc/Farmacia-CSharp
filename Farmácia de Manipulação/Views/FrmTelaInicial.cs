@@ -117,10 +117,6 @@ namespace Farmácia_de_Manipulação
         }
         private void verificacoes()
         {
-            if (procuraProdutoVencido() == true)
-            {
-                alerta.Visible = true;
-            }
         }
 
         private void menubom_Load(object sender, EventArgs e)

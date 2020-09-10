@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu));
-            this.alerta = new System.Windows.Forms.PictureBox();
             this.bFim = new System.Windows.Forms.Button();
             this.gridPedidos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,25 +49,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gridEspecialidade = new System.Windows.Forms.DataGridView();
             this.tbMalaDireta = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.alerta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPedidos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridEspecialidade)).BeginInit();
             this.SuspendLayout();
-            // 
-            // alerta
-            // 
-            this.alerta.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("alerta.BackgroundImage")));
-            this.alerta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.alerta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.alerta.Location = new System.Drawing.Point(16, 592);
-            this.alerta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.alerta.Name = "alerta";
-            this.alerta.Size = new System.Drawing.Size(103, 91);
-            this.alerta.TabIndex = 21;
-            this.alerta.TabStop = false;
-            this.toolTip1.SetToolTip(this.alerta, "Há produtos vencidos");
-            this.alerta.Visible = false;
             // 
             // bFim
             // 
@@ -140,7 +123,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1179, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1179, 25);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -153,7 +136,7 @@
             this.produtosToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(103, 26);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(103, 21);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // funcionáriosToolStripMenuItem
@@ -190,7 +173,7 @@
             this.registrarPedidoToolStripMenuItem});
             this.pedidosToolStripMenuItem.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(67, 26);
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(67, 21);
             this.pedidosToolStripMenuItem.Text = "Venda";
             // 
             // registrarPedidoToolStripMenuItem
@@ -206,7 +189,7 @@
             this.livroGeralDeVendasToolStripMenuItem});
             this.livroDeReceitasToolStripMenuItem.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.livroDeReceitasToolStripMenuItem.Name = "livroDeReceitasToolStripMenuItem";
-            this.livroDeReceitasToolStripMenuItem.Size = new System.Drawing.Size(103, 26);
+            this.livroDeReceitasToolStripMenuItem.Size = new System.Drawing.Size(103, 21);
             this.livroDeReceitasToolStripMenuItem.Text = "Registros";
             // 
             // livroGeralDeVendasToolStripMenuItem
@@ -248,7 +231,7 @@
             // 
             this.tbMalaDireta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMalaDireta.Location = new System.Drawing.Point(297, 64);
-            this.tbMalaDireta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMalaDireta.Margin = new System.Windows.Forms.Padding(4);
             this.tbMalaDireta.Name = "tbMalaDireta";
             this.tbMalaDireta.Size = new System.Drawing.Size(177, 24);
             this.tbMalaDireta.TabIndex = 19;
@@ -259,7 +242,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1179, 690);
-            this.Controls.Add(this.alerta);
             this.Controls.Add(this.tbMalaDireta);
             this.Controls.Add(this.gridEspecialidade);
             this.Controls.Add(this.label2);
@@ -269,12 +251,11 @@
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.menubom_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.alerta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPedidos)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -285,8 +266,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox alerta;
         private System.Windows.Forms.Button bFim;
         private System.Windows.Forms.DataGridView gridPedidos;
         private System.Windows.Forms.Label label1;
