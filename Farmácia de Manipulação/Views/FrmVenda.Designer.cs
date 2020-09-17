@@ -1,6 +1,6 @@
 ﻿namespace Farmácia_de_Manipulação
 {
-    partial class pedido
+    partial class venda
     {
         /// <summary>
         /// Required designer variable.

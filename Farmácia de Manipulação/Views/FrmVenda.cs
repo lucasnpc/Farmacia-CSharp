@@ -5,9 +5,9 @@ using Npgsql;
 
 namespace Farmácia_de_Manipulação
 {
-    public partial class pedido : Form
+    public partial class venda : Form
     {
-        public pedido()
+        public venda()
         {
             InitializeComponent();
         }
@@ -561,8 +561,6 @@ namespace Farmácia_de_Manipulação
                 if (tbDescFormula.Text == "")
                 {
                     listaFormulaProduto.Items.Clear();
-                    addFormula formula = new addFormula();
-                    formula.ShowDialog();
                     tbDescFormula.Text = nomeFormula;
                     produtosFormulaModelo(idFormula);
                     realizaFormulaModelo(idFormula);

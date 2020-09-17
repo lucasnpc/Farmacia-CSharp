@@ -26,8 +26,8 @@ namespace Farmácia_de_Manipulação
                         conexao.leitor = conexao.comando.ExecuteReader();
                         if (conexao.leitor.Read())
                         {
-                            pedido.cpfCli = conexao.leitor["cpf"].ToString();
-                            pedido.nomeCli = conexao.leitor["nome"].ToString();
+                            venda.cpfCli = conexao.leitor["cpf"].ToString();
+                            venda.nomeCli = conexao.leitor["nome"].ToString();
                             this.Close();
                         }
                     }
