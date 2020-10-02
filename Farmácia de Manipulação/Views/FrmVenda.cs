@@ -47,22 +47,17 @@ namespace Farmácia_de_Manipulação
                 lt.SubItems.Add(nomeProduto);
                 lt.SubItems.Add(tbDosagem.Text);
                 lt.SubItems.Add(Convert.ToString(string.Format("{0:n}", preco)));
-                listaFormulaProduto.Items.Add(lt);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void limpar()
         {
-            tbNumRequisicao.Text = "";
             tbNomePaciente.Text = "";
-            tbNomeMed.Text = "";
             tbInfo.Text = "";
-            tbDescFormula.Text = "";
             tbCodProduto.Text = "";
             tbDosagem.Text = "";
             tbSubTotal.Text = "";
-            listaFormulaProduto.Items.Clear();
             gbReceitaFormProd.Enabled = false;
             valor = 0;
             valorFormula = 0;
@@ -79,7 +74,6 @@ namespace Farmácia_de_Manipulação
                 tbPgtoAntecipado.Text = "";
                 tbTotal.Text = "";
                 gbReceitaFormProd.Enabled = true;
-                bAdd.Enabled = false;
                 cbFormulas.Text = "";
                 gridProdutos.DataSource = null;
                 idPedido = 0;
@@ -165,7 +159,6 @@ namespace Farmácia_de_Manipulação
                     " values(@numero_requisicao)";
                 conexao.abrirConexao();
                 conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@numero_requisicao", tbNumRequisicao.Text);
                 conexao.comando.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -184,131 +177,14 @@ namespace Farmácia_de_Manipulação
                 conexao.abrirConexao();
                 conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
                 conexao.comando.Parameters.AddWithValue("@nome_paciente", tbNomePaciente.Text);
-                conexao.comando.Parameters.AddWithValue("@nome_medico", tbNomeMed.Text);
                 conexao.comando.Parameters.AddWithValue("@informacoes", tbInfo.Text);
                 conexao.comando.Parameters.AddWithValue("@fk_cliente", cpfCli);
-                conexao.comando.Parameters.AddWithValue("@numero_requisicao", tbNumRequisicao.Text);
                 conexao.comando.ExecuteNonQuery();
             }
             catch (Exception)
             {
 
                 throw;
-            }
-        }
-        //fim
-
-        //Cadastro da fórmula
-        private void cadastraFormula()
-        {
-            try
-            {
-                conexao.fecharConexao();
-                string sql = "INSERT INTO formula(descricao,preco) values (@descricao,@preco)";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@preco", valorFormula);
-                conexao.comando.Parameters.AddWithValue("@descricao", tbDescFormula.Text);
-                conexao.comando.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void trasIdFormula()
-        {
-            try
-            {
-                conexao.fecharConexao();
-                string sql = "select max(id)as id from formula";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.leitor = conexao.comando.ExecuteReader();
-                if (conexao.leitor.Read())
-                    idFormula = int.Parse(conexao.leitor["id"].ToString());
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }
-        //Fim
-
-        //TRATAMENTO FORMULA MODELO
-        private void cadastroReceitaFormulaProduto(string numReceita, int idFormula, string codProduto)
-        {
-            try
-            {
-                conexao.fecharConexao();
-                string sql = "INSERT INTO receita_formula_produto(num_receita,id_formula,cod_produto) values(" +
-                    "@num_receita,@id_formula,@cod_produto)";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@num_receita", numReceita);
-                conexao.comando.Parameters.AddWithValue("@id_formula", idFormula);
-                conexao.comando.Parameters.AddWithValue("@cod_produto", codProduto);
-                conexao.comando.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        private void realizaFormulaModelo(int id)
-        {
-            try
-            {
-                conexao.fecharConexao();
-                string sql = "INSERT INTO receita_formula_produto(num_receita,id_formula,cod_produto)"+
-                   " VALUES(@num_receita,@id,@cod_produto);";
-                conexao.abrirConexao();
-                foreach (ListViewItem item in listaFormulaProduto.Items)
-                {
-                    conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                    conexao.comando.Parameters.AddWithValue("@num_receita", tbNumRequisicao.Text);
-                    conexao.comando.Parameters.AddWithValue("@id", id);
-                    conexao.comando.Parameters.AddWithValue("@cod_produto", item.SubItems[0].Text);
-                    conexao.comando.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void produtosFormulaModelo(int id)
-        {
-            try
-            {
-                conexao.fecharConexao();
-                string sql = "SELECT DISTINCT codigo,descricao,valor_venda FROM produto,receita_formula_produto WHERE " +
-                    "receita_formula_produto.cod_produto = produto.codigo AND " +
-                    "receita_formula_produto.id_formula = @id;";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@id", id);
-                conexao.leitor = conexao.comando.ExecuteReader();
-
-                while (conexao.leitor.Read())
-                {
-                    string cod, nome;
-                    double preco;
-                    cod = conexao.leitor["codigo"].ToString();
-                    nome = conexao.leitor["descricao"].ToString();
-                    preco = double.Parse(conexao.leitor["valor_venda"].ToString());
-                    addProduto(cod, nome,preco);
-                }
-               
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
             }
         }
         //fim
@@ -423,122 +299,16 @@ namespace Farmácia_de_Manipulação
         private void pedido_Load(object sender, EventArgs e)
         {
             mbEncomenda.Text = DateTime.Now.Date.ToString();
-            bAdd.Enabled = false;
         }
 
         //Trazer informacoes do produto
         private void tbCodProduto_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                try
-                {
-                    conexao.fecharConexao();
-                    string sql = "select * from produto where codigo = @codigo";
-                    conexao.abrirConexao();
-                    conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                    conexao.comando.Parameters.AddWithValue("@codigo", tbCodProduto.Text);
-                    conexao.leitor = conexao.comando.ExecuteReader();
-
-                    while (conexao.leitor.Read())
-                    {
-                        lblProduto.Text = conexao.leitor["descricao"].ToString();
-                        valor = Convert.ToDouble(conexao.leitor["valor_venda"].ToString());
-                        idProduto = conexao.leitor["codigo"].ToString();
-                        tbSubTotal.Text = valor.ToString();
-                    }
-                    cadastroReceitaFormulaProduto(tbNumRequisicao.Text,idFormula, idProduto);
-                    tbDosagem.Focus();
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
-        
-        private void tbDescFormula_Enter(object sender, EventArgs e)
-        {
-            if (tbDescFormula.Text != "")
-            {
-                var result = MessageBox.Show("Deseja inserir outra fórmula na receita?", "Confirmação", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    conexao.fecharConexao();
-                    string sql = "UPDATE formula SET preco = @preco WHERE id = @id";
-                    conexao.abrirConexao();
-                    conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                    conexao.comando.Parameters.AddWithValue("@preco", valorFormula);
-                    conexao.comando.Parameters.AddWithValue("@id", idFormula);
-                    conexao.comando.ExecuteNonQuery();
-                    
-                    tbDescFormula.Text = "";
-                    tbDescFormula.Focus();
-                    listaFormulaProduto.Items.Clear();
-                }
-                else
-                {
-                    conexao.fecharConexao();
-                    string sql = "UPDATE formula SET preco = @preco WHERE id = @id";
-                    conexao.abrirConexao();
-                    conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                    conexao.comando.Parameters.AddWithValue("@preco", valorFormula);
-                    conexao.comando.Parameters.AddWithValue("@id", idFormula);
-                    conexao.comando.ExecuteNonQuery();
-                    tbDescFormula.Text = "";
-                }
-            }
-        }
-
-        private void addCpf_Click(object sender, EventArgs e)
-        {
-            addCpf adicionar = new addCpf();
-            adicionar.ShowDialog();
-            tbCpfCli.Text = cpfCli;
-            tbNomePaciente.Text = nomeCli;
-            tbNomeCli.Text = nomeCli;
-        }
-
-        //Registra numero da receita
-        private void tbNumRequisicao_Leave(object sender, EventArgs e)
-        {
-            if(tbNumRequisicao.Text != "")
-                cadastraReceita();
-        }
-
-        private void bGrava_Click(object sender, EventArgs e)
-        {
-            if (tbNumRequisicao.Text != "" && tbNomePaciente.Text != "")
-            {
-                if (tbDescFormula.Text != "")
-                {
-                    tbDescFormula.Focus();
-                }
-                else
-                {
-                    atualizaReceita();
-                    MessageBox.Show("Receita e Fórmulas registradas com sucesso.");
-                    bAdd.Enabled = true;
-                }
-            }
-            else
-                MessageBox.Show("Preencha os campos antes de cadastrar.");
         }
 
         private void bSair_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void bAdd_Click(object sender, EventArgs e)
-        {
-            tbReceita.Text = tbNumRequisicao.Text;
-            carregaFormula();
-            tbTotal.Text = Convert.ToString(string.Format("{0:n}",valorTotal));
-            tbPgtoAntecipado.Text = Convert.ToString(string.Format("{0:n}",(valorTotal * 0.4)));
-            mbRetirada.Focus();
-            limpar();
         }
 
         private void bRealizaPedido_Click(object sender, EventArgs e)
@@ -552,25 +322,6 @@ namespace Farmácia_de_Manipulação
             }
             else
                 MessageBox.Show("Preencha os campos antes de cadastrar.");
-        }
-
-        private void bAddFormulas_Click(object sender, EventArgs e)
-        {
-            if (tbNumRequisicao.Text != "")
-            {
-                if (tbDescFormula.Text == "")
-                {
-                    listaFormulaProduto.Items.Clear();
-                    tbDescFormula.Text = nomeFormula;
-                    produtosFormulaModelo(idFormula);
-                    realizaFormulaModelo(idFormula);
-                    calcularPreco(valorFormula,1,1);
-                }
-                else
-                    tbDescFormula.Focus();
-            }
-            else
-                MessageBox.Show("Preencha o número da receita.");
         }
 
         private void cbFormulas_SelectedIndexChanged(object sender, EventArgs e)
@@ -595,12 +346,6 @@ namespace Farmácia_de_Manipulação
                 }
                 carregaProduto(id);
             }
-        }
-
-        private void tbDescFormula_Leave(object sender, EventArgs e)
-        {
-            cadastraFormula();
-            trasIdFormula();
         }
 
         //Define o preço

@@ -49,8 +49,6 @@
             this.tbRecomendacoes = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbMedida = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbSeguimento = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -76,7 +74,7 @@
             this.bSairProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bSairProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bSairProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSairProduto.Location = new System.Drawing.Point(730, 421);
+            this.bSairProduto.Location = new System.Drawing.Point(967, 563);
             this.bSairProduto.Name = "bSairProduto";
             this.bSairProduto.Size = new System.Drawing.Size(129, 43);
             this.bSairProduto.TabIndex = 33;
@@ -91,7 +89,7 @@
             this.bConsultaProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bConsultaProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bConsultaProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bConsultaProduto.Location = new System.Drawing.Point(730, 317);
+            this.bConsultaProduto.Location = new System.Drawing.Point(967, 262);
             this.bConsultaProduto.Name = "bConsultaProduto";
             this.bConsultaProduto.Size = new System.Drawing.Size(129, 43);
             this.bConsultaProduto.TabIndex = 32;
@@ -106,7 +104,7 @@
             this.bExcluiProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bExcluiProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bExcluiProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bExcluiProduto.Location = new System.Drawing.Point(730, 268);
+            this.bExcluiProduto.Location = new System.Drawing.Point(967, 213);
             this.bExcluiProduto.Name = "bExcluiProduto";
             this.bExcluiProduto.Size = new System.Drawing.Size(129, 43);
             this.bExcluiProduto.TabIndex = 31;
@@ -121,7 +119,7 @@
             this.bAlteraProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bAlteraProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bAlteraProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bAlteraProduto.Location = new System.Drawing.Point(730, 216);
+            this.bAlteraProduto.Location = new System.Drawing.Point(967, 164);
             this.bAlteraProduto.Name = "bAlteraProduto";
             this.bAlteraProduto.Size = new System.Drawing.Size(129, 43);
             this.bAlteraProduto.TabIndex = 30;
@@ -136,7 +134,7 @@
             this.bNovoProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bNovoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bNovoProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bNovoProduto.Location = new System.Drawing.Point(730, 16);
+            this.bNovoProduto.Location = new System.Drawing.Point(967, 19);
             this.bNovoProduto.Name = "bNovoProduto";
             this.bNovoProduto.Size = new System.Drawing.Size(129, 43);
             this.bNovoProduto.TabIndex = 28;
@@ -151,7 +149,7 @@
             this.bCadastraProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bCadastraProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bCadastraProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bCadastraProduto.Location = new System.Drawing.Point(730, 167);
+            this.bCadastraProduto.Location = new System.Drawing.Point(967, 115);
             this.bCadastraProduto.Name = "bCadastraProduto";
             this.bCadastraProduto.Size = new System.Drawing.Size(129, 43);
             this.bCadastraProduto.TabIndex = 29;
@@ -175,8 +173,6 @@
             this.gbProdutos.Controls.Add(this.tbRecomendacoes);
             this.gbProdutos.Controls.Add(this.label11);
             this.gbProdutos.Controls.Add(this.label10);
-            this.gbProdutos.Controls.Add(this.label9);
-            this.gbProdutos.Controls.Add(this.cbMedida);
             this.gbProdutos.Controls.Add(this.label8);
             this.gbProdutos.Controls.Add(this.cbSeguimento);
             this.gbProdutos.Controls.Add(this.label7);
@@ -194,7 +190,7 @@
             this.gbProdutos.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbProdutos.Location = new System.Drawing.Point(9, 12);
             this.gbProdutos.Name = "gbProdutos";
-            this.gbProdutos.Size = new System.Drawing.Size(712, 452);
+            this.gbProdutos.Size = new System.Drawing.Size(948, 605);
             this.gbProdutos.TabIndex = 34;
             this.gbProdutos.TabStop = false;
             this.gbProdutos.Text = "Dados Produto";
@@ -203,20 +199,20 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(15, 263);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 27);
+            this.textBox2.Size = new System.Drawing.Size(172, 27);
             this.textBox2.TabIndex = 44;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(258, 263);
+            this.textBox1.Location = new System.Drawing.Point(258, 266);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 27);
+            this.textBox1.Size = new System.Drawing.Size(172, 27);
             this.textBox1.TabIndex = 43;
             // 
             // mbMargem
             // 
             this.mbMargem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mbMargem.Location = new System.Drawing.Point(493, 264);
+            this.mbMargem.Location = new System.Drawing.Point(676, 264);
             this.mbMargem.Mask = "##%";
             this.mbMargem.Name = "mbMargem";
             this.mbMargem.ReadOnly = true;
@@ -227,7 +223,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(490, 245);
+            this.label15.Location = new System.Drawing.Point(673, 245);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(152, 17);
             this.label15.TabIndex = 41;
@@ -237,7 +233,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(490, 352);
+            this.label14.Location = new System.Drawing.Point(673, 352);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(206, 17);
             this.label14.TabIndex = 39;
@@ -246,7 +242,7 @@
             // tbEstoqueMax
             // 
             this.tbEstoqueMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEstoqueMax.Location = new System.Drawing.Point(493, 373);
+            this.tbEstoqueMax.Location = new System.Drawing.Point(676, 373);
             this.tbEstoqueMax.Name = "tbEstoqueMax";
             this.tbEstoqueMax.Size = new System.Drawing.Size(188, 26);
             this.tbEstoqueMax.TabIndex = 38;
@@ -255,7 +251,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(490, 299);
+            this.label13.Location = new System.Drawing.Point(673, 299);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(201, 17);
             this.label13.TabIndex = 37;
@@ -264,7 +260,7 @@
             // tbEstoqueMin
             // 
             this.tbEstoqueMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEstoqueMin.Location = new System.Drawing.Point(493, 320);
+            this.tbEstoqueMin.Location = new System.Drawing.Point(676, 320);
             this.tbEstoqueMin.Name = "tbEstoqueMin";
             this.tbEstoqueMin.Size = new System.Drawing.Size(188, 26);
             this.tbEstoqueMin.TabIndex = 36;
@@ -273,7 +269,7 @@
             // 
             this.lblQtd.AutoSize = true;
             this.lblQtd.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQtd.Location = new System.Drawing.Point(490, 189);
+            this.lblQtd.Location = new System.Drawing.Point(673, 189);
             this.lblQtd.Name = "lblQtd";
             this.lblQtd.Size = new System.Drawing.Size(81, 17);
             this.lblQtd.TabIndex = 35;
@@ -283,7 +279,7 @@
             // tbEstoque
             // 
             this.tbEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEstoque.Location = new System.Drawing.Point(493, 212);
+            this.tbEstoque.Location = new System.Drawing.Point(676, 212);
             this.tbEstoque.Name = "tbEstoque";
             this.tbEstoque.Size = new System.Drawing.Size(188, 26);
             this.tbEstoque.TabIndex = 34;
@@ -306,7 +302,7 @@
             this.tbRecomendacoes.Location = new System.Drawing.Point(15, 320);
             this.tbRecomendacoes.Multiline = true;
             this.tbRecomendacoes.Name = "tbRecomendacoes";
-            this.tbRecomendacoes.Size = new System.Drawing.Size(431, 109);
+            this.tbRecomendacoes.Size = new System.Drawing.Size(547, 109);
             this.tbRecomendacoes.TabIndex = 30;
             // 
             // label11
@@ -329,32 +325,6 @@
             this.label10.TabIndex = 25;
             this.label10.Text = "VALOR CUSTO";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(255, 190);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 17);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "MEDIDA";
-            // 
-            // cbMedida
-            // 
-            this.cbMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMedida.FormattingEnabled = true;
-            this.cbMedida.Items.AddRange(new object[] {
-            "G",
-            "ML",
-            "KG",
-            "UN",
-            "L"});
-            this.cbMedida.Location = new System.Drawing.Point(258, 212);
-            this.cbMedida.Name = "cbMedida";
-            this.cbMedida.Size = new System.Drawing.Size(188, 28);
-            this.cbMedida.TabIndex = 16;
-            this.cbMedida.SelectedIndexChanged += new System.EventHandler(this.cbUnit_SelectedIndexChanged);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -370,22 +340,19 @@
             this.cbSeguimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSeguimento.FormattingEnabled = true;
             this.cbSeguimento.Items.AddRange(new object[] {
-            "Vitaminas",
-            "Óleos Essenciais",
-            "Essências",
-            "Xaropes",
-            "Matéria-Prima",
-            "Loções"});
+            "Estéticos",
+            "Líquidos",
+            "Sólidos"});
             this.cbSeguimento.Location = new System.Drawing.Point(15, 212);
             this.cbSeguimento.Name = "cbSeguimento";
-            this.cbSeguimento.Size = new System.Drawing.Size(188, 28);
+            this.cbSeguimento.Size = new System.Drawing.Size(143, 28);
             this.cbSeguimento.TabIndex = 14;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(490, 81);
+            this.label7.Location = new System.Drawing.Point(673, 81);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(141, 17);
             this.label7.TabIndex = 13;
@@ -394,7 +361,7 @@
             // mbDataValidade
             // 
             this.mbDataValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mbDataValidade.Location = new System.Drawing.Point(493, 104);
+            this.mbDataValidade.Location = new System.Drawing.Point(676, 104);
             this.mbDataValidade.Mask = "####/##/##";
             this.mbDataValidade.Name = "mbDataValidade";
             this.mbDataValidade.Size = new System.Drawing.Size(188, 26);
@@ -416,7 +383,7 @@
             this.mbDataFabri.Location = new System.Drawing.Point(258, 162);
             this.mbDataFabri.Mask = "####/##/##";
             this.mbDataFabri.Name = "mbDataFabri";
-            this.mbDataFabri.Size = new System.Drawing.Size(188, 26);
+            this.mbDataFabri.Size = new System.Drawing.Size(117, 26);
             this.mbDataFabri.TabIndex = 10;
             // 
             // label5
@@ -434,14 +401,14 @@
             this.tbLote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbLote.Location = new System.Drawing.Point(15, 162);
             this.tbLote.Name = "tbLote";
-            this.tbLote.Size = new System.Drawing.Size(188, 26);
+            this.tbLote.Size = new System.Drawing.Size(117, 26);
             this.tbLote.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(490, 33);
+            this.label4.Location = new System.Drawing.Point(673, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 17);
             this.label4.TabIndex = 7;
@@ -450,7 +417,7 @@
             // tbCod
             // 
             this.tbCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCod.Location = new System.Drawing.Point(493, 54);
+            this.tbCod.Location = new System.Drawing.Point(676, 54);
             this.tbCod.Name = "tbCod";
             this.tbCod.Size = new System.Drawing.Size(188, 26);
             this.tbCod.TabIndex = 6;
@@ -471,7 +438,7 @@
             this.cbFornecedor.FormattingEnabled = true;
             this.cbFornecedor.Location = new System.Drawing.Point(15, 54);
             this.cbFornecedor.Name = "cbFornecedor";
-            this.cbFornecedor.Size = new System.Drawing.Size(431, 28);
+            this.cbFornecedor.Size = new System.Drawing.Size(547, 28);
             this.cbFornecedor.TabIndex = 2;
             this.cbFornecedor.SelectedIndexChanged += new System.EventHandler(this.cbFornecedor_SelectedIndexChanged);
             this.cbFornecedor.Leave += new System.EventHandler(this.cbFornecedor_Leave);
@@ -491,7 +458,7 @@
             this.tbDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDesc.Location = new System.Drawing.Point(15, 112);
             this.tbDesc.Name = "tbDesc";
-            this.tbDesc.Size = new System.Drawing.Size(431, 26);
+            this.tbDesc.Size = new System.Drawing.Size(547, 26);
             this.tbDesc.TabIndex = 0;
             // 
             // button1
@@ -501,7 +468,7 @@
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(730, 114);
+            this.button1.Location = new System.Drawing.Point(967, 68);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 43);
             this.button1.TabIndex = 35;
@@ -510,9 +477,8 @@
             // 
             // produtos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 486);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1108, 635);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gbProdutos);
             this.Controls.Add(this.bSairProduto);
@@ -556,8 +522,6 @@
         private System.Windows.Forms.TextBox tbCod;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbSeguimento;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cbMedida;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;

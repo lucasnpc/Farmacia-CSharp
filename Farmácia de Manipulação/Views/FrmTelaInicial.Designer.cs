@@ -114,6 +114,7 @@
             this.btnRelatorio.TabIndex = 23;
             this.btnRelatorio.Text = "RELATÓRIOS";
             this.btnRelatorio.UseVisualStyleBackColor = false;
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
             // 
             // menu
             // 

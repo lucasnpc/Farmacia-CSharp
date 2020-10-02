@@ -34,7 +34,6 @@ namespace Farmácia_de_Manipulação
                 dt.Columns.Add("Medida", typeof(string));
                 dt.Columns.Add("Quantidade", typeof(string));
                 dt.Columns.Add("Segmento", typeof(string));
-                dt.Columns.Add("Unidade", typeof(string));
                 dt.Columns.Add("Valor custo", typeof(string));
                 dt.Columns.Add("Valor venda", typeof(string));
                 dt.Columns.Add("Estoque Mínimo", typeof(string));
@@ -52,7 +51,6 @@ namespace Farmácia_de_Manipulação
                     dr["Medida"] = conexao.leitor["medida"].ToString();
                     dr["Quantidade"] = conexao.leitor["quantidade"].ToString();
                     dr["Segmento"] = conexao.leitor["segmento"].ToString();
-                    dr["Unidade"] = conexao.leitor["unidade"].ToString();
                     dr["Valor custo"] = conexao.leitor["valor_custo"].ToString();
                     dr["Valor venda"] = conexao.leitor["valor_venda"].ToString();
                     dr["Estoque Mínimo"] = conexao.leitor["estoqueMin"].ToString();
@@ -110,7 +108,6 @@ namespace Farmácia_de_Manipulação
                         dt.Columns.Add("Medida", typeof(string));
                         dt.Columns.Add("Quantidade", typeof(string));
                         dt.Columns.Add("Segmento", typeof(string));
-                        dt.Columns.Add("Unidade", typeof(string));
                         dt.Columns.Add("Valor custo", typeof(string));
                         dt.Columns.Add("Valor venda", typeof(string));
                         dt.Columns.Add("Estoque Mínimo", typeof(string));
@@ -128,7 +125,6 @@ namespace Farmácia_de_Manipulação
                             dr["Medida"] = conexao.leitor["medida"].ToString();
                             dr["Quantidade"] = conexao.leitor["quantidade"].ToString();
                             dr["Segmento"] = conexao.leitor["segmento"].ToString();
-                            dr["Unidade"] = conexao.leitor["unidade"].ToString();
                             dr["Valor custo"] = conexao.leitor["valor_custo"].ToString();
                             dr["Valor venda"] = conexao.leitor["valor_venda"].ToString();
                             dr["Estoque Mínimo"] = conexao.leitor["estoqueMin"].ToString();

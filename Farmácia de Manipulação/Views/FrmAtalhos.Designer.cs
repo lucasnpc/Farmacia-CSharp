@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.bFuncionario = new System.Windows.Forms.Button();
             this.bProduto = new System.Windows.Forms.Button();
             this.bCliente = new System.Windows.Forms.Button();
@@ -47,15 +46,6 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Selecione qual Cadastro deseja fazer:";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(394, 225);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(8, 8);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // bFuncionario
             // 
@@ -122,7 +112,6 @@
             this.Controls.Add(this.bCliente);
             this.Controls.Add(this.bProduto);
             this.Controls.Add(this.bFuncionario);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -136,7 +125,6 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button bFuncionario;
         private System.Windows.Forms.Button bProduto;
         private System.Windows.Forms.Button bCliente;

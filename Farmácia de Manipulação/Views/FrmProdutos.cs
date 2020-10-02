@@ -52,7 +52,6 @@ namespace Farmácia_de_Manipulação
             tbEstoque.Clear();
             cbFornecedor.Text = "";
             cbSeguimento.Text = "";
-            cbMedida.Text = "";
             statusInicial();
         }
 
@@ -84,7 +83,6 @@ namespace Farmácia_de_Manipulação
                     "medida," +
                     "quantidade," +
                     "segmento," +
-                   "unidade," +
                    "valor_custo," +
                    "valor_venda," +
                    "estoqueMin,estoqueMax," +
@@ -97,7 +95,7 @@ namespace Farmácia_de_Manipulação
                     "@recomendacoes," +
                     "@medida," +
                     "@quantidade," +
-                    "@segmento, @unidade," +
+                    "@segmento," +
                     "@valor_custo,@valor_venda," +
                     "@estoqueMin,@estoqueMax," +
                     "@fk_funcionario,@fk_fornecedor)";
@@ -112,7 +110,6 @@ namespace Farmácia_de_Manipulação
                 conexao.comando.Parameters.AddWithValue("@medida", valor);
                 conexao.comando.Parameters.AddWithValue("@quantidade", Convert.ToInt32(tbEstoque.Text));
                 conexao.comando.Parameters.AddWithValue("@segmento", cbSeguimento.Text.Trim());
-                conexao.comando.Parameters.AddWithValue("@unidade", cbMedida.Text.Trim());
                 conexao.comando.Parameters.AddWithValue("@estoqueMin", int.Parse(tbEstoqueMin.Text));
                 conexao.comando.Parameters.AddWithValue("@estoqueMax", int.Parse(tbEstoqueMax.Text));
                 conexao.comando.Parameters.AddWithValue("@fk_funcionario", CpfFuncionario.cpfFunc);
@@ -144,38 +141,12 @@ namespace Farmácia_de_Manipulação
                     tbCod.Text = leitor["codigo"].ToString();
                     tbLote.Text = leitor["lote"].ToString();
                     cbSeguimento.Text = leitor["segmento"].ToString();
-                    cbMedida.Text = leitor["unidade"].ToString();
                     tbEstoqueMax.Text = leitor["estoqueMax"].ToString();
                     tbEstoqueMin.Text = leitor["estoqueMin"].ToString();
                     tbEstoque.Text = leitor["quantidade"].ToString();
                     tbRecomendacoes.Text = leitor["recomendacoes"].ToString();
                     mbDataFabri.Text = leitor["data_fabricacao"].ToString();
                     mbDataValidade.Text = leitor["data_validade"].ToString();
-                    if (cbMedida.Text == "CAPSULAS")
-                    {
-                        tbEstoque.Visible = true;
-                        lblQtd.Visible = true;
-                    }
-                    else if (cbMedida.Text == "MATERIA BRUTA")
-                    {
-                        tbEstoque.Visible = false;
-                        lblQtd.Visible = false;
-                    }
-                    else if (cbMedida.Text == "RECIPIENTE")
-                    {
-                        tbEstoque.Visible = true;
-                        lblQtd.Visible = true;
-                    }
-                    else if (cbMedida.Text == "LÍQUIDO")
-                    {
-                        tbEstoque.Visible = false;
-                        lblQtd.Visible = false;
-                    }
-                    else if (cbMedida.Text == "EM PÓ")
-                    {
-                        tbEstoque.Visible = false;
-                        lblQtd.Visible = false;
-                    }
                     statusAlter();
                 }
                 else
@@ -207,7 +178,6 @@ namespace Farmácia_de_Manipulação
                     "medida = @medida," +
                     "quantidade = @quantidade," +
                     "segmento = @segmento," +
-                    "unidade = @unidade," +
                     "valor_custo = @valor_custo," +
                     "valor_venda = @valor_venda," +
                     "estoqueMin = @estoqueMin," +
@@ -223,7 +193,6 @@ namespace Farmácia_de_Manipulação
                 conexao.comando.Parameters.AddWithValue("@nome_fornecedor", cbFornecedor.Text);
                 conexao.comando.Parameters.AddWithValue("@quantidade", int.Parse(tbEstoque.Text));
                 conexao.comando.Parameters.AddWithValue("@segmento", cbSeguimento.Text);
-                conexao.comando.Parameters.AddWithValue("@unidade", cbMedida.Text);
                 conexao.comando.Parameters.AddWithValue("@estoqueMin", int.Parse(tbEstoqueMin.Text));
                 conexao.comando.Parameters.AddWithValue("@estoqueMax", int.Parse(tbEstoqueMax.Text));
 
@@ -258,36 +227,6 @@ namespace Farmácia_de_Manipulação
             }
         }
         // Fim alteracoes
-
-        private void cbUnit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbMedida.Text == "CAPSULAS")
-            {
-                tbEstoque.Visible = true;
-                lblQtd.Visible = true;
-            }
-            else if (cbMedida.Text == "MATERIA BRUTA")
-            {
-                tbEstoque.Visible = false;
-                lblQtd.Visible = false;
-            }
-            else if (cbMedida.Text == "RECIPIENTE")
-            {
-
-                tbEstoque.Visible = true;
-                lblQtd.Visible = true;
-            }
-            else if (cbMedida.Text == "LÍQUIDO")
-            {
-                tbEstoque.Visible = false;
-                lblQtd.Visible = false;
-            }
-            else if (cbMedida.Text == "EM PÓ")
-            {
-                tbEstoque.Visible = false;
-                lblQtd.Visible = false;
-            }
-        }
 
         private void carregaFornc()
         {

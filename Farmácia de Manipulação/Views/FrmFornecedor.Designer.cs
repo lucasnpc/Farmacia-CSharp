@@ -78,7 +78,7 @@
             this.gbFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFornecedor.Location = new System.Drawing.Point(12, 12);
             this.gbFornecedor.Name = "gbFornecedor";
-            this.gbFornecedor.Size = new System.Drawing.Size(709, 462);
+            this.gbFornecedor.Size = new System.Drawing.Size(948, 605);
             this.gbFornecedor.TabIndex = 0;
             this.gbFornecedor.TabStop = false;
             this.gbFornecedor.Text = "Dados Fornecedor";
@@ -88,7 +88,7 @@
             this.tbMailFornc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMailFornc.Location = new System.Drawing.Point(21, 327);
             this.tbMailFornc.Name = "tbMailFornc";
-            this.tbMailFornc.Size = new System.Drawing.Size(471, 26);
+            this.tbMailFornc.Size = new System.Drawing.Size(573, 26);
             this.tbMailFornc.TabIndex = 10;
             // 
             // label10
@@ -105,17 +105,17 @@
             // mbTel2
             // 
             this.mbTel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mbTel2.Location = new System.Drawing.Point(526, 177);
+            this.mbTel2.Location = new System.Drawing.Point(680, 176);
             this.mbTel2.Mask = "(##)#####-####";
             this.mbTel2.Name = "mbTel2";
-            this.mbTel2.Size = new System.Drawing.Size(171, 26);
+            this.mbTel2.Size = new System.Drawing.Size(160, 26);
             this.mbTel2.TabIndex = 9;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(523, 155);
+            this.label9.Location = new System.Drawing.Point(676, 155);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 20);
             this.label9.TabIndex = 43;
@@ -124,17 +124,17 @@
             // mbTel1
             // 
             this.mbTel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mbTel1.Location = new System.Drawing.Point(526, 116);
+            this.mbTel1.Location = new System.Drawing.Point(680, 115);
             this.mbTel1.Mask = "(##)#####-####";
             this.mbTel1.Name = "mbTel1";
-            this.mbTel1.Size = new System.Drawing.Size(171, 26);
+            this.mbTel1.Size = new System.Drawing.Size(160, 26);
             this.mbTel1.TabIndex = 8;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(523, 97);
+            this.label8.Location = new System.Drawing.Point(676, 97);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 20);
             this.label8.TabIndex = 41;
@@ -152,7 +152,7 @@
             this.gbEndereco.Controls.Add(this.label4);
             this.gbEndereco.Location = new System.Drawing.Point(21, 155);
             this.gbEndereco.Name = "gbEndereco";
-            this.gbEndereco.Size = new System.Drawing.Size(471, 137);
+            this.gbEndereco.Size = new System.Drawing.Size(573, 137);
             this.gbEndereco.TabIndex = 3;
             this.gbEndereco.TabStop = false;
             this.gbEndereco.Text = "Endereço";
@@ -198,7 +198,7 @@
             // tbNumFornc
             // 
             this.tbNumFornc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNumFornc.Location = new System.Drawing.Point(255, 45);
+            this.tbNumFornc.Location = new System.Drawing.Point(256, 50);
             this.tbNumFornc.Name = "tbNumFornc";
             this.tbNumFornc.Size = new System.Drawing.Size(202, 26);
             this.tbNumFornc.TabIndex = 5;
@@ -217,7 +217,7 @@
             // tbRuaFornc
             // 
             this.tbRuaFornc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbRuaFornc.Location = new System.Drawing.Point(16, 45);
+            this.tbRuaFornc.Location = new System.Drawing.Point(17, 51);
             this.tbRuaFornc.Name = "tbRuaFornc";
             this.tbRuaFornc.Size = new System.Drawing.Size(202, 26);
             this.tbRuaFornc.TabIndex = 4;
@@ -238,7 +238,7 @@
             this.tbNomeFornc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNomeFornc.Location = new System.Drawing.Point(21, 115);
             this.tbNomeFornc.Name = "tbNomeFornc";
-            this.tbNomeFornc.Size = new System.Drawing.Size(471, 26);
+            this.tbNomeFornc.Size = new System.Drawing.Size(573, 26);
             this.tbNomeFornc.TabIndex = 1;
             // 
             // label3
@@ -255,17 +255,17 @@
             // mbCnpj
             // 
             this.mbCnpj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mbCnpj.Location = new System.Drawing.Point(526, 58);
+            this.mbCnpj.Location = new System.Drawing.Point(680, 57);
             this.mbCnpj.Mask = "##.###.###/####-##";
             this.mbCnpj.Name = "mbCnpj";
-            this.mbCnpj.Size = new System.Drawing.Size(171, 26);
+            this.mbCnpj.Size = new System.Drawing.Size(160, 26);
             this.mbCnpj.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(523, 36);
+            this.label2.Location = new System.Drawing.Point(676, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 20);
             this.label2.TabIndex = 36;
@@ -277,7 +277,7 @@
             this.tbNomeFunc.Location = new System.Drawing.Point(21, 57);
             this.tbNomeFunc.Name = "tbNomeFunc";
             this.tbNomeFunc.ReadOnly = true;
-            this.tbNomeFunc.Size = new System.Drawing.Size(471, 26);
+            this.tbNomeFunc.Size = new System.Drawing.Size(573, 26);
             this.tbNomeFunc.TabIndex = 17;
             // 
             // label1
@@ -297,10 +297,10 @@
             this.bSairForn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bSairForn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bSairForn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bSairForn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSairForn.Location = new System.Drawing.Point(730, 421);
+            this.bSairForn.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.bSairForn.Location = new System.Drawing.Point(966, 552);
             this.bSairForn.Name = "bSairForn";
-            this.bSairForn.Size = new System.Drawing.Size(96, 43);
+            this.bSairForn.Size = new System.Drawing.Size(128, 56);
             this.bSairForn.TabIndex = 16;
             this.bSairForn.Text = "SAIR";
             this.bSairForn.UseVisualStyleBackColor = false;
@@ -312,10 +312,10 @@
             this.bConsultaForn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bConsultaForn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bConsultaForn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bConsultaForn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bConsultaForn.Location = new System.Drawing.Point(730, 214);
+            this.bConsultaForn.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.bConsultaForn.Location = new System.Drawing.Point(966, 266);
             this.bConsultaForn.Name = "bConsultaForn";
-            this.bConsultaForn.Size = new System.Drawing.Size(96, 43);
+            this.bConsultaForn.Size = new System.Drawing.Size(128, 56);
             this.bConsultaForn.TabIndex = 15;
             this.bConsultaForn.Text = "CONSULTAR";
             this.bConsultaForn.UseVisualStyleBackColor = false;
@@ -327,10 +327,10 @@
             this.bExcluiForn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bExcluiForn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bExcluiForn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bExcluiForn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bExcluiForn.Location = new System.Drawing.Point(730, 164);
+            this.bExcluiForn.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.bExcluiForn.Location = new System.Drawing.Point(966, 204);
             this.bExcluiForn.Name = "bExcluiForn";
-            this.bExcluiForn.Size = new System.Drawing.Size(96, 43);
+            this.bExcluiForn.Size = new System.Drawing.Size(128, 56);
             this.bExcluiForn.TabIndex = 14;
             this.bExcluiForn.Text = "EXCLUIR";
             this.bExcluiForn.UseVisualStyleBackColor = false;
@@ -342,10 +342,10 @@
             this.bAlteraForn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bAlteraForn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bAlteraForn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bAlteraForn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bAlteraForn.Location = new System.Drawing.Point(730, 114);
+            this.bAlteraForn.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.bAlteraForn.Location = new System.Drawing.Point(966, 142);
             this.bAlteraForn.Name = "bAlteraForn";
-            this.bAlteraForn.Size = new System.Drawing.Size(96, 43);
+            this.bAlteraForn.Size = new System.Drawing.Size(128, 56);
             this.bAlteraForn.TabIndex = 13;
             this.bAlteraForn.Text = "ALTERAR";
             this.bAlteraForn.UseVisualStyleBackColor = false;
@@ -357,10 +357,10 @@
             this.bNovoForn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bNovoForn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bNovoForn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bNovoForn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bNovoForn.Location = new System.Drawing.Point(730, 16);
+            this.bNovoForn.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.bNovoForn.Location = new System.Drawing.Point(966, 18);
             this.bNovoForn.Name = "bNovoForn";
-            this.bNovoForn.Size = new System.Drawing.Size(96, 43);
+            this.bNovoForn.Size = new System.Drawing.Size(128, 56);
             this.bNovoForn.TabIndex = 11;
             this.bNovoForn.Text = "NOVO CADASTRO";
             this.bNovoForn.UseVisualStyleBackColor = false;
@@ -372,10 +372,10 @@
             this.bCadastraForn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bCadastraForn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bCadastraForn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bCadastraForn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bCadastraForn.Location = new System.Drawing.Point(730, 65);
+            this.bCadastraForn.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.bCadastraForn.Location = new System.Drawing.Point(966, 80);
             this.bCadastraForn.Name = "bCadastraForn";
-            this.bCadastraForn.Size = new System.Drawing.Size(96, 43);
+            this.bCadastraForn.Size = new System.Drawing.Size(128, 56);
             this.bCadastraForn.TabIndex = 12;
             this.bCadastraForn.Text = "CADASTRAR";
             this.bCadastraForn.UseVisualStyleBackColor = false;
@@ -383,9 +383,8 @@
             // 
             // fornecedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 486);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1108, 635);
             this.Controls.Add(this.bSairForn);
             this.Controls.Add(this.bConsultaForn);
             this.Controls.Add(this.bExcluiForn);

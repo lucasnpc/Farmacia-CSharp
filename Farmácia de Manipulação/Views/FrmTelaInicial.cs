@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Drawing;
+using Farmácia_de_Manipulação.Views;
 
 namespace Farmácia_de_Manipulação
 {
@@ -70,6 +71,12 @@ namespace Farmácia_de_Manipulação
         {
             venda pedidos = new venda();
             pedidos.ShowDialog();
+        }
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            FrmRelatorios relatorios = new FrmRelatorios();
+            relatorios.ShowDialog();
         }
     }
 }
