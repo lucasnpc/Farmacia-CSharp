@@ -11,7 +11,7 @@ namespace Farmácia_de_Manipulação.Controladores
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "INSERT INTO funcionario(cpf," +
                        "nome," +
                        "data_nasc," +
@@ -39,24 +39,24 @@ namespace Farmácia_de_Manipulação.Controladores
                        "@senha," +
                        "@cargo," +
                        "@data_admissao)";
-                conexao.abrirConexao();
-                conexao.comando = new Npgsql.NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@cpf", funcionario.cpf);
-                conexao.comando.Parameters.AddWithValue("@nome", funcionario.nome.ToUpper());
-                conexao.comando.Parameters.AddWithValue("@data_nasc", Convert.ToDateTime(funcionario.data_nascimento));
-                conexao.comando.Parameters.AddWithValue("@numero", funcionario.numero_residencia);
-                conexao.comando.Parameters.AddWithValue("@rua", funcionario.rua.ToUpper());
-                conexao.comando.Parameters.AddWithValue("@bairro", funcionario.bairro.ToUpper());
-                conexao.comando.Parameters.AddWithValue("@cidade", funcionario.cidade.ToUpper());
-                conexao.comando.Parameters.AddWithValue("@telefone1", funcionario.tel1);
-                conexao.comando.Parameters.AddWithValue("@telefone2", funcionario.tel2);
-                conexao.comando.Parameters.AddWithValue("@email", funcionario.email);
-                conexao.comando.Parameters.AddWithValue("@usuario", funcionario.usuario);
-                conexao.comando.Parameters.AddWithValue("@senha", funcionario.senha);
-                conexao.comando.Parameters.AddWithValue("@cargo", funcionario.cargo);
-                conexao.comando.Parameters.AddWithValue("@data_admissao", Convert.ToDateTime(funcionario.data_admissao));
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@cpf", funcionario.cpf);
+                AcessoBD.comando.Parameters.AddWithValue("@nome", funcionario.nome.ToUpper());
+                AcessoBD.comando.Parameters.AddWithValue("@data_nasc", Convert.ToDateTime(funcionario.data_nascimento));
+                AcessoBD.comando.Parameters.AddWithValue("@numero", funcionario.numero_residencia);
+                AcessoBD.comando.Parameters.AddWithValue("@rua", funcionario.rua.ToUpper());
+                AcessoBD.comando.Parameters.AddWithValue("@bairro", funcionario.bairro.ToUpper());
+                AcessoBD.comando.Parameters.AddWithValue("@cidade", funcionario.cidade.ToUpper());
+                AcessoBD.comando.Parameters.AddWithValue("@telefone1", funcionario.tel1);
+                AcessoBD.comando.Parameters.AddWithValue("@telefone2", funcionario.tel2);
+                AcessoBD.comando.Parameters.AddWithValue("@email", funcionario.email);
+                AcessoBD.comando.Parameters.AddWithValue("@usuario", funcionario.usuario);
+                AcessoBD.comando.Parameters.AddWithValue("@senha", funcionario.senha);
+                AcessoBD.comando.Parameters.AddWithValue("@cargo", funcionario.cargo);
+                AcessoBD.comando.Parameters.AddWithValue("@data_admissao", Convert.ToDateTime(funcionario.data_admissao));
 
-                if (conexao.comando.ExecuteNonQuery() == 1)
+                if (AcessoBD.comando.ExecuteNonQuery() == 1)
                 { return true; }
                 else
                     return false;
@@ -71,13 +71,13 @@ namespace Farmácia_de_Manipulação.Controladores
         public Funcionario Retorna(string cpf) {
             try
             {
-                conexao.fecharConexao();
-                conexao.abrirConexao();
+                AcessoBD.fecharConexao();
+                AcessoBD.abrirConexao();
                 string sql = "select * from funcionario where cpf = @cpf";
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@cpf", cpf);
-                conexao.comando.ExecuteNonQuery();
-                NpgsqlDataReader dataReader = conexao.comando.ExecuteReader();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@cpf", cpf);
+                AcessoBD.comando.ExecuteNonQuery();
+                NpgsqlDataReader dataReader = AcessoBD.comando.ExecuteReader();
                 if (dataReader.Read())
                 {
                     return new Funcionario(dataReader["cpf"].ToString(), dataReader["nome"].ToString(),
@@ -99,8 +99,8 @@ namespace Farmácia_de_Manipulação.Controladores
         {
             try
             {
-                conexao.fecharConexao();
-                conexao.abrirConexao();
+                AcessoBD.fecharConexao();
+                AcessoBD.abrirConexao();
                 string sql = "update funcionario set nome = @nome," +
                        "data_nasc = @data_nasc," +
                        "numero = @numero," +
@@ -115,23 +115,23 @@ namespace Farmácia_de_Manipulação.Controladores
                        "cargo = @cargo," +
                        "data_admissao = @data_admissao " +
                        "where cpf = @cpf";
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@nome", funcionario.nome);
-                conexao.comando.Parameters.AddWithValue("@data_nasc", Convert.ToDateTime(funcionario.data_nascimento));
-                conexao.comando.Parameters.AddWithValue("@numero", funcionario.numero_residencia);
-                conexao.comando.Parameters.AddWithValue("@rua", funcionario.rua);
-                conexao.comando.Parameters.AddWithValue("@bairro", funcionario.bairro);
-                conexao.comando.Parameters.AddWithValue("@cidade", funcionario.cidade);
-                conexao.comando.Parameters.AddWithValue("@telefone1", funcionario.tel1);
-                conexao.comando.Parameters.AddWithValue("@telefone2", funcionario.tel2);
-                conexao.comando.Parameters.AddWithValue("@email", funcionario.email);
-                conexao.comando.Parameters.AddWithValue("@usuario", funcionario.usuario);
-                conexao.comando.Parameters.AddWithValue("@senha", funcionario.senha);
-                conexao.comando.Parameters.AddWithValue("@cargo", funcionario.cargo);
-                conexao.comando.Parameters.AddWithValue("@data_admissao", Convert.ToDateTime(funcionario.data_admissao));
-                conexao.comando.Parameters.AddWithValue("@cpf", funcionario.cpf);
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@nome", funcionario.nome);
+                AcessoBD.comando.Parameters.AddWithValue("@data_nasc", Convert.ToDateTime(funcionario.data_nascimento));
+                AcessoBD.comando.Parameters.AddWithValue("@numero", funcionario.numero_residencia);
+                AcessoBD.comando.Parameters.AddWithValue("@rua", funcionario.rua);
+                AcessoBD.comando.Parameters.AddWithValue("@bairro", funcionario.bairro);
+                AcessoBD.comando.Parameters.AddWithValue("@cidade", funcionario.cidade);
+                AcessoBD.comando.Parameters.AddWithValue("@telefone1", funcionario.tel1);
+                AcessoBD.comando.Parameters.AddWithValue("@telefone2", funcionario.tel2);
+                AcessoBD.comando.Parameters.AddWithValue("@email", funcionario.email);
+                AcessoBD.comando.Parameters.AddWithValue("@usuario", funcionario.usuario);
+                AcessoBD.comando.Parameters.AddWithValue("@senha", funcionario.senha);
+                AcessoBD.comando.Parameters.AddWithValue("@cargo", funcionario.cargo);
+                AcessoBD.comando.Parameters.AddWithValue("@data_admissao", Convert.ToDateTime(funcionario.data_admissao));
+                AcessoBD.comando.Parameters.AddWithValue("@cpf", funcionario.cpf);
 
-                if (conexao.comando.ExecuteNonQuery() == 1)
+                if (AcessoBD.comando.ExecuteNonQuery() == 1)
                 {
                     return true;
                 }
@@ -148,12 +148,12 @@ namespace Farmácia_de_Manipulação.Controladores
         {
             try
             {
-                conexao.fecharConexao();
-                conexao.abrirConexao();
+                AcessoBD.fecharConexao();
+                AcessoBD.abrirConexao();
                 string sql = "DELETE FROM funcionario WHERE cpf = @cpf";
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@cpf", cpf);
-                if (conexao.comando.ExecuteNonQuery() == 1)
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@cpf", cpf);
+                if (AcessoBD.comando.ExecuteNonQuery() == 1)
                     return true;
                 else
                     return false;

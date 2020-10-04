@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
-using Farmácia_de_Manipulação.Models;
 using Farmácia_de_Manipulação.Controladores;
+using Farmácia_de_Manipulação.Models;
 
 namespace Farmácia_de_Manipulação
 {
@@ -71,10 +73,10 @@ namespace Farmácia_de_Manipulação
         /* Cadastro no banco dos registros*/
         private void cadastraCli()
         {
-            if (new ClienteDAO().Insere(new Cliente(mbCpf.Text.Trim(), tbNomeCli.Text.Trim(), Convert.ToDateTime(mbDataNasc.Text).ToShortDateString(),
+            /*if (new ClienteDAO().Insere(new Cliente(mbCpf.Text.Trim(), tbNomeCli.Text.Trim(), Convert.ToDateTime(mbDataNasc.Text).ToShortDateString(),
                 tbNumeroCli.Text.Trim(), tbRuaCli.Text.Trim(), tbBairroCli.Text.Trim(), tbCidadeCli.Text.Trim(), mbTel1.Text.Trim(), mbTel2.Text.Trim(),
                 tbMailCli.Text.Trim(), CpfFuncionario.cpfFunc)))
-                MessageBox.Show("Cliente registrado com sucesso.");
+                MessageBox.Show("Cliente registrado com sucesso.");*/
             limpar();
         }
         //Fim de cadastro
@@ -82,22 +84,29 @@ namespace Farmácia_de_Manipulação
         /*Retornar dados dos clientes para os campos*/
         private void retornaFunc(string cpf)
         {
-            Cliente cliente = new ClienteDAO().Retorna(cpf);
+            //Cliente cliente = new ClienteDAO().Retorna(cpf);
+            List<Cliente> clientes = new ClienteDAO().getClientes();
 
-            if (cliente != null)
+            if (clientes != null)
             {
-                tbNomeCli.Text = cliente.nome;
-                mbCpf.Text = cliente.cpf;
-                mbDataNasc.Text = cliente.data_nascimento;
-                mbTel1.Text = cliente.tel1;
-                mbTel2.Text = cliente.tel2;
-                tbNumeroCli.Text = cliente.numero_residencia;
-                tbRuaCli.Text = cliente.rua;
-                tbBairroCli.Text = cliente.bairro;
-                tbCidadeCli.Text = cliente.cidade;
-                tbMailCli.Text = cliente.email;
-                tbNomeFuncAtende.Text = new CpfFuncionario().trasNomeFunc(cliente.cpffunc);
-                statusAlter();
+                foreach (Cliente cliente in clientes)
+                {
+                    if (cliente.cpf.Equals(cpf))
+                    {
+                        tbNomeCli.Text = cliente.nome;
+                        mbCpf.Text = cliente.cpf;
+                        mbDataNasc.Text = cliente.data_nascimento;
+                        mbTel1.Text = cliente.tel1;
+                        mbTel2.Text = cliente.tel2;
+                        tbNumeroCli.Text = cliente.numero_residencia;
+                        tbRuaCli.Text = cliente.rua;
+                        tbBairroCli.Text = cliente.bairro;
+                        tbCidadeCli.Text = cliente.cidade;
+                        tbMailCli.Text = cliente.email;
+                        tbNomeFuncAtende.Text = new CpfFuncionario().trasNomeFunc(cliente.cpffunc);
+                        statusAlter();
+                    }
+                }
             }
         }
         //Fim retornos
@@ -107,12 +116,12 @@ namespace Farmácia_de_Manipulação
         {
             mbCpf.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
-            if (new ClienteDAO().Atualiza(new Cliente(mbCpf.Text.Trim(), tbNomeCli.Text.Trim(), Convert.ToDateTime(mbDataNasc.Text).ToShortDateString(),
+            /*if (new ClienteDAO().Atualiza(new Cliente(mbCpf.Text.Trim(), tbNomeCli.Text.Trim(), Convert.ToDateTime(mbDataNasc.Text).ToShortDateString(),
                 tbNumeroCli.Text.Trim(), tbRuaCli.Text.Trim(),
                 tbBairroCli.Text.Trim(), tbCidadeCli.Text.Trim(),
                 mbTel1.Text.Trim(), mbTel2.Text.Trim(), tbMailCli.Text.Trim(),
                 tbNomeFuncAtende.Text.Trim())))
-                MessageBox.Show("Dados atualizados com sucesso.");
+                MessageBox.Show("Dados atualizados com sucesso.");*/
             limpar();
         }
 

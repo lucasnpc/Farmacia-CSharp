@@ -15,16 +15,16 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "select cpf from funcionario where usuario = @usuario";
-                conexao.abrirConexao();
-                conexao.comando = new Npgsql.NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@usuario", usuario);
-                conexao.leitor = conexao.comando.ExecuteReader();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@usuario", usuario);
+                AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
 
-                if (conexao.leitor.Read())
+                if (AcessoBD.leitor.Read())
                 {
-                    cpfFunc = conexao.leitor["cpf"].ToString();
+                    cpfFunc = AcessoBD.leitor["cpf"].ToString();
                 }
             }
             catch (Exception)
@@ -39,17 +39,17 @@ namespace Farmácia_de_Manipulação
             int I = 0;
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "SELECT * FROM funcionario WHERE usuario = @usuario and senha = @senha";
-                conexao.abrirConexao();
+                AcessoBD.abrirConexao();
 
-                conexao.comando = new Npgsql.NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@usuario", tbUser.Text);
-                conexao.comando.Parameters.AddWithValue("@senha", tbPw.Text);
+                AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@usuario", tbUser.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@senha", tbPw.Text);
 
-                conexao.leitor = conexao.comando.ExecuteReader();
+                AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
 
-                while (conexao.leitor.Read())
+                while (AcessoBD.leitor.Read())
                 {
                     I = I + 1;
                 }

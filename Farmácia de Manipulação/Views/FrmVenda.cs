@@ -67,14 +67,9 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                tbCpfCli.Text = "";
-                mbRetirada.Text = "";
-                tbNomeCli.Text = "";
-                tbReceita.Text = ""; ;
                 tbPgtoAntecipado.Text = "";
                 tbTotal.Text = "";
                 gbReceitaFormProd.Enabled = true;
-                cbFormulas.Text = "";
                 gridProdutos.DataSource = null;
                 idPedido = 0;
 
@@ -82,50 +77,21 @@ namespace Farmácia_de_Manipulação
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void carregaFormula()
-        {
-            try
-            {
-                conexao.fecharConexao();
-                string sql = "SELECT DISTINCT descricao FROM formula,receita_formula_produto,receita WHERE " +
-                    "formula.id = receita_formula_produto.id_formula AND " +
-                    "receita_formula_produto.num_receita = @numReceita";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@numReceita", tbReceita.Text);
-                conexao.leitor = conexao.comando.ExecuteReader();
-
-                DataTable tabela = new DataTable();
-                tabela.Load(conexao.leitor);
-
-                DataRow linha = tabela.NewRow();
-
-                linha["descricao"] = "";
-
-                tabela.Rows.InsertAt(linha, 0);
-                this.cbFormulas.DataSource = tabela;
-                this.cbFormulas.DisplayMember = "descricao";
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+       
 
         private void carregaProduto(int ID)
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "SELECT DISTINCT codigo, descricao, valor_venda FROM produto,receita_formula_produto " +
                 "WHERE receita_formula_produto.cod_produto = produto.codigo AND " +
                 "receita_formula_produto.id_formula = @id;";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@id", ID);
-                conexao.comando.ExecuteNonQuery();
-                NpgsqlDataReader leitor = conexao.comando.ExecuteReader();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@id", ID);
+                AcessoBD.comando.ExecuteNonQuery();
+                NpgsqlDataReader leitor = AcessoBD.comando.ExecuteReader();
 
                 DataTable dt = new DataTable();
                 dt.Columns.Add("Código", typeof(string));
@@ -154,12 +120,12 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "INSERT INTO receita(numero_requisicao)"+
                     " values(@numero_requisicao)";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.ExecuteNonQuery();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -171,15 +137,15 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "UPDATE receita SET nome_paciente = @nome_paciente, nome_medico = @nome_medico," +
                     "informacoes = @informacoes, fk_cliente = @fk_cliente WHERE numero_requisicao = @numero_requisicao";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@nome_paciente", tbNomePaciente.Text);
-                conexao.comando.Parameters.AddWithValue("@informacoes", tbInfo.Text);
-                conexao.comando.Parameters.AddWithValue("@fk_cliente", cpfCli);
-                conexao.comando.ExecuteNonQuery();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@nome_paciente", tbNomePaciente.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@informacoes", tbInfo.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@fk_cliente", cpfCli);
+                AcessoBD.comando.ExecuteNonQuery();
             }
             catch (Exception)
             {
@@ -194,7 +160,7 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "INSERT INTO pedido(fk_funcionario," +
                     "fk_cliente," +
                     "fk_receita," +
@@ -208,17 +174,13 @@ namespace Farmácia_de_Manipulação
                     "@data_retirada," +
                     "@pgto_antecipado," +
                     "@preco_total)";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@fk_funcionario", CpfFuncionario.cpfFunc);
-                conexao.comando.Parameters.AddWithValue("@fk_cliente", tbCpfCli.Text);
-                conexao.comando.Parameters.AddWithValue("@fk_receita", tbReceita.Text);
-                conexao.comando.Parameters.AddWithValue("@data_encomenda", Convert.ToDateTime(mbEncomenda.Text));
-                conexao.comando.Parameters.AddWithValue("@data_retirada", Convert.ToDateTime(mbRetirada.Text));
-                conexao.comando.Parameters.AddWithValue("@pgto_antecipado", double.Parse(tbPgtoAntecipado.Text));
-                conexao.comando.Parameters.AddWithValue("@preco_total", double.Parse(tbTotal.Text));
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@fk_funcionario", CpfFuncionario.cpfFunc);
+                AcessoBD.comando.Parameters.AddWithValue("@pgto_antecipado", double.Parse(tbPgtoAntecipado.Text));
+                AcessoBD.comando.Parameters.AddWithValue("@preco_total", double.Parse(tbTotal.Text));
 
-                conexao.comando.ExecuteNonQuery();
+                AcessoBD.comando.ExecuteNonQuery();
 
                 MessageBox.Show("Pedido realizado com sucesso.");
             }
@@ -232,13 +194,13 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "SELECT MAX(id_pedido)AS id_pedido FROM pedido";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.leitor = conexao.comando.ExecuteReader();
-                if (conexao.leitor.Read())
-                    idPedido = int.Parse(conexao.leitor["id_pedido"].ToString());
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
+                if (AcessoBD.leitor.Read())
+                    idPedido = int.Parse(AcessoBD.leitor["id_pedido"].ToString());
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -246,13 +208,12 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "INSERT INTO pedido_cliente(fk_cliente,fk_pedido) values(@fk_cliente,@fk_pedido)";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@fk_cliente", tbCpfCli.Text);
-                conexao.comando.Parameters.AddWithValue("@fk_pedido", id);
-                conexao.comando.ExecuteNonQuery();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@fk_pedido", id);
+                AcessoBD.comando.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -298,7 +259,6 @@ namespace Farmácia_de_Manipulação
 
         private void pedido_Load(object sender, EventArgs e)
         {
-            mbEncomenda.Text = DateTime.Now.Date.ToString();
         }
 
         //Trazer informacoes do produto
@@ -313,39 +273,12 @@ namespace Farmácia_de_Manipulação
 
         private void bRealizaPedido_Click(object sender, EventArgs e)
         {
-            if (mbRetirada.Text != "    -  -" && tbTotal.Text != "")
-            {
-                registraPedido();
-                trasIdPedido();
-                registraPedidoCliente(idPedido);
-                limparPedido();
-            }
-            else
-                MessageBox.Show("Preencha os campos antes de cadastrar.");
+            
         }
 
         private void cbFormulas_SelectedIndexChanged(object sender, EventArgs e)
         {
             tbPgtoAntecipado.Focus();
-        }
-
-        private void cbFormulas_Leave(object sender, EventArgs e)
-        {
-            if (cbFormulas.Text != "")
-            {
-                int id = 0;
-                conexao.fecharConexao();
-                string sql = "select id from formula where descricao = @descricao";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@descricao", cbFormulas.Text);
-                conexao.leitor = conexao.comando.ExecuteReader();
-                if (conexao.leitor.Read())
-                {
-                    id = int.Parse(conexao.leitor["id"].ToString());
-                }
-                carregaProduto(id);
-            }
         }
 
         //Define o preço

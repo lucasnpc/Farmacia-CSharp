@@ -93,13 +93,13 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "select * from fornecedor where cnpj = @cnpj";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@cnpj", cnpj);
-                conexao.comando.ExecuteNonQuery();
-                NpgsqlDataReader leitor = conexao.comando.ExecuteReader();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@cnpj", cnpj);
+                AcessoBD.comando.ExecuteNonQuery();
+                NpgsqlDataReader leitor = AcessoBD.comando.ExecuteReader();
 
                 if (leitor.Read())
                 {
@@ -136,7 +136,7 @@ namespace Farmácia_de_Manipulação
             try
             {
                 mbCnpj.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "UPDATE fornecedor SET nome = @nome," +
                     "numero = @numero," +
                     "rua = @rua," +
@@ -146,19 +146,19 @@ namespace Farmácia_de_Manipulação
                     "tel2 = @tel2," +
                     "email = @email " +
                     "WHERE cnpj = @cnpj";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@nome", tbNomeFornc.Text);
-                conexao.comando.Parameters.AddWithValue("@numero", tbNumFornc.Text);
-                conexao.comando.Parameters.AddWithValue("@rua", tbRuaFornc.Text);
-                conexao.comando.Parameters.AddWithValue("@bairro", tbBairroFornc.Text);
-                conexao.comando.Parameters.AddWithValue("@cidade", tbCidadeFornc.Text);
-                conexao.comando.Parameters.AddWithValue("@tel1", mbTel1.Text);
-                conexao.comando.Parameters.AddWithValue("@tel2", mbTel2.Text);
-                conexao.comando.Parameters.AddWithValue("@email", tbMailFornc.Text);
-                conexao.comando.Parameters.AddWithValue("@cnpj", mbCnpj.Text);
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@nome", tbNomeFornc.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@numero", tbNumFornc.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@rua", tbRuaFornc.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@bairro", tbBairroFornc.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@cidade", tbCidadeFornc.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@tel1", mbTel1.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@tel2", mbTel2.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@email", tbMailFornc.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@cnpj", mbCnpj.Text);
 
-                conexao.comando.ExecuteNonQuery();
+                AcessoBD.comando.ExecuteNonQuery();
                 MessageBox.Show("Dados atualizados com sucesso.");
                 limpar();
             }
@@ -174,12 +174,12 @@ namespace Farmácia_de_Manipulação
             try
             {
                 mbCnpj.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "DELETE FROM fornecedor WHERE cnpj = @cnpj";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@cnpj", mbCnpj.Text);
-                conexao.comando.ExecuteNonQuery();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@cnpj", mbCnpj.Text);
+                AcessoBD.comando.ExecuteNonQuery();
 
                 MessageBox.Show("Dados excluidos com sucesso.");
                 limpar();

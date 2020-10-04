@@ -73,7 +73,7 @@ namespace Farmácia_de_Manipulação
             try
             {
                 double valor = 0;
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "INSERT INTO produto(descricao," +
                     "codigo," +
                     "lote," +
@@ -99,22 +99,22 @@ namespace Farmácia_de_Manipulação
                     "@valor_custo,@valor_venda," +
                     "@estoqueMin,@estoqueMax," +
                     "@fk_funcionario,@fk_fornecedor)";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@descricao", tbDesc.Text.Trim());
-                conexao.comando.Parameters.AddWithValue("@codigo", tbCod.Text.Trim());
-                conexao.comando.Parameters.AddWithValue("@lote", tbLote.Text.Trim());
-                conexao.comando.Parameters.AddWithValue("@data_fabricacao", DateTime.Parse(mbDataFabri.Text).Date);
-                conexao.comando.Parameters.AddWithValue("@data_validade", DateTime.Parse(mbDataValidade.Text).Date);
-                conexao.comando.Parameters.AddWithValue("@recomendacoes", tbRecomendacoes.Text.Trim());
-                conexao.comando.Parameters.AddWithValue("@medida", valor);
-                conexao.comando.Parameters.AddWithValue("@quantidade", Convert.ToInt32(tbEstoque.Text));
-                conexao.comando.Parameters.AddWithValue("@segmento", cbSeguimento.Text.Trim());
-                conexao.comando.Parameters.AddWithValue("@estoqueMin", int.Parse(tbEstoqueMin.Text));
-                conexao.comando.Parameters.AddWithValue("@estoqueMax", int.Parse(tbEstoqueMax.Text));
-                conexao.comando.Parameters.AddWithValue("@fk_funcionario", CpfFuncionario.cpfFunc);
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@descricao", tbDesc.Text.Trim());
+                AcessoBD.comando.Parameters.AddWithValue("@codigo", tbCod.Text.Trim());
+                AcessoBD.comando.Parameters.AddWithValue("@lote", tbLote.Text.Trim());
+                AcessoBD.comando.Parameters.AddWithValue("@data_fabricacao", DateTime.Parse(mbDataFabri.Text).Date);
+                AcessoBD.comando.Parameters.AddWithValue("@data_validade", DateTime.Parse(mbDataValidade.Text).Date);
+                AcessoBD.comando.Parameters.AddWithValue("@recomendacoes", tbRecomendacoes.Text.Trim());
+                AcessoBD.comando.Parameters.AddWithValue("@medida", valor);
+                AcessoBD.comando.Parameters.AddWithValue("@quantidade", Convert.ToInt32(tbEstoque.Text));
+                AcessoBD.comando.Parameters.AddWithValue("@segmento", cbSeguimento.Text.Trim());
+                AcessoBD.comando.Parameters.AddWithValue("@estoqueMin", int.Parse(tbEstoqueMin.Text));
+                AcessoBD.comando.Parameters.AddWithValue("@estoqueMax", int.Parse(tbEstoqueMax.Text));
+                AcessoBD.comando.Parameters.AddWithValue("@fk_funcionario", CpfFuncionario.cpfFunc);
 
-                conexao.comando.ExecuteNonQuery();
+                AcessoBD.comando.ExecuteNonQuery();
                 MessageBox.Show("Produto registrado com sucesso.");
                 limpar();
             }
@@ -127,13 +127,13 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "select * from produto where codigo = @codigo";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@codigo", codProduto);
-                conexao.comando.ExecuteNonQuery();
-                NpgsqlDataReader leitor = conexao.comando.ExecuteReader();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@codigo", codProduto);
+                AcessoBD.comando.ExecuteNonQuery();
+                NpgsqlDataReader leitor = AcessoBD.comando.ExecuteReader();
 
                 if (leitor.Read())
                 {
@@ -169,7 +169,7 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "UPDATE produto SET descricao = @descricao," +
                     "data_fabricacao = @data_fabricacao," +
                     "data_validade = @data_validade," +
@@ -183,20 +183,20 @@ namespace Farmácia_de_Manipulação
                     "estoqueMin = @estoqueMin," +
                     "estoqueMax = @estoqueMax " +
                     "WHERE codigo = @codigo";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@codigo", tbCod.Text);
-                conexao.comando.Parameters.AddWithValue("@descricao", tbDesc.Text);
-                conexao.comando.Parameters.AddWithValue("@data_fabricacao", Convert.ToDateTime(mbDataFabri.Text).Date);
-                conexao.comando.Parameters.AddWithValue("@data_validade", Convert.ToDateTime(mbDataValidade.Text).Date);
-                conexao.comando.Parameters.AddWithValue("@recomendacoes", tbRecomendacoes.Text);
-                conexao.comando.Parameters.AddWithValue("@nome_fornecedor", cbFornecedor.Text);
-                conexao.comando.Parameters.AddWithValue("@quantidade", int.Parse(tbEstoque.Text));
-                conexao.comando.Parameters.AddWithValue("@segmento", cbSeguimento.Text);
-                conexao.comando.Parameters.AddWithValue("@estoqueMin", int.Parse(tbEstoqueMin.Text));
-                conexao.comando.Parameters.AddWithValue("@estoqueMax", int.Parse(tbEstoqueMax.Text));
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@codigo", tbCod.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@descricao", tbDesc.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@data_fabricacao", Convert.ToDateTime(mbDataFabri.Text).Date);
+                AcessoBD.comando.Parameters.AddWithValue("@data_validade", Convert.ToDateTime(mbDataValidade.Text).Date);
+                AcessoBD.comando.Parameters.AddWithValue("@recomendacoes", tbRecomendacoes.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@nome_fornecedor", cbFornecedor.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@quantidade", int.Parse(tbEstoque.Text));
+                AcessoBD.comando.Parameters.AddWithValue("@segmento", cbSeguimento.Text);
+                AcessoBD.comando.Parameters.AddWithValue("@estoqueMin", int.Parse(tbEstoqueMin.Text));
+                AcessoBD.comando.Parameters.AddWithValue("@estoqueMax", int.Parse(tbEstoqueMax.Text));
 
-                conexao.comando.ExecuteNonQuery();
+                AcessoBD.comando.ExecuteNonQuery();
                 MessageBox.Show("Dados atualizados com sucesso.");
                 limpar();
             }
@@ -211,12 +211,12 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "DELETE FROM produto WHERE codigo = @codigo";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@codigo", tbCod.Text);
-                conexao.comando.ExecuteNonQuery();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@codigo", tbCod.Text);
+                AcessoBD.comando.ExecuteNonQuery();
 
                 MessageBox.Show("Dados excluidos com sucesso.");
                 limpar();
@@ -232,12 +232,12 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "select nome,cnpj from fornecedor " +
                     "order by nome";
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                NpgsqlDataReader leitor = conexao.comando.ExecuteReader();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                NpgsqlDataReader leitor = AcessoBD.comando.ExecuteReader();
 
                 DataTable tabela = new DataTable();
                 tabela.Load(leitor);

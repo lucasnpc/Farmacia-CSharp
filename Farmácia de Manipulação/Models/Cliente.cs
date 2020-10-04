@@ -1,23 +1,25 @@
-﻿using System;
+﻿using Npgsql;
+using System;
+using System.Collections.Generic;
 
 namespace Farmácia_de_Manipulação.Models
 {
     class Cliente
     {
-        public String cpf;
-        public String nome;
-        public string data_nascimento;
-        public String numero_residencia;
-        public String rua;
-        public String bairro;
-        public String cidade;
-        public String tel1;
-        public String tel2;
-        public String email;
-        public string cpffunc;
+        public string cpf { get; set; }
+        public string nome { get; set; }
+        public string data_nascimento { get; set; }
+        public string numero_residencia { get; set; }
+        public string rua { get; set; }
+        public string bairro { get; set; }
+        public string cidade { get; set; }
+        public string tel1 { get; set; }
+        public string tel2 { get; set; }
+        public string email { get; set; }
+        public string cpffunc { get; set; }
 
-        public Cliente(String CPF, String name, String data_nasc, String numero, String rua, String bairro, String cidade, String tel1, String tel2
-            , String email, string CPFfunc)
+        /*public Cliente(string CPF, string name, string data_nasc, string numero, string rua, string bairro,
+            string cidade, string tel1, string tel2, string email, string CPFfunc)
         {
             this.cpf = CPF;
             this.nome = name;
@@ -30,6 +32,6 @@ namespace Farmácia_de_Manipulação.Models
             this.tel2 = tel2;
             this.email = email;
             this.cpffunc = CPFfunc;
-        }
+        }    */   
     }
 }

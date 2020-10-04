@@ -18,11 +18,11 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "select * from cliente";
-                conexao.abrirConexao();
-                conexao.comando = new Npgsql.NpgsqlCommand(sql, conexao.conecta);
-                conexao.leitor = conexao.comando.ExecuteReader();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
 
                 DataTable dt = new DataTable();
                 dt.Columns.Add("CPF", typeof(string));
@@ -36,19 +36,19 @@ namespace Farmácia_de_Manipulação
                 dt.Columns.Add("Telefone 2", typeof(string));
                 dt.Columns.Add("E-mail", typeof(string));
 
-                while (conexao.leitor.Read())
+                while (AcessoBD.leitor.Read())
                 {
                     DataRow dr = dt.NewRow();
-                    dr["CPF"] = conexao.leitor["cpf"].ToString();
-                    dr["Nome"] = conexao.leitor["nome"].ToString();
-                    dr["Data de Nascimento"] = Convert.ToDateTime(conexao.leitor["data_nasc"]).ToShortDateString();
-                    dr["Número"] = conexao.leitor["numero"].ToString();
-                    dr["Rua"] = conexao.leitor["rua"].ToString();
-                    dr["Bairro"] = conexao.leitor["bairro"].ToString();
-                    dr["Cidade"] = conexao.leitor["cidade"].ToString();
-                    dr["Telefone 1"] = conexao.leitor["telefone1"].ToString();
-                    dr["Telefone 2"] = conexao.leitor["telefone2"].ToString();
-                    dr["E-mail"] = conexao.leitor["email"].ToString();
+                    dr["CPF"] = AcessoBD.leitor["cpf"].ToString();
+                    dr["Nome"] = AcessoBD.leitor["nome"].ToString();
+                    dr["Data de Nascimento"] = Convert.ToDateTime(AcessoBD.leitor["data_nasc"]).ToShortDateString();
+                    dr["Número"] = AcessoBD.leitor["numero"].ToString();
+                    dr["Rua"] = AcessoBD.leitor["rua"].ToString();
+                    dr["Bairro"] = AcessoBD.leitor["bairro"].ToString();
+                    dr["Cidade"] = AcessoBD.leitor["cidade"].ToString();
+                    dr["Telefone 1"] = AcessoBD.leitor["telefone1"].ToString();
+                    dr["Telefone 2"] = AcessoBD.leitor["telefone2"].ToString();
+                    dr["E-mail"] = AcessoBD.leitor["email"].ToString();
 
                     dt.Rows.Add(dr);
                 }
@@ -83,13 +83,13 @@ namespace Farmácia_de_Manipulação
                 {
                     try
                     {
-                        conexao.fecharConexao();
+                        AcessoBD.fecharConexao();
                         string sql = "select * from cliente where nome LIKE '" +
                             tbPesqCli.Text.ToUpper() + "%'";
-                        conexao.abrirConexao();
-                        conexao.comando = new Npgsql.NpgsqlCommand(sql, conexao.conecta);
-                        conexao.comando.Parameters.AddWithValue("@nome", tbPesqCli.Text);
-                        conexao.leitor = conexao.comando.ExecuteReader();
+                        AcessoBD.abrirConexao();
+                        AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
+                        AcessoBD.comando.Parameters.AddWithValue("@nome", tbPesqCli.Text);
+                        AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
 
                         DataTable dt = new DataTable();
                         dt.Columns.Add("CPF", typeof(string));
@@ -103,19 +103,19 @@ namespace Farmácia_de_Manipulação
                         dt.Columns.Add("Telefone 2", typeof(string));
                         dt.Columns.Add("E-mail", typeof(string));
 
-                        while (conexao.leitor.Read())
+                        while (AcessoBD.leitor.Read())
                         {
                             DataRow dr = dt.NewRow();
-                            dr["CPF"] = conexao.leitor["cpf"].ToString();
-                            dr["Nome"] = conexao.leitor["nome"].ToString();
-                            dr["Data de Nascimento"] = Convert.ToDateTime(conexao.leitor["data_nasc"]).ToShortDateString();
-                            dr["Número"] = conexao.leitor["numero"].ToString();
-                            dr["Rua"] = conexao.leitor["rua"].ToString();
-                            dr["Bairro"] = conexao.leitor["bairro"].ToString();
-                            dr["Cidade"] = conexao.leitor["cidade"].ToString();
-                            dr["Telefone 1"] = conexao.leitor["telefone1"].ToString();
-                            dr["Telefone 2"] = conexao.leitor["telefone2"].ToString();
-                            dr["E-mail"] = conexao.leitor["email"].ToString();
+                            dr["CPF"] = AcessoBD.leitor["cpf"].ToString();
+                            dr["Nome"] = AcessoBD.leitor["nome"].ToString();
+                            dr["Data de Nascimento"] = Convert.ToDateTime(AcessoBD.leitor["data_nasc"]).ToShortDateString();
+                            dr["Número"] = AcessoBD.leitor["numero"].ToString();
+                            dr["Rua"] = AcessoBD.leitor["rua"].ToString();
+                            dr["Bairro"] = AcessoBD.leitor["bairro"].ToString();
+                            dr["Cidade"] = AcessoBD.leitor["cidade"].ToString();
+                            dr["Telefone 1"] = AcessoBD.leitor["telefone1"].ToString();
+                            dr["Telefone 2"] = AcessoBD.leitor["telefone2"].ToString();
+                            dr["E-mail"] = AcessoBD.leitor["email"].ToString();
 
                             dt.Rows.Add(dr);
                         }

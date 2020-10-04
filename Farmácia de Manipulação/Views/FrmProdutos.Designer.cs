@@ -89,7 +89,7 @@
             this.bConsultaProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bConsultaProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bConsultaProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bConsultaProduto.Location = new System.Drawing.Point(967, 262);
+            this.bConsultaProduto.Location = new System.Drawing.Point(967, 284);
             this.bConsultaProduto.Name = "bConsultaProduto";
             this.bConsultaProduto.Size = new System.Drawing.Size(129, 43);
             this.bConsultaProduto.TabIndex = 32;
@@ -104,7 +104,7 @@
             this.bExcluiProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bExcluiProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bExcluiProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bExcluiProduto.Location = new System.Drawing.Point(967, 213);
+            this.bExcluiProduto.Location = new System.Drawing.Point(967, 235);
             this.bExcluiProduto.Name = "bExcluiProduto";
             this.bExcluiProduto.Size = new System.Drawing.Size(129, 43);
             this.bExcluiProduto.TabIndex = 31;
@@ -119,7 +119,7 @@
             this.bAlteraProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bAlteraProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bAlteraProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bAlteraProduto.Location = new System.Drawing.Point(967, 164);
+            this.bAlteraProduto.Location = new System.Drawing.Point(967, 186);
             this.bAlteraProduto.Name = "bAlteraProduto";
             this.bAlteraProduto.Size = new System.Drawing.Size(129, 43);
             this.bAlteraProduto.TabIndex = 30;
@@ -149,7 +149,7 @@
             this.bCadastraProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bCadastraProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bCadastraProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bCadastraProduto.Location = new System.Drawing.Point(967, 115);
+            this.bCadastraProduto.Location = new System.Drawing.Point(967, 137);
             this.bCadastraProduto.Name = "bCadastraProduto";
             this.bCadastraProduto.Size = new System.Drawing.Size(129, 43);
             this.bCadastraProduto.TabIndex = 29;
@@ -225,9 +225,9 @@
             this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(673, 245);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(152, 17);
+            this.label15.Size = new System.Drawing.Size(179, 17);
             this.label15.TabIndex = 41;
-            this.label15.Text = "MARGEM DE LUCRO";
+            this.label15.Text = "MARGEM DE LUCRO (%)";
             // 
             // label14
             // 
@@ -271,9 +271,9 @@
             this.lblQtd.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQtd.Location = new System.Drawing.Point(673, 189);
             this.lblQtd.Name = "lblQtd";
-            this.lblQtd.Size = new System.Drawing.Size(81, 17);
+            this.lblQtd.Size = new System.Drawing.Size(102, 17);
             this.lblQtd.TabIndex = 35;
-            this.lblQtd.Text = "ESTOQUE";
+            this.lblQtd.Text = "QUANTIDADE";
             this.lblQtd.Visible = false;
             // 
             // tbEstoque
@@ -311,9 +311,9 @@
             this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(255, 244);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(109, 17);
+            this.label11.Size = new System.Drawing.Size(141, 17);
             this.label11.TabIndex = 27;
-            this.label11.Text = "VALOR VENDA";
+            this.label11.Text = "VALOR VENDA (R$)";
             // 
             // label10
             // 
@@ -321,9 +321,9 @@
             this.label10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(12, 244);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(112, 17);
+            this.label10.Size = new System.Drawing.Size(145, 17);
             this.label10.TabIndex = 25;
-            this.label10.Text = "VALOR CUSTO";
+            this.label10.Text = "VALOR CUSTO (R$)";
             // 
             // label8
             // 
@@ -470,9 +470,9 @@
             this.button1.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(967, 68);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 43);
+            this.button1.Size = new System.Drawing.Size(129, 63);
             this.button1.TabIndex = 35;
-            this.button1.Text = "INCREMENTAR";
+            this.button1.Text = "ADICIONAR ESTOQUE";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // produtos

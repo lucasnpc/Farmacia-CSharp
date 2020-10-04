@@ -18,11 +18,11 @@ namespace Farmácia_de_Manipulação
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "select * from produto";
-                conexao.abrirConexao();
-                conexao.comando = new Npgsql.NpgsqlCommand(sql, conexao.conecta);
-                conexao.leitor = conexao.comando.ExecuteReader();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
 
                 DataTable dt = new DataTable();
                 dt.Columns.Add("Código", typeof(string));
@@ -39,22 +39,22 @@ namespace Farmácia_de_Manipulação
                 dt.Columns.Add("Estoque Mínimo", typeof(string));
                 dt.Columns.Add("Estoque Máximo", typeof(string));
 
-                while (conexao.leitor.Read())
+                while (AcessoBD.leitor.Read())
                 {
                     DataRow dr = dt.NewRow();
-                    dr["Código"] = conexao.leitor["codigo"].ToString();
-                    dr["Descrição"] = conexao.leitor["descricao"].ToString();
-                    dr["Lote"] = conexao.leitor["lote"].ToString();
-                    dr["Data de fabricação"] = Convert.ToDateTime(conexao.leitor["data_fabricacao"]).ToShortDateString();
-                    dr["Data de validade"] = Convert.ToDateTime(conexao.leitor["data_validade"]).ToShortDateString();
-                    dr["Recomendações"] = conexao.leitor["recomendacoes"].ToString();
-                    dr["Medida"] = conexao.leitor["medida"].ToString();
-                    dr["Quantidade"] = conexao.leitor["quantidade"].ToString();
-                    dr["Segmento"] = conexao.leitor["segmento"].ToString();
-                    dr["Valor custo"] = conexao.leitor["valor_custo"].ToString();
-                    dr["Valor venda"] = conexao.leitor["valor_venda"].ToString();
-                    dr["Estoque Mínimo"] = conexao.leitor["estoqueMin"].ToString();
-                    dr["Estoque Máximo"] = conexao.leitor["estoqueMax"].ToString();
+                    dr["Código"] = AcessoBD.leitor["codigo"].ToString();
+                    dr["Descrição"] = AcessoBD.leitor["descricao"].ToString();
+                    dr["Lote"] = AcessoBD.leitor["lote"].ToString();
+                    dr["Data de fabricação"] = Convert.ToDateTime(AcessoBD.leitor["data_fabricacao"]).ToShortDateString();
+                    dr["Data de validade"] = Convert.ToDateTime(AcessoBD.leitor["data_validade"]).ToShortDateString();
+                    dr["Recomendações"] = AcessoBD.leitor["recomendacoes"].ToString();
+                    dr["Medida"] = AcessoBD.leitor["medida"].ToString();
+                    dr["Quantidade"] = AcessoBD.leitor["quantidade"].ToString();
+                    dr["Segmento"] = AcessoBD.leitor["segmento"].ToString();
+                    dr["Valor custo"] = AcessoBD.leitor["valor_custo"].ToString();
+                    dr["Valor venda"] = AcessoBD.leitor["valor_venda"].ToString();
+                    dr["Estoque Mínimo"] = AcessoBD.leitor["estoqueMin"].ToString();
+                    dr["Estoque Máximo"] = AcessoBD.leitor["estoqueMax"].ToString();
 
                     dt.Rows.Add(dr);
                 }
@@ -90,13 +90,13 @@ namespace Farmácia_de_Manipulação
                 {
                     try
                     {
-                        conexao.fecharConexao();
+                        AcessoBD.fecharConexao();
                         string sql = "select * from produto where descricao LIKE '"+
                             tbPesqProd.Text+"%'";
-                        conexao.abrirConexao();
-                        conexao.comando = new Npgsql.NpgsqlCommand(sql, conexao.conecta);
-                        conexao.comando.Parameters.AddWithValue("@descricao", tbPesqProd.Text);
-                        conexao.leitor = conexao.comando.ExecuteReader();
+                        AcessoBD.abrirConexao();
+                        AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
+                        AcessoBD.comando.Parameters.AddWithValue("@descricao", tbPesqProd.Text);
+                        AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
 
                         DataTable dt = new DataTable();
                         dt.Columns.Add("Código", typeof(string));
@@ -113,22 +113,22 @@ namespace Farmácia_de_Manipulação
                         dt.Columns.Add("Estoque Mínimo", typeof(string));
                         dt.Columns.Add("Estoque Máximo", typeof(string));
 
-                        while (conexao.leitor.Read())
+                        while (AcessoBD.leitor.Read())
                         {
                             DataRow dr = dt.NewRow();
-                            dr["Código"] = conexao.leitor["codigo"].ToString();
-                            dr["Descrição"] = conexao.leitor["descricao"].ToString();
-                            dr["Lote"] = conexao.leitor["lote"].ToString();
-                            dr["Data de fabricação"] = Convert.ToDateTime(conexao.leitor["data_fabricacao"]).ToShortDateString();
-                            dr["Data de validade"] = Convert.ToDateTime(conexao.leitor["data_validade"]).ToShortDateString();
-                            dr["Recomendações"] = conexao.leitor["recomendacoes"].ToString();
-                            dr["Medida"] = conexao.leitor["medida"].ToString();
-                            dr["Quantidade"] = conexao.leitor["quantidade"].ToString();
-                            dr["Segmento"] = conexao.leitor["segmento"].ToString();
-                            dr["Valor custo"] = conexao.leitor["valor_custo"].ToString();
-                            dr["Valor venda"] = conexao.leitor["valor_venda"].ToString();
-                            dr["Estoque Mínimo"] = conexao.leitor["estoqueMin"].ToString();
-                            dr["Estoque Máximo"] = conexao.leitor["estoqueMax"].ToString();
+                            dr["Código"] = AcessoBD.leitor["codigo"].ToString();
+                            dr["Descrição"] = AcessoBD.leitor["descricao"].ToString();
+                            dr["Lote"] = AcessoBD.leitor["lote"].ToString();
+                            dr["Data de fabricação"] = Convert.ToDateTime(AcessoBD.leitor["data_fabricacao"]).ToShortDateString();
+                            dr["Data de validade"] = Convert.ToDateTime(AcessoBD.leitor["data_validade"]).ToShortDateString();
+                            dr["Recomendações"] = AcessoBD.leitor["recomendacoes"].ToString();
+                            dr["Medida"] = AcessoBD.leitor["medida"].ToString();
+                            dr["Quantidade"] = AcessoBD.leitor["quantidade"].ToString();
+                            dr["Segmento"] = AcessoBD.leitor["segmento"].ToString();
+                            dr["Valor custo"] = AcessoBD.leitor["valor_custo"].ToString();
+                            dr["Valor venda"] = AcessoBD.leitor["valor_venda"].ToString();
+                            dr["Estoque Mínimo"] = AcessoBD.leitor["estoqueMin"].ToString();
+                            dr["Estoque Máximo"] = AcessoBD.leitor["estoqueMax"].ToString();
 
                             dt.Rows.Add(dr);
                         }

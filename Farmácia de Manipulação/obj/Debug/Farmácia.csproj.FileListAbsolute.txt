@@ -701,3 +701,7 @@ C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\D
 C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\Debug\Farmácia_de_Manipulação.Atalhos.resources
 C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\Debug\Farmácia_de_Manipulação.venda.resources
 C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\Debug\Farmácia_de_Manipulação.Views.FrmRelatorios.resources
+C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\bin\Debug\System.Reflection.TypeExtensions.dll
+C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\bin\Debug\System.Security.Principal.Windows.dll

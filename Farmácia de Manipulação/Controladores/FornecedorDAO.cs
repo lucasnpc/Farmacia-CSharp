@@ -15,7 +15,7 @@ namespace Farmácia_de_Manipulação.Controladores
         {
             try
             {
-                conexao.fecharConexao();
+                AcessoBD.fecharConexao();
                 string sql = "INSERT INTO fornecedor(cnpj," +
                     "nome," +
                     "rua," +
@@ -35,21 +35,21 @@ namespace Farmácia_de_Manipulação.Controladores
                     "@tel2," +
                     "@email," +
                     "@fk_funcionario)";
-                conexao.fecharConexao();
-                conexao.abrirConexao();
-                conexao.comando = new NpgsqlCommand(sql, conexao.conecta);
-                conexao.comando.Parameters.AddWithValue("@cnpj", fornecedor.cnpj);
-                conexao.comando.Parameters.AddWithValue("@nome", fornecedor.nome);
-                conexao.comando.Parameters.AddWithValue("@rua", fornecedor.rua);
-                conexao.comando.Parameters.AddWithValue("@numero", fornecedor.numero);
-                conexao.comando.Parameters.AddWithValue("@bairro", fornecedor.bairro);
-                conexao.comando.Parameters.AddWithValue("@cidade", fornecedor.cidade);
-                conexao.comando.Parameters.AddWithValue("@tel1", fornecedor.tel1);
-                conexao.comando.Parameters.AddWithValue("@tel2", fornecedor.tel2);
-                conexao.comando.Parameters.AddWithValue("@email", fornecedor.email);
-                conexao.comando.Parameters.AddWithValue("@fk_funcionario", fornecedor.cpf_funcionario);
+                AcessoBD.fecharConexao();
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@cnpj", fornecedor.cnpj);
+                AcessoBD.comando.Parameters.AddWithValue("@nome", fornecedor.nome);
+                AcessoBD.comando.Parameters.AddWithValue("@rua", fornecedor.rua);
+                AcessoBD.comando.Parameters.AddWithValue("@numero", fornecedor.numero);
+                AcessoBD.comando.Parameters.AddWithValue("@bairro", fornecedor.bairro);
+                AcessoBD.comando.Parameters.AddWithValue("@cidade", fornecedor.cidade);
+                AcessoBD.comando.Parameters.AddWithValue("@tel1", fornecedor.tel1);
+                AcessoBD.comando.Parameters.AddWithValue("@tel2", fornecedor.tel2);
+                AcessoBD.comando.Parameters.AddWithValue("@email", fornecedor.email);
+                AcessoBD.comando.Parameters.AddWithValue("@fk_funcionario", fornecedor.cpf_funcionario);
 
-                if (conexao.comando.ExecuteNonQuery() == 1)
+                if (AcessoBD.comando.ExecuteNonQuery() == 1)
                     return true;
                 else
                     return false;
