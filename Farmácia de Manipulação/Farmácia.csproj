@@ -239,7 +239,7 @@
     <Compile Include="Views\FrmProdutos.Designer.cs">
       <DependentUpon>FrmProdutos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\valida.cs" />
     <EmbeddedResource Include="Views\FrmAtalhos.resx">

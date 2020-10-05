@@ -8,10 +8,8 @@ namespace Farmácia_de_Manipulação.Controladores
 {
     class ClienteDAO
     {
-
         public List<Cliente> getClientes() {
             List<Cliente> list = new List<Cliente>();
-            Cliente cliente;
             try
             {
                 AcessoBD.fecharConexao();
@@ -42,7 +40,6 @@ namespace Farmácia_de_Manipulação.Controladores
             }
             return list;
         }
-
         public bool Insere(Cliente cliente)
         {
             try
@@ -94,35 +91,6 @@ namespace Farmácia_de_Manipulação.Controladores
                 return false;
             }
         }
-
-        /*public Cliente Retorna(string cpf)
-        {
-            try
-            {
-                AcessoBD.fecharConexao();
-                AcessoBD.abrirConexao();
-                string sql = "select * from cliente where cpf = @cpf";
-                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.comando.Parameters.AddWithValue("@cpf", cpf);
-                AcessoBD.comando.ExecuteNonQuery();
-                NpgsqlDataReader dataReader = AcessoBD.comando.ExecuteReader();
-                if (dataReader.Read())
-                {
-                    return new Cliente(dataReader["cpf"].ToString(), dataReader["nome"].ToString(),
-                    dataReader["data_nasc"].ToString(), dataReader["numero"].ToString(), 
-                    dataReader["rua"].ToString(), dataReader["bairro"].ToString(), dataReader["cidade"].ToString(),
-                    dataReader["telefone1"].ToString(), dataReader["telefone2"].ToString(), 
-                    dataReader["email"].ToString(), dataReader["fk_funcionario"].ToString());
-                }
-                else
-                    return null;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }*/
-
         public bool Atualiza(Cliente cliente)
         {
             try
@@ -163,7 +131,6 @@ namespace Farmácia_de_Manipulação.Controladores
                 throw;
             }
         }
-
         public bool Deleta(string cpf)
         {
             try

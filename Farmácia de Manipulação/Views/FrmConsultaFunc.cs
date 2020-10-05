@@ -60,10 +60,10 @@ namespace Farmácia_de_Manipulação
                 gridConsultaFunc.DataSource = dt;
                 gridConsultaFunc.Update();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                MessageBox.Show(ex.Message);
+                throw;
             }
         }
         // Fim cadastro

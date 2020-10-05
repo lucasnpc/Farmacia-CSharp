@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Farmácia_de_Manipulação.Models;
 using Npgsql;
@@ -40,7 +41,7 @@ namespace Farmácia_de_Manipulação.Controladores
                        "@cargo," +
                        "@data_admissao)";
                 AcessoBD.abrirConexao();
-                AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
                 AcessoBD.comando.Parameters.AddWithValue("@cpf", funcionario.cpf);
                 AcessoBD.comando.Parameters.AddWithValue("@nome", funcionario.nome.ToUpper());
                 AcessoBD.comando.Parameters.AddWithValue("@data_nasc", Convert.ToDateTime(funcionario.data_nascimento));
@@ -68,31 +69,44 @@ namespace Farmácia_de_Manipulação.Controladores
             }
         }
 
-        public Funcionario Retorna(string cpf) {
+        public List<Funcionario> GetFuncionarios() {
+            List<Funcionario> list = new List<Funcionario>();
+
             try
             {
                 AcessoBD.fecharConexao();
                 AcessoBD.abrirConexao();
-                string sql = "select * from funcionario where cpf = @cpf";
+                string sql = "select * from funcionario";
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.comando.Parameters.AddWithValue("@cpf", cpf);
                 AcessoBD.comando.ExecuteNonQuery();
                 NpgsqlDataReader dataReader = AcessoBD.comando.ExecuteReader();
-                if (dataReader.Read())
+                while (dataReader.Read())
                 {
-                    return new Funcionario(dataReader["cpf"].ToString(), dataReader["nome"].ToString(),
-                    dataReader["data_nasc"].ToString(),
-                    dataReader["numero"].ToString(), dataReader["rua"].ToString(), dataReader["bairro"].ToString(), dataReader["cidade"].ToString(),
-                    dataReader["telefone1"].ToString(), dataReader["telefone2"].ToString(), dataReader["email"].ToString(), dataReader["usuario"].ToString(),
-                    dataReader["senha"].ToString(), dataReader["cargo"].ToString(), dataReader["data_admissao"].ToString());
+                    list.Add(new Funcionario
+                    {
+                        cpf = dataReader["cpf"].ToString(),
+                        nome = dataReader["nome"].ToString(),
+                        data_nascimento = dataReader["data_nasc"].ToString(),
+                        numero_residencia = dataReader["numero"].ToString(),
+                        rua = dataReader["rua"].ToString(),
+                        bairro = dataReader["bairro"].ToString(),
+                        cidade = dataReader["cidade"].ToString(),
+                        tel1 = dataReader["telefone1"].ToString(),
+                        tel2 = dataReader["telefone2"].ToString(),
+                        email = dataReader["email"].ToString(),
+                        usuario = dataReader["usuario"].ToString(),
+                        senha = dataReader["senha"].ToString(),
+                        cargo = dataReader["cargo"].ToString(),
+                        data_admissao = dataReader["data_admissao"].ToString()
+                    });
                 }
-                else
-                    return null;
+                dataReader.Close();
             }
             catch(Exception)
             {
                 throw;
             }
+            return list;
         }
 
         public bool Atualiza(Funcionario funcionario)

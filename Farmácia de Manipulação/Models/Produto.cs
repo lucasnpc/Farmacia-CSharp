@@ -8,36 +8,18 @@ namespace Farmácia_de_Manipulação.Models
 {
     class Produto
     {
-        string codigo;
-        string descricao;
-        string lote;
-        string data_fabricacao;
-        string data_validade;
-        string recomendacoes;
-        int quantidade;
-        string segmento;
-        double valor_custo;
-        double valor_venda;
-        int estoqueminimo;
-        int estoquemaximo;
-        string cnpjfornecedor;
-
-        public Produto(string cod, string desc, string lot, string data_fabri, string data_vali, string recomend, int qtd,
-            string segment, double vlr_custo, double vlr_venda, int stockmin, int stockmax, string cnpj)
-        {
-            codigo = cod;
-            descricao = desc;
-            lote = lot;
-            data_fabricacao = data_fabri;
-            data_validade = data_vali;
-            recomendacoes = recomend;
-            quantidade = qtd;
-            segmento = segment;
-            valor_custo = vlr_custo;
-            valor_venda = vlr_venda;
-            estoqueminimo = stockmin;
-            estoquemaximo = stockmax;
-            cnpjfornecedor = cnpj;
-        }
+        string codigo { get; set; }
+        string descricao { get; set; }
+        string lote { get; set; }
+        string data_fabricacao { get; set; }
+        string data_validade { get; set; }
+        string recomendacoes { get; set; }
+        int quantidade { get; set; }
+        string segmento { get; set; }
+        double valor_custo { get; set; }
+        double valor_venda { get; set; }
+        int estoqueminimo { get; set; }
+        int estoquemaximo { get; set; }
+        string cnpjfornecedor { get; set; }
     }
 }

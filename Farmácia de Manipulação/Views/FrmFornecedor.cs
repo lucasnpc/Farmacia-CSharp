@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Farmácia_de_Manipulação.Controladores;
 using Farmácia_de_Manipulação.Models;
@@ -26,7 +27,6 @@ namespace Farmácia_de_Manipulação
             bSairForn.Enabled = true;
             bConsultaForn.Enabled = true;
         }
-
         private void statusCadastra()
         {
             gbFornecedor.Enabled = true;
@@ -40,7 +40,6 @@ namespace Farmácia_de_Manipulação
             tbNomeFunc.Text = new CpfFuncionario().trasNomeFunc(CpfFuncionario.cpfFunc);
             tbNomeFornc.Focus();
         }
-
         private void limpar()
         {
             tbNomeFornc.Clear();
@@ -55,7 +54,6 @@ namespace Farmácia_de_Manipulação
             statusInicial();
             tbNomeFunc.Clear();
         }
-
         private void statusAlter()
         {
             bNovoForn.Enabled = false;
@@ -66,140 +64,38 @@ namespace Farmácia_de_Manipulação
             bSairForn.Enabled = true;
             gbFornecedor.Enabled = true;
         }
-        //Fim Status
+        /*Fim Status*/
 
         private void fornecedor_Load(object sender, EventArgs e)
         {
             statusInicial();
         }
-
-        /* Cadastro no banco dos registros*/
-        private void cadastraFornc()
-        {
-            if (new FornecedorDAO().Insere(new Fornecedor(mbCnpj.Text.Trim(), tbNomeFornc.Text.Trim(), tbRuaFornc.Text.Trim(),
-                tbNumFornc.Text.Trim(), tbBairroFornc.Text.Trim(), tbCidadeFornc.Text.Trim(), mbTel1.Text, mbTel2.Text, 
-                tbMailFornc.Text.Trim(), 
-                CpfFuncionario.cpfFunc)))
-            {
-                MessageBox.Show("Fornecedor registrado com sucesso.");
-            }
-            limpar();
-        }
-        //Fim de cadastro
-
-
-        /*Retornar dados dos clientes para os campos*/
-        private string retornaFornc(string cnpj)
-        {
-            try
-            {
-                AcessoBD.fecharConexao();
-                string sql = "select * from fornecedor where cnpj = @cnpj";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.comando.Parameters.AddWithValue("@cnpj", cnpj);
-                AcessoBD.comando.ExecuteNonQuery();
-                NpgsqlDataReader leitor = AcessoBD.comando.ExecuteReader();
-
-                if (leitor.Read())
-                {
-                    tbNomeFornc.Text = leitor["nome"].ToString();
-                    mbCnpj.Text = leitor["cnpj"].ToString();
-                    mbTel1.Text = leitor["tel1"].ToString();
-                    mbTel2.Text = leitor["tel2"].ToString();
-                    tbNumFornc.Text = leitor["numero"].ToString();
-                    tbRuaFornc.Text = leitor["rua"].ToString();
-                    tbBairroFornc.Text = leitor["bairro"].ToString();
-                    tbCidadeFornc.Text = leitor["cidade"].ToString();
-                    tbMailFornc.Text = leitor["email"].ToString();
-                    statusAlter();
-                }
-                else
-                {
-                    MessageBox.Show("Fornecedor não encontrado.");
-                    limpar();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            return cnpj;
-        }
-        //Fim retornos
-
-
-        /*Inicio alteracoes*/
-        private void alteraFornc()
-        {
-            try
-            {
-                mbCnpj.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                AcessoBD.fecharConexao();
-                string sql = "UPDATE fornecedor SET nome = @nome," +
-                    "numero = @numero," +
-                    "rua = @rua," +
-                    "bairro = @bairro," +
-                    "cidade = @cidade," +
-                    "tel1 = @tel1," +
-                    "tel2 = @tel2," +
-                    "email = @email " +
-                    "WHERE cnpj = @cnpj";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.comando.Parameters.AddWithValue("@nome", tbNomeFornc.Text);
-                AcessoBD.comando.Parameters.AddWithValue("@numero", tbNumFornc.Text);
-                AcessoBD.comando.Parameters.AddWithValue("@rua", tbRuaFornc.Text);
-                AcessoBD.comando.Parameters.AddWithValue("@bairro", tbBairroFornc.Text);
-                AcessoBD.comando.Parameters.AddWithValue("@cidade", tbCidadeFornc.Text);
-                AcessoBD.comando.Parameters.AddWithValue("@tel1", mbTel1.Text);
-                AcessoBD.comando.Parameters.AddWithValue("@tel2", mbTel2.Text);
-                AcessoBD.comando.Parameters.AddWithValue("@email", tbMailFornc.Text);
-                AcessoBD.comando.Parameters.AddWithValue("@cnpj", mbCnpj.Text);
-
-                AcessoBD.comando.ExecuteNonQuery();
-                MessageBox.Show("Dados atualizados com sucesso.");
-                limpar();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void deletaFornc()
-        {
-            try
-            {
-                mbCnpj.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                AcessoBD.fecharConexao();
-                string sql = "DELETE FROM fornecedor WHERE cnpj = @cnpj";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.comando.Parameters.AddWithValue("@cnpj", mbCnpj.Text);
-                AcessoBD.comando.ExecuteNonQuery();
-
-                MessageBox.Show("Dados excluidos com sucesso.");
-                limpar();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }
-        // Fim alteracoes
-
         private void bCadastraForn_Click(object sender, EventArgs e)
         {
             if (tbNomeFornc.Text != "" && mbCnpj.Text != "  ,   ,   -    -")
             {
                 mbCnpj.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
                 string cnpj = mbCnpj.Text;
-                if (valida.validaCnpj(cnpj) == true)
-                    cadastraFornc();
+                if (valida.validaCnpj(cnpj) == true) 
+                {
+                    if (new FornecedorDAO().Insere(new Fornecedor
+                    {
+                        cnpj = mbCnpj.Text.Trim(),
+                        nome = tbNomeFornc.Text.Trim(),
+                        rua = tbRuaFornc.Text.Trim(),
+                        numero = tbNumFornc.Text.Trim(),
+                        bairro = tbBairroFornc.Text.Trim(),
+                        cidade = tbCidadeFornc.Text.Trim(),
+                        tel1 = mbTel1.Text,
+                        tel2 = mbTel2.Text,
+                        email = tbMailFornc.Text.Trim(),
+                        cpf_funcionario = CpfFuncionario.cpfFunc
+                    }))
+                    {
+                        MessageBox.Show("Fornecedor registrado com sucesso.");
+                    }
+                    limpar();
+                }
                 else
                 {
                     MessageBox.Show("CNPJ inválido, verifique novamente.");
@@ -209,30 +105,67 @@ namespace Farmácia_de_Manipulação
             else
                 MessageBox.Show("Preencha os campos antes de cadastrar.");
         }
-
         private void bNovoForn_Click(object sender, EventArgs e)
         {
             statusCadastra();
         }
-
         private void bConsultaForn_Click(object sender, EventArgs e)
         {
             consultaFornc consulta = new consultaFornc();
             consulta.ShowDialog();
-            if (cnpj != null)
-                retornaFornc(cnpj);
-        }
+            if (cnpj != null) 
+            {
+                List<Fornecedor> fornecedores = new FornecedorDAO().GetFornecedores();
+                if (fornecedores != null)
+                {
+                    foreach (Fornecedor fornecedor in fornecedores)
+                    {
+                        if (fornecedor.cnpj.Equals(cnpj))
+                        {
 
+                            tbNomeFornc.Text = fornecedor.nome;
+                            tbNumFornc.Text = fornecedor.numero;
+                            tbRuaFornc.Text = fornecedor.rua;
+                            tbBairroFornc.Text = fornecedor.bairro;
+                            tbCidadeFornc.Text = fornecedor.cidade;
+                            mbTel1.Text = fornecedor.tel1;
+                            mbTel2.Text = fornecedor.tel2;
+                            tbMailFornc.Text = fornecedor.email;
+                            mbCnpj.Text = fornecedor.cnpj;
+                            tbNomeFunc.Text = new CpfFuncionario().trasNomeFunc(fornecedor.cpf_funcionario);
+                            statusAlter();
+                        }
+                    }
+                }
+            }
+        }
         private void bAlteraForn_Click(object sender, EventArgs e)
         {
-            alteraFornc();
-        }
+            mbCnpj.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
+            if (new FornecedorDAO().Atualiza(new Fornecedor
+            {
+                cnpj = mbCnpj.Text.Trim(),
+                nome = tbNomeFornc.Text.Trim(),
+                bairro = tbBairroFornc.Text.Trim(),
+                cidade = tbCidadeFornc.Text.Trim(),
+                email = tbMailFornc.Text.Trim(),
+                numero = tbNumFornc.Text.Trim(),
+                rua = tbRuaFornc.Text.Trim(),
+                tel1 = mbTel1.Text.Trim(),
+                tel2 = mbTel2.Text.Trim(),
+                cpf_funcionario = CpfFuncionario.cpfFunc
+            }))
+                MessageBox.Show("Dados atualizados com sucesso.");
+            limpar();
+        }
         private void bExcluiForn_Click(object sender, EventArgs e)
         {
-            deletaFornc();
+            mbCnpj.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (new FornecedorDAO().Deleta(mbCnpj.Text))
+                MessageBox.Show("Dados excluidos com sucesso.");
+            limpar();
         }
-
         private void bSairForn_Click(object sender, EventArgs e)
         {
             this.Close();
