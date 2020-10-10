@@ -1,6 +1,6 @@
 ﻿namespace Farmácia_de_Manipulação
 {
-    partial class produtos
+    partial class produto
     {
         /// <summary>
         /// Required designer variable.
@@ -35,16 +35,14 @@
             this.bNovoProduto = new System.Windows.Forms.Button();
             this.bCadastraProduto = new System.Windows.Forms.Button();
             this.gbProdutos = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbVlrCusto = new System.Windows.Forms.TextBox();
+            this.tbVlrVenda = new System.Windows.Forms.TextBox();
             this.mbMargem = new System.Windows.Forms.MaskedTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.tbEstoqueMax = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tbEstoqueMin = new System.Windows.Forms.TextBox();
-            this.lblQtd = new System.Windows.Forms.Label();
-            this.tbEstoque = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tbRecomendacoes = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -64,6 +62,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbDesc = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.tbQuantidade = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.gbProdutos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -159,16 +159,16 @@
             // 
             // gbProdutos
             // 
-            this.gbProdutos.Controls.Add(this.textBox2);
-            this.gbProdutos.Controls.Add(this.textBox1);
+            this.gbProdutos.Controls.Add(this.label3);
+            this.gbProdutos.Controls.Add(this.tbQuantidade);
+            this.gbProdutos.Controls.Add(this.tbVlrCusto);
+            this.gbProdutos.Controls.Add(this.tbVlrVenda);
             this.gbProdutos.Controls.Add(this.mbMargem);
             this.gbProdutos.Controls.Add(this.label15);
             this.gbProdutos.Controls.Add(this.label14);
             this.gbProdutos.Controls.Add(this.tbEstoqueMax);
             this.gbProdutos.Controls.Add(this.label13);
             this.gbProdutos.Controls.Add(this.tbEstoqueMin);
-            this.gbProdutos.Controls.Add(this.lblQtd);
-            this.gbProdutos.Controls.Add(this.tbEstoque);
             this.gbProdutos.Controls.Add(this.label12);
             this.gbProdutos.Controls.Add(this.tbRecomendacoes);
             this.gbProdutos.Controls.Add(this.label11);
@@ -195,19 +195,19 @@
             this.gbProdutos.TabStop = false;
             this.gbProdutos.Text = "Dados Produto";
             // 
-            // textBox2
+            // tbVlrCusto
             // 
-            this.textBox2.Location = new System.Drawing.Point(15, 263);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(172, 27);
-            this.textBox2.TabIndex = 44;
+            this.tbVlrCusto.Location = new System.Drawing.Point(15, 263);
+            this.tbVlrCusto.Name = "tbVlrCusto";
+            this.tbVlrCusto.Size = new System.Drawing.Size(172, 27);
+            this.tbVlrCusto.TabIndex = 7;
             // 
-            // textBox1
+            // tbVlrVenda
             // 
-            this.textBox1.Location = new System.Drawing.Point(258, 266);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 27);
-            this.textBox1.TabIndex = 43;
+            this.tbVlrVenda.Location = new System.Drawing.Point(258, 266);
+            this.tbVlrVenda.Name = "tbVlrVenda";
+            this.tbVlrVenda.Size = new System.Drawing.Size(172, 27);
+            this.tbVlrVenda.TabIndex = 8;
             // 
             // mbMargem
             // 
@@ -245,7 +245,7 @@
             this.tbEstoqueMax.Location = new System.Drawing.Point(676, 373);
             this.tbEstoqueMax.Name = "tbEstoqueMax";
             this.tbEstoqueMax.Size = new System.Drawing.Size(188, 26);
-            this.tbEstoqueMax.TabIndex = 38;
+            this.tbEstoqueMax.TabIndex = 11;
             // 
             // label13
             // 
@@ -263,28 +263,7 @@
             this.tbEstoqueMin.Location = new System.Drawing.Point(676, 320);
             this.tbEstoqueMin.Name = "tbEstoqueMin";
             this.tbEstoqueMin.Size = new System.Drawing.Size(188, 26);
-            this.tbEstoqueMin.TabIndex = 36;
-            // 
-            // lblQtd
-            // 
-            this.lblQtd.AutoSize = true;
-            this.lblQtd.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQtd.Location = new System.Drawing.Point(673, 189);
-            this.lblQtd.Name = "lblQtd";
-            this.lblQtd.Size = new System.Drawing.Size(102, 17);
-            this.lblQtd.TabIndex = 35;
-            this.lblQtd.Text = "QUANTIDADE";
-            this.lblQtd.Visible = false;
-            // 
-            // tbEstoque
-            // 
-            this.tbEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEstoque.Location = new System.Drawing.Point(676, 212);
-            this.tbEstoque.Name = "tbEstoque";
-            this.tbEstoque.Size = new System.Drawing.Size(188, 26);
-            this.tbEstoque.TabIndex = 34;
-            this.tbEstoque.Text = "0";
-            this.tbEstoque.Visible = false;
+            this.tbEstoqueMin.TabIndex = 10;
             // 
             // label12
             // 
@@ -303,7 +282,7 @@
             this.tbRecomendacoes.Multiline = true;
             this.tbRecomendacoes.Name = "tbRecomendacoes";
             this.tbRecomendacoes.Size = new System.Drawing.Size(547, 109);
-            this.tbRecomendacoes.TabIndex = 30;
+            this.tbRecomendacoes.TabIndex = 12;
             // 
             // label11
             // 
@@ -346,7 +325,7 @@
             this.cbSeguimento.Location = new System.Drawing.Point(15, 212);
             this.cbSeguimento.Name = "cbSeguimento";
             this.cbSeguimento.Size = new System.Drawing.Size(143, 28);
-            this.cbSeguimento.TabIndex = 14;
+            this.cbSeguimento.TabIndex = 6;
             // 
             // label7
             // 
@@ -362,10 +341,10 @@
             // 
             this.mbDataValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbDataValidade.Location = new System.Drawing.Point(676, 104);
-            this.mbDataValidade.Mask = "####/##/##";
+            this.mbDataValidade.Mask = "##-##-####";
             this.mbDataValidade.Name = "mbDataValidade";
             this.mbDataValidade.Size = new System.Drawing.Size(188, 26);
-            this.mbDataValidade.TabIndex = 12;
+            this.mbDataValidade.TabIndex = 5;
             // 
             // label6
             // 
@@ -381,10 +360,10 @@
             // 
             this.mbDataFabri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbDataFabri.Location = new System.Drawing.Point(258, 162);
-            this.mbDataFabri.Mask = "####/##/##";
+            this.mbDataFabri.Mask = "##-##-####";
             this.mbDataFabri.Name = "mbDataFabri";
             this.mbDataFabri.Size = new System.Drawing.Size(117, 26);
-            this.mbDataFabri.TabIndex = 10;
+            this.mbDataFabri.TabIndex = 3;
             // 
             // label5
             // 
@@ -402,7 +381,7 @@
             this.tbLote.Location = new System.Drawing.Point(15, 162);
             this.tbLote.Name = "tbLote";
             this.tbLote.Size = new System.Drawing.Size(117, 26);
-            this.tbLote.TabIndex = 8;
+            this.tbLote.TabIndex = 4;
             // 
             // label4
             // 
@@ -420,7 +399,7 @@
             this.tbCod.Location = new System.Drawing.Point(676, 54);
             this.tbCod.Name = "tbCod";
             this.tbCod.Size = new System.Drawing.Size(188, 26);
-            this.tbCod.TabIndex = 6;
+            this.tbCod.TabIndex = 2;
             // 
             // label2
             // 
@@ -439,7 +418,7 @@
             this.cbFornecedor.Location = new System.Drawing.Point(15, 54);
             this.cbFornecedor.Name = "cbFornecedor";
             this.cbFornecedor.Size = new System.Drawing.Size(547, 28);
-            this.cbFornecedor.TabIndex = 2;
+            this.cbFornecedor.TabIndex = 0;
             this.cbFornecedor.SelectedIndexChanged += new System.EventHandler(this.cbFornecedor_SelectedIndexChanged);
             this.cbFornecedor.Leave += new System.EventHandler(this.cbFornecedor_Leave);
             // 
@@ -459,7 +438,7 @@
             this.tbDesc.Location = new System.Drawing.Point(15, 112);
             this.tbDesc.Name = "tbDesc";
             this.tbDesc.Size = new System.Drawing.Size(547, 26);
-            this.tbDesc.TabIndex = 0;
+            this.tbDesc.TabIndex = 1;
             // 
             // button1
             // 
@@ -474,6 +453,23 @@
             this.button1.TabIndex = 35;
             this.button1.Text = "ADICIONAR ESTOQUE";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // tbQuantidade
+            // 
+            this.tbQuantidade.Location = new System.Drawing.Point(676, 212);
+            this.tbQuantidade.Name = "tbQuantidade";
+            this.tbQuantidade.Size = new System.Drawing.Size(188, 27);
+            this.tbQuantidade.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F);
+            this.label3.Location = new System.Drawing.Point(673, 190);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 17);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "QUANTIDADE";
             // 
             // produtos
             // 
@@ -526,8 +522,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tbRecomendacoes;
-        private System.Windows.Forms.Label lblQtd;
-        private System.Windows.Forms.TextBox tbEstoque;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox tbEstoqueMax;
@@ -535,7 +529,9 @@
         private System.Windows.Forms.TextBox tbEstoqueMin;
         private System.Windows.Forms.MaskedTextBox mbMargem;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbVlrCusto;
+        private System.Windows.Forms.TextBox tbVlrVenda;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbQuantidade;
     }
 }

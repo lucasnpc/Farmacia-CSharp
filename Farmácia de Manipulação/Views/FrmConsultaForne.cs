@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Farmácia_de_Manipulação.Controladores;
+using Farmácia_de_Manipulação.Models;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Farmácia_de_Manipulação
@@ -12,52 +16,41 @@ namespace Farmácia_de_Manipulação
         }
 
         public static string cnpj_fornc;
+        private List<Fornecedor> fornecedores = new List<Fornecedor>();
 
         // Funcao que tras os dados do banco para a tela de consulta
         private void carregaGird()
         {
-            try
+            fornecedores = new FornecedorDAO().GetFornecedores();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("CNPJ", typeof(string));
+            dt.Columns.Add("Nome", typeof(string));
+            dt.Columns.Add("Número", typeof(string));
+            dt.Columns.Add("Rua", typeof(string));
+            dt.Columns.Add("Bairro", typeof(string));
+            dt.Columns.Add("Cidade", typeof(string));
+            dt.Columns.Add("Telefone 1", typeof(string));
+            dt.Columns.Add("Telefone 2", typeof(string));
+            dt.Columns.Add("E-mail", typeof(string));
+
+            foreach (Fornecedor f in fornecedores)
             {
-                AcessoBD.fecharConexao();
-                string sql = "select * from fornecedor";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
+                DataRow dr = dt.NewRow();
+                dr["CNPJ"] = f.cnpj;
+                dr["Nome"] = f.nome;
+                dr["Número"] = f.numero;
+                dr["Rua"] = f.rua;
+                dr["Bairro"] = f.bairro;
+                dr["Cidade"] = f.cidade;
+                dr["Telefone 1"] = f.tel1;
+                dr["Telefone 2"] = f.tel2;
+                dr["E-mail"] = f.email;
 
-                DataTable dt = new DataTable();
-                dt.Columns.Add("CNPJ", typeof(string));
-                dt.Columns.Add("Nome", typeof(string));
-                dt.Columns.Add("Número", typeof(string));
-                dt.Columns.Add("Rua", typeof(string));
-                dt.Columns.Add("Bairro", typeof(string));
-                dt.Columns.Add("Cidade", typeof(string));
-                dt.Columns.Add("Telefone 1", typeof(string));
-                dt.Columns.Add("Telefone 2", typeof(string));
-                dt.Columns.Add("E-mail", typeof(string));
-
-                while (AcessoBD.leitor.Read())
-                {
-                    DataRow dr = dt.NewRow();
-                    dr["CNPJ"] = AcessoBD.leitor["cnpj"].ToString();
-                    dr["Nome"] = AcessoBD.leitor["nome"].ToString();
-                    dr["Número"] = AcessoBD.leitor["numero"].ToString();
-                    dr["Rua"] = AcessoBD.leitor["rua"].ToString();
-                    dr["Bairro"] = AcessoBD.leitor["bairro"].ToString();
-                    dr["Cidade"] = AcessoBD.leitor["cidade"].ToString();
-                    dr["Telefone 1"] = AcessoBD.leitor["tel1"].ToString();
-                    dr["Telefone 2"] = AcessoBD.leitor["tel2"].ToString();
-                    dr["E-mail"] = AcessoBD.leitor["email"].ToString();
-
-                    dt.Rows.Add(dr);
-                }
-                gridConsultaFornc.DataSource = dt;
-                gridConsultaFornc.Update();
+                dt.Rows.Add(dr);
             }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
+            gridConsultaFornc.DataSource = dt;
+            gridConsultaFornc.Update();
         }
         // Fim cadastro
 
@@ -80,53 +73,43 @@ namespace Farmácia_de_Manipulação
             {
                 if (tbPesqFornc.Text != "")
                 {
+                    IEnumerable<Fornecedor> consultaFornecedor =
+                        from fornecedor in fornecedores
+                        where fornecedor.nome.Contains(tbPesqFornc.Text.ToUpper())
+                        select fornecedor;
 
-                    try
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("CNPJ", typeof(string));
+                    dt.Columns.Add("Nome", typeof(string));
+                    dt.Columns.Add("Número", typeof(string));
+                    dt.Columns.Add("Rua", typeof(string));
+                    dt.Columns.Add("Bairro", typeof(string));
+                    dt.Columns.Add("Cidade", typeof(string));
+                    dt.Columns.Add("Telefone 1", typeof(string));
+                    dt.Columns.Add("Telefone 2", typeof(string));
+                    dt.Columns.Add("E-mail", typeof(string));
+
+                    foreach (Fornecedor f in consultaFornecedor)
                     {
-                        AcessoBD.fecharConexao();
-                        string sql = "select * from fornecedor where nome LIKE '"+
-                            tbPesqFornc.Text + "%'";
-                        AcessoBD.abrirConexao();
-                        AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
-                        AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
+                        DataRow dr = dt.NewRow();
+                        dr["CNPJ"] = f.cnpj;
+                        dr["Nome"] = f.nome;
+                        dr["Número"] = f.numero;
+                        dr["Rua"] = f.rua;
+                        dr["Bairro"] = f.bairro;
+                        dr["Cidade"] = f.cidade;
+                        dr["Telefone 1"] = f.tel1;
+                        dr["Telefone 2"] = f.tel2;
+                        dr["E-mail"] = f.email;
 
-                        DataTable dt = new DataTable();
-                        dt.Columns.Add("CNPJ", typeof(string));
-                        dt.Columns.Add("Nome", typeof(string));
-                        dt.Columns.Add("Número", typeof(string));
-                        dt.Columns.Add("Rua", typeof(string));
-                        dt.Columns.Add("Bairro", typeof(string));
-                        dt.Columns.Add("Cidade", typeof(string));
-                        dt.Columns.Add("Telefone 1", typeof(string));
-                        dt.Columns.Add("Telefone 2", typeof(string));
-                        dt.Columns.Add("E-mail", typeof(string));
-
-                        while (AcessoBD.leitor.Read())
-                        {
-                            DataRow dr = dt.NewRow();
-                            dr["CNPJ"] = AcessoBD.leitor["cnpj"].ToString();
-                            dr["Nome"] = AcessoBD.leitor["nome"].ToString();
-                            dr["Número"] = AcessoBD.leitor["numero"].ToString();
-                            dr["Rua"] = AcessoBD.leitor["rua"].ToString();
-                            dr["Bairro"] = AcessoBD.leitor["bairro"].ToString();
-                            dr["Cidade"] = AcessoBD.leitor["cidade"].ToString();
-                            dr["Telefone 1"] = AcessoBD.leitor["tel1"].ToString();
-                            dr["Telefone 2"] = AcessoBD.leitor["tel2"].ToString();
-                            dr["E-mail"] = AcessoBD.leitor["email"].ToString();
-
-                            dt.Rows.Add(dr);
-                        }
-                        gridConsultaFornc.DataSource = dt;
-                        gridConsultaFornc.Update();
+                        dt.Rows.Add(dr);
                     }
-                    catch (Exception ex)
-                    {
+                    gridConsultaFornc.DataSource = dt;
+                    gridConsultaFornc.Update();
 
-                        MessageBox.Show(ex.Message);
-                    }
                 }
             }
-        }
 
+        }
     }
 }

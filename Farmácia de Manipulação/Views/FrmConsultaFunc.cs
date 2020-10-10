@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
+using Farmácia_de_Manipulação.Controladores;
+using Farmácia_de_Manipulação.Models;
 using Npgsql;
 
 namespace Farmácia_de_Manipulação
@@ -13,58 +17,47 @@ namespace Farmácia_de_Manipulação
         }
 
         public static string cpf_func;
+        private List<Funcionario> funcionarios = new List<Funcionario>();
 
         // Funcao que tras os dados do banco para a tela de consulta
         private void carregaGird()
         {
-            try
+            funcionarios = new FuncionarioDAO().GetFuncionarios();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("CPF", typeof(string));
+            dt.Columns.Add("Nome", typeof(string));
+            dt.Columns.Add("Data de Nascimento", typeof(string));
+            dt.Columns.Add("Número", typeof(string));
+            dt.Columns.Add("Rua", typeof(string));
+            dt.Columns.Add("Bairro", typeof(string));
+            dt.Columns.Add("Cidade", typeof(string));
+            dt.Columns.Add("Telefone 1", typeof(string));
+            dt.Columns.Add("Telefone 2", typeof(string));
+            dt.Columns.Add("E-mail", typeof(string));
+            dt.Columns.Add("Cargo", typeof(string));
+            dt.Columns.Add("Data de Admissão", typeof(string));
+
+            foreach (Funcionario funcionario in funcionarios)
             {
-                AcessoBD.fecharConexao();
-                string sql = "select * from funcionario";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
+                DataRow dr = dt.NewRow();
+                dr["CPF"] = funcionario.cpf;
+                dr["Nome"] = funcionario.nome;
+                dr["Data de Nascimento"] = funcionario.data_nascimento;
+                dr["Número"] = funcionario.numero_residencia;
+                dr["Rua"] = funcionario.rua;
+                dr["Bairro"] = funcionario.bairro;
+                dr["Cidade"] = funcionario.cidade;
+                dr["Telefone 1"] = funcionario.tel1;
+                dr["Telefone 2"] = funcionario.tel2;
+                dr["E-mail"] = funcionario.email;
+                dr["Cargo"] = funcionario.cargo;
+                dr["Data de Admissão"] = funcionario.data_admissao;
 
-                DataTable dt = new DataTable();
-                dt.Columns.Add("CPF", typeof(string));
-                dt.Columns.Add("Nome", typeof(string));
-                dt.Columns.Add("Data de Nascimento", typeof(string));
-                dt.Columns.Add("Número", typeof(string));
-                dt.Columns.Add("Rua", typeof(string));
-                dt.Columns.Add("Bairro", typeof(string));
-                dt.Columns.Add("Cidade", typeof(string));
-                dt.Columns.Add("Telefone 1", typeof(string));
-                dt.Columns.Add("Telefone 2", typeof(string));
-                dt.Columns.Add("E-mail", typeof(string));
-                dt.Columns.Add("Cargo", typeof(string));
-                dt.Columns.Add("Data de Admissão", typeof(string));
-
-                while (AcessoBD.leitor.Read())
-                {
-                    DataRow dr = dt.NewRow();
-                    dr["CPF"] = AcessoBD.leitor["cpf"].ToString();
-                    dr["Nome"] = AcessoBD.leitor["nome"].ToString();
-                    dr["Data de Nascimento"] = Convert.ToDateTime(AcessoBD.leitor["data_nasc"]).ToShortDateString();
-                    dr["Número"] = AcessoBD.leitor["numero"].ToString();
-                    dr["Rua"] = AcessoBD.leitor["rua"].ToString();
-                    dr["Bairro"] = AcessoBD.leitor["bairro"].ToString();
-                    dr["Cidade"] = AcessoBD.leitor["cidade"].ToString();
-                    dr["Telefone 1"] = AcessoBD.leitor["telefone1"].ToString();
-                    dr["Telefone 2"] = AcessoBD.leitor["telefone2"].ToString();
-                    dr["E-mail"] = AcessoBD.leitor["email"].ToString();
-                    dr["Cargo"] = AcessoBD.leitor["cargo"].ToString();
-                    dr["Data de Admissão"] = Convert.ToDateTime(AcessoBD.leitor["data_admissao"]).ToShortDateString();
-
-                    dt.Rows.Add(dr);
-                }
-                gridConsultaFunc.DataSource = dt;
-                gridConsultaFunc.Update();
+                dt.Rows.Add(dr);
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            gridConsultaFunc.DataSource = dt;
+            gridConsultaFunc.Update();
         }
         // Fim cadastro
 
@@ -91,56 +84,46 @@ namespace Farmácia_de_Manipulação
             {
                 if (tbPesqFunc.Text != string.Empty)
                 {
-                    try
+
+                    IEnumerable<Funcionario> consultaFunc =
+                        from funcionario in funcionarios
+                        where funcionario.nome.Contains(tbPesqFunc.Text.ToUpper())
+                        select funcionario;
+
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("CPF", typeof(string));
+                    dt.Columns.Add("Nome", typeof(string));
+                    dt.Columns.Add("Data de Nascimento", typeof(string));
+                    dt.Columns.Add("Número", typeof(string));
+                    dt.Columns.Add("Rua", typeof(string));
+                    dt.Columns.Add("Bairro", typeof(string));
+                    dt.Columns.Add("Cidade", typeof(string));
+                    dt.Columns.Add("Telefone 1", typeof(string));
+                    dt.Columns.Add("Telefone 2", typeof(string));
+                    dt.Columns.Add("E-mail", typeof(string));
+                    dt.Columns.Add("Cargo", typeof(string));
+                    dt.Columns.Add("Data de Admissão", typeof(string));
+
+                    foreach (Funcionario f in consultaFunc)
                     {
-                        AcessoBD.fecharConexao();
-                        string sql = "select * from funcionario where nome LIKE '" +
-                            tbPesqFunc.Text + "%'";
-                        AcessoBD.abrirConexao();
-                        AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                        AcessoBD.comando.Parameters.AddWithValue("@nome", tbPesqFunc.Text);
-                        AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
+                        DataRow dr = dt.NewRow();
+                        dr["CPF"] = f.cpf;
+                        dr["Nome"] = f.nome;
+                        dr["Data de Nascimento"] = f.data_nascimento;
+                        dr["Número"] = f.numero_residencia;
+                        dr["Rua"] = f.rua;
+                        dr["Bairro"] = f.bairro;
+                        dr["Cidade"] = f.cidade;
+                        dr["Telefone 1"] = f.tel1;
+                        dr["Telefone 2"] = f.tel2;
+                        dr["E-mail"] = f.email;
+                        dr["Cargo"] = f.cargo;
+                        dr["Data de Admissão"] = f.data_admissao;
 
-                        DataTable dt = new DataTable();
-                        dt.Columns.Add("CPF", typeof(string));
-                        dt.Columns.Add("Nome", typeof(string));
-                        dt.Columns.Add("Data de Nascimento", typeof(string));
-                        dt.Columns.Add("Número", typeof(string));
-                        dt.Columns.Add("Rua", typeof(string));
-                        dt.Columns.Add("Bairro", typeof(string));
-                        dt.Columns.Add("Cidade", typeof(string));
-                        dt.Columns.Add("Telefone 1", typeof(string));
-                        dt.Columns.Add("Telefone 2", typeof(string));
-                        dt.Columns.Add("E-mail", typeof(string));
-                        dt.Columns.Add("Cargo", typeof(string));
-                        dt.Columns.Add("Data de Admissão", typeof(string));
-
-                        while (AcessoBD.leitor.Read())
-                        {
-                            DataRow dr = dt.NewRow();
-                            dr["CPF"] = AcessoBD.leitor["cpf"].ToString();
-                            dr["Nome"] = AcessoBD.leitor["nome"].ToString();
-                            dr["Data de Nascimento"] = Convert.ToDateTime(AcessoBD.leitor["data_nasc"]).ToShortDateString();
-                            dr["Número"] = AcessoBD.leitor["numero"].ToString();
-                            dr["Rua"] = AcessoBD.leitor["rua"].ToString();
-                            dr["Bairro"] = AcessoBD.leitor["bairro"].ToString();
-                            dr["Cidade"] = AcessoBD.leitor["cidade"].ToString();
-                            dr["Telefone 1"] = AcessoBD.leitor["telefone1"].ToString();
-                            dr["Telefone 2"] = AcessoBD.leitor["telefone2"].ToString();
-                            dr["E-mail"] = AcessoBD.leitor["email"].ToString();
-                            dr["Cargo"] = AcessoBD.leitor["cargo"].ToString();
-                            dr["Data de Admissão"] = Convert.ToDateTime(AcessoBD.leitor["data_admissao"]).ToShortDateString();
-
-                            dt.Rows.Add(dr);
-                        }
-                        gridConsultaFunc.DataSource = dt;
-                        gridConsultaFunc.Update();
+                        dt.Rows.Add(dr);
                     }
-                    catch (Exception ex)
-                    {
-
-                        MessageBox.Show(ex.Message);
-                    }
+                    gridConsultaFunc.DataSource = dt;
+                    gridConsultaFunc.Update();
                 }
             }
         }

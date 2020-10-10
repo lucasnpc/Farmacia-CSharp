@@ -8,7 +8,7 @@ namespace Farmácia_de_Manipulação.Controladores
 {
     class ClienteDAO
     {
-        public List<Cliente> getClientes() {
+        public List<Cliente> GetClientes() {
             List<Cliente> list = new List<Cliente>();
             try
             {
@@ -22,13 +22,17 @@ namespace Farmácia_de_Manipulação.Controladores
                 {
                     list.Add(new Cliente()
                     {
-                        cpf = dataReader["cpf"].ToString(), nome = dataReader["nome"].ToString(),
-                        data_nascimento = dataReader["data_nasc"].ToString(), 
+                        cpf = dataReader["cpf"].ToString(),
+                        nome = dataReader["nome"].ToString(),
+                        data_nascimento = dataReader["data_nasc"].ToString(),
                         numero_residencia = dataReader["numero"].ToString(),
-                        rua = dataReader["rua"].ToString(), bairro = dataReader["bairro"].ToString(),
-                        cidade = dataReader["cidade"].ToString(), tel1 = dataReader["telefone1"].ToString(),
-                        tel2 = dataReader["telefone2"].ToString(), email = dataReader["email"].ToString(),
-                        cpffunc = dataReader["fk_funcionario"].ToString() 
+                        rua = dataReader["rua"].ToString(),
+                        bairro = dataReader["bairro"].ToString(),
+                        cidade = dataReader["cidade"].ToString(),
+                        tel1 = dataReader["telefone1"].ToString(),
+                        tel2 = dataReader["telefone2"].ToString(),
+                        email = dataReader["email"].ToString(),
+                        cpffunc = dataReader["fk_funcionario"].ToString()
                     });
                 }
                 dataReader.Close();

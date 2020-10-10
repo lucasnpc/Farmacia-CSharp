@@ -117,7 +117,7 @@ namespace Farmácia_de_Manipulação
             consulta.ShowDialog();
             if (cpf != null)
             {
-                List<Cliente> clientes = new ClienteDAO().getClientes();
+                List<Cliente> clientes = new ClienteDAO().GetClientes();
 
                 if (clientes != null)
                 {

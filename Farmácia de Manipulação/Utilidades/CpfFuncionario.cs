@@ -31,8 +31,9 @@ namespace Farmácia_de_Manipulação
         }
 
         //Usar nome do fornecedor na tela de produtos
-        public static void pegaNomeCnpjFornc(string nomeFornc)
+        public static string pegaNomeCnpjFornc(string nomeFornc)
         {
+            string cnpj;
             try
             {
                 AcessoBD.fecharConexao();
@@ -41,12 +42,15 @@ namespace Farmácia_de_Manipulação
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
                 AcessoBD.comando.Parameters.AddWithValue("@nome", nomeFornc);
                 AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
-                while (AcessoBD.leitor.Read())
+                if (AcessoBD.leitor.Read())
                 {
-                    produtos.cnpjForn = AcessoBD.leitor["cnpj"].ToString();
+                    cnpj = AcessoBD.leitor["cnpj"].ToString();
+                    return cnpj;
                 }
+                else
+                    return "";
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception) { throw; }
         }
     }
 }

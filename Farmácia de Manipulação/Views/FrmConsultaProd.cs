@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Farmácia_de_Manipulação.Controladores;
+using Farmácia_de_Manipulação.Models;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Farmácia_de_Manipulação
@@ -12,60 +16,47 @@ namespace Farmácia_de_Manipulação
         }
 
         public static string codProd;
+        List<Produto> produtos = new List<Produto>();
 
         // Funcao que tras os dados do banco para a tela de consulta
         private void carregaGird()
         {
-            try
+            produtos = new ProdutoDAO().GetProdutos();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Código", typeof(string));
+            dt.Columns.Add("Descrição", typeof(string));
+            dt.Columns.Add("Lote", typeof(string));
+            dt.Columns.Add("Data de fabricação", typeof(string));
+            dt.Columns.Add("Data de Validade", typeof(string));
+            dt.Columns.Add("Recomendações", typeof(string));
+            dt.Columns.Add("Quantidade", typeof(string));
+            dt.Columns.Add("Segmento", typeof(string));
+            dt.Columns.Add("Valor custo", typeof(string));
+            dt.Columns.Add("Valor venda", typeof(string));
+            dt.Columns.Add("Estoque Mínimo", typeof(string));
+            dt.Columns.Add("Estoque Máximo", typeof(string));
+
+            foreach (Produto p in produtos)
             {
-                AcessoBD.fecharConexao();
-                string sql = "select * from produto";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
+                DataRow dr = dt.NewRow();
+                dr["Código"] = p.codigo;
+                dr["Descrição"] = p.descricao;
+                dr["Lote"] = p.lote;
+                dr["Data de fabricação"] = Convert.ToDateTime(p.data_fabricacao).ToShortDateString();
+                dr["Data de validade"] = Convert.ToDateTime(p.data_validade).ToShortDateString();
+                dr["Recomendações"] = p.recomendacoes;
+                dr["Quantidade"] = p.quantidade.ToString();
+                dr["Segmento"] = p.segmento;
+                dr["Valor custo"] = p.valor_custo.ToString();
+                dr["Valor venda"] = p.valor_venda.ToString();
+                dr["Estoque Mínimo"] = p.estoqueminimo.ToString();
+                dr["Estoque Máximo"] = p.estoquemaximo.ToString();
 
-                DataTable dt = new DataTable();
-                dt.Columns.Add("Código", typeof(string));
-                dt.Columns.Add("Descrição", typeof(string));
-                dt.Columns.Add("Lote", typeof(string));
-                dt.Columns.Add("Data de fabricação", typeof(string));
-                dt.Columns.Add("Data de Validade", typeof(string));
-                dt.Columns.Add("Recomendações", typeof(string));
-                dt.Columns.Add("Medida", typeof(string));
-                dt.Columns.Add("Quantidade", typeof(string));
-                dt.Columns.Add("Segmento", typeof(string));
-                dt.Columns.Add("Valor custo", typeof(string));
-                dt.Columns.Add("Valor venda", typeof(string));
-                dt.Columns.Add("Estoque Mínimo", typeof(string));
-                dt.Columns.Add("Estoque Máximo", typeof(string));
-
-                while (AcessoBD.leitor.Read())
-                {
-                    DataRow dr = dt.NewRow();
-                    dr["Código"] = AcessoBD.leitor["codigo"].ToString();
-                    dr["Descrição"] = AcessoBD.leitor["descricao"].ToString();
-                    dr["Lote"] = AcessoBD.leitor["lote"].ToString();
-                    dr["Data de fabricação"] = Convert.ToDateTime(AcessoBD.leitor["data_fabricacao"]).ToShortDateString();
-                    dr["Data de validade"] = Convert.ToDateTime(AcessoBD.leitor["data_validade"]).ToShortDateString();
-                    dr["Recomendações"] = AcessoBD.leitor["recomendacoes"].ToString();
-                    dr["Medida"] = AcessoBD.leitor["medida"].ToString();
-                    dr["Quantidade"] = AcessoBD.leitor["quantidade"].ToString();
-                    dr["Segmento"] = AcessoBD.leitor["segmento"].ToString();
-                    dr["Valor custo"] = AcessoBD.leitor["valor_custo"].ToString();
-                    dr["Valor venda"] = AcessoBD.leitor["valor_venda"].ToString();
-                    dr["Estoque Mínimo"] = AcessoBD.leitor["estoqueMin"].ToString();
-                    dr["Estoque Máximo"] = AcessoBD.leitor["estoqueMax"].ToString();
-
-                    dt.Rows.Add(dr);
-                }
-                gridConsultaProd.DataSource = dt;
-                gridConsultaProd.Update();
+                dt.Rows.Add(dr);
             }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
+            gridConsultaProd.DataSource = dt;
+            gridConsultaProd.Update();
         }
         // Fim cadastro
 
@@ -78,7 +69,7 @@ namespace Farmácia_de_Manipulação
         private void gridConsultaProd_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             codProd = gridConsultaProd.CurrentRow.Cells[0].Value.ToString();
-            produtos.codProduto = codProd;
+            produto.codProduto = codProd;
             Close();
         }
 
@@ -86,60 +77,48 @@ namespace Farmácia_de_Manipulação
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (tbPesqProd.Text != "")
+                if (tbPesqProd.Text != string.Empty)
                 {
-                    try
+                    IEnumerable<Produto> consultaProdutos =
+                        from produto in produtos
+                        where produto.descricao.StartsWith(tbPesqProd.Text.ToUpper())
+                        select produto;
+
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("Código", typeof(string));
+                    dt.Columns.Add("Descrição", typeof(string));
+                    dt.Columns.Add("Lote", typeof(string));
+                    dt.Columns.Add("Data de fabricação", typeof(string));
+                    dt.Columns.Add("Data de Validade", typeof(string));
+                    dt.Columns.Add("Recomendações", typeof(string));
+                    dt.Columns.Add("Quantidade", typeof(string));
+                    dt.Columns.Add("Segmento", typeof(string));
+                    dt.Columns.Add("Valor custo", typeof(string));
+                    dt.Columns.Add("Valor venda", typeof(string));
+                    dt.Columns.Add("Estoque Mínimo", typeof(string));
+                    dt.Columns.Add("Estoque Máximo", typeof(string));
+
+                    foreach (Produto p in consultaProdutos)
                     {
-                        AcessoBD.fecharConexao();
-                        string sql = "select * from produto where descricao LIKE '"+
-                            tbPesqProd.Text+"%'";
-                        AcessoBD.abrirConexao();
-                        AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
-                        AcessoBD.comando.Parameters.AddWithValue("@descricao", tbPesqProd.Text);
-                        AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
+                        DataRow dr = dt.NewRow();
+                        dr["Código"] = p.codigo;
+                        dr["Descrição"] = p.descricao;
+                        dr["Lote"] = p.lote;
+                        dr["Data de fabricação"] = Convert.ToDateTime(p.data_fabricacao).ToShortDateString();
+                        dr["Data de validade"] = Convert.ToDateTime(p.data_validade).ToShortDateString();
+                        dr["Recomendações"] = p.recomendacoes;
+                        dr["Quantidade"] = p.quantidade.ToString();
+                        dr["Segmento"] = p.segmento;
+                        dr["Valor custo"] = p.valor_custo.ToString();
+                        dr["Valor venda"] = p.valor_venda.ToString();
+                        dr["Estoque Mínimo"] = p.estoqueminimo.ToString();
+                        dr["Estoque Máximo"] = p.estoquemaximo.ToString();
 
-                        DataTable dt = new DataTable();
-                        dt.Columns.Add("Código", typeof(string));
-                        dt.Columns.Add("Descrição", typeof(string));
-                        dt.Columns.Add("Lote", typeof(string));
-                        dt.Columns.Add("Data de fabricação", typeof(string));
-                        dt.Columns.Add("Data de Validade", typeof(string));
-                        dt.Columns.Add("Recomendações", typeof(string));
-                        dt.Columns.Add("Medida", typeof(string));
-                        dt.Columns.Add("Quantidade", typeof(string));
-                        dt.Columns.Add("Segmento", typeof(string));
-                        dt.Columns.Add("Valor custo", typeof(string));
-                        dt.Columns.Add("Valor venda", typeof(string));
-                        dt.Columns.Add("Estoque Mínimo", typeof(string));
-                        dt.Columns.Add("Estoque Máximo", typeof(string));
-
-                        while (AcessoBD.leitor.Read())
-                        {
-                            DataRow dr = dt.NewRow();
-                            dr["Código"] = AcessoBD.leitor["codigo"].ToString();
-                            dr["Descrição"] = AcessoBD.leitor["descricao"].ToString();
-                            dr["Lote"] = AcessoBD.leitor["lote"].ToString();
-                            dr["Data de fabricação"] = Convert.ToDateTime(AcessoBD.leitor["data_fabricacao"]).ToShortDateString();
-                            dr["Data de validade"] = Convert.ToDateTime(AcessoBD.leitor["data_validade"]).ToShortDateString();
-                            dr["Recomendações"] = AcessoBD.leitor["recomendacoes"].ToString();
-                            dr["Medida"] = AcessoBD.leitor["medida"].ToString();
-                            dr["Quantidade"] = AcessoBD.leitor["quantidade"].ToString();
-                            dr["Segmento"] = AcessoBD.leitor["segmento"].ToString();
-                            dr["Valor custo"] = AcessoBD.leitor["valor_custo"].ToString();
-                            dr["Valor venda"] = AcessoBD.leitor["valor_venda"].ToString();
-                            dr["Estoque Mínimo"] = AcessoBD.leitor["estoqueMin"].ToString();
-                            dr["Estoque Máximo"] = AcessoBD.leitor["estoqueMax"].ToString();
-
-                            dt.Rows.Add(dr);
-                        }
-                        gridConsultaProd.DataSource = dt;
-                        gridConsultaProd.Update();
+                        dt.Rows.Add(dr);
                     }
-                    catch (Exception ex)
-                    {
+                    gridConsultaProd.DataSource = dt;
+                    gridConsultaProd.Update();
 
-                        MessageBox.Show(ex.Message);
-                    }
 
                 }
             }

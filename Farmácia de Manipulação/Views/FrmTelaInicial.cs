@@ -48,7 +48,7 @@ namespace Farmácia_de_Manipulação
         private void produtosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
 
-            produtos produto = new produtos();
+            produto produto = new produto();
             produto.ShowDialog();
         }
 

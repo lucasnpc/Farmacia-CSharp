@@ -25,7 +25,7 @@ namespace Farmácia_de_Manipulação
 
         private void bProduto_Click(object sender, EventArgs e)
         {
-            produtos p = new produtos();
+            produto p = new produto();
             p.ShowDialog();
         }
 
