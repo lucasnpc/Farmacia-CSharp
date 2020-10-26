@@ -47,6 +47,7 @@
             // bRelatorioVenda
             // 
             this.bRelatorioVenda.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bRelatorioVenda.FlatAppearance.BorderSize = 0;
             this.bRelatorioVenda.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bRelatorioVenda.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bRelatorioVenda.Location = new System.Drawing.Point(31, 12);
@@ -61,6 +62,7 @@
             // 
             this.exportarPdf.BackColor = System.Drawing.Color.DodgerBlue;
             this.exportarPdf.Enabled = false;
+            this.exportarPdf.FlatAppearance.BorderSize = 0;
             this.exportarPdf.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exportarPdf.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.exportarPdf.Location = new System.Drawing.Point(923, 12);
@@ -74,6 +76,7 @@
             // FrmRelatorios
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1108, 635);
             this.Controls.Add(this.exportarPdf);
             this.Controls.Add(this.bRelatorioVenda);

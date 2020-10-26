@@ -71,7 +71,8 @@
             this.gbFornecedor.Controls.Add(this.label3);
             this.gbFornecedor.Controls.Add(this.mbCnpj);
             this.gbFornecedor.Controls.Add(this.label2);
-            this.gbFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbFornecedor.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbFornecedor.ForeColor = System.Drawing.Color.DodgerBlue;
             this.gbFornecedor.Location = new System.Drawing.Point(12, 12);
             this.gbFornecedor.Name = "gbFornecedor";
             this.gbFornecedor.Size = new System.Drawing.Size(948, 605);
@@ -81,6 +82,7 @@
             // 
             // tbMailFornc
             // 
+            this.tbMailFornc.BackColor = System.Drawing.Color.AliceBlue;
             this.tbMailFornc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMailFornc.Location = new System.Drawing.Point(31, 269);
             this.tbMailFornc.Name = "tbMailFornc";
@@ -90,16 +92,18 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label10.Location = new System.Drawing.Point(28, 248);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label10.Size = new System.Drawing.Size(65, 20);
+            this.label10.Size = new System.Drawing.Size(55, 18);
             this.label10.TabIndex = 45;
             this.label10.Text = "E-MAIL";
             // 
             // mbTel2
             // 
+            this.mbTel2.BackColor = System.Drawing.Color.AliceBlue;
             this.mbTel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbTel2.Location = new System.Drawing.Point(680, 176);
             this.mbTel2.Mask = "(##)#####-####";
@@ -110,15 +114,17 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label9.Location = new System.Drawing.Point(676, 155);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(111, 20);
+            this.label9.Size = new System.Drawing.Size(91, 18);
             this.label9.TabIndex = 43;
             this.label9.Text = "TELEFONE 2";
             // 
             // mbTel1
             // 
+            this.mbTel1.BackColor = System.Drawing.Color.AliceBlue;
             this.mbTel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbTel1.Location = new System.Drawing.Point(680, 115);
             this.mbTel1.Mask = "(##)#####-####";
@@ -129,10 +135,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label8.Location = new System.Drawing.Point(676, 97);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 20);
+            this.label8.Size = new System.Drawing.Size(86, 18);
             this.label8.TabIndex = 41;
             this.label8.Text = "TELEFONE1";
             // 
@@ -146,6 +153,7 @@
             this.gbEndereco.Controls.Add(this.label5);
             this.gbEndereco.Controls.Add(this.tbRuaFornc);
             this.gbEndereco.Controls.Add(this.label4);
+            this.gbEndereco.ForeColor = System.Drawing.Color.DodgerBlue;
             this.gbEndereco.Location = new System.Drawing.Point(31, 97);
             this.gbEndereco.Name = "gbEndereco";
             this.gbEndereco.Size = new System.Drawing.Size(573, 137);
@@ -155,6 +163,7 @@
             // 
             // tbCidadeFornc
             // 
+            this.tbCidadeFornc.BackColor = System.Drawing.Color.AliceBlue;
             this.tbCidadeFornc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCidadeFornc.Location = new System.Drawing.Point(255, 99);
             this.tbCidadeFornc.Name = "tbCidadeFornc";
@@ -164,16 +173,18 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label7.Location = new System.Drawing.Point(252, 81);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label7.Size = new System.Drawing.Size(73, 20);
+            this.label7.Size = new System.Drawing.Size(60, 18);
             this.label7.TabIndex = 46;
             this.label7.Text = "CIDADE";
             // 
             // tbBairroFornc
             // 
+            this.tbBairroFornc.BackColor = System.Drawing.Color.AliceBlue;
             this.tbBairroFornc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBairroFornc.Location = new System.Drawing.Point(16, 101);
             this.tbBairroFornc.Name = "tbBairroFornc";
@@ -183,16 +194,18 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label6.Location = new System.Drawing.Point(13, 82);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label6.Size = new System.Drawing.Size(73, 20);
+            this.label6.Size = new System.Drawing.Size(61, 18);
             this.label6.TabIndex = 44;
             this.label6.Text = "BAIRRO";
             // 
             // tbNumFornc
             // 
+            this.tbNumFornc.BackColor = System.Drawing.Color.AliceBlue;
             this.tbNumFornc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNumFornc.Location = new System.Drawing.Point(256, 50);
             this.tbNumFornc.Name = "tbNumFornc";
@@ -202,16 +215,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label5.Location = new System.Drawing.Point(252, 27);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label5.Size = new System.Drawing.Size(83, 20);
+            this.label5.Size = new System.Drawing.Size(68, 18);
             this.label5.TabIndex = 42;
             this.label5.Text = "NÚMERO";
             // 
             // tbRuaFornc
             // 
+            this.tbRuaFornc.BackColor = System.Drawing.Color.AliceBlue;
             this.tbRuaFornc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbRuaFornc.Location = new System.Drawing.Point(17, 51);
             this.tbRuaFornc.Name = "tbRuaFornc";
@@ -221,16 +236,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label4.Location = new System.Drawing.Point(13, 29);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label4.Size = new System.Drawing.Size(44, 20);
+            this.label4.Size = new System.Drawing.Size(36, 18);
             this.label4.TabIndex = 40;
             this.label4.Text = "RUA";
             // 
             // tbNomeFornc
             // 
+            this.tbNomeFornc.BackColor = System.Drawing.Color.AliceBlue;
             this.tbNomeFornc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNomeFornc.Location = new System.Drawing.Point(31, 57);
             this.tbNomeFornc.Name = "tbNomeFornc";
@@ -240,16 +257,18 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label3.Location = new System.Drawing.Point(28, 36);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(59, 20);
+            this.label3.Size = new System.Drawing.Size(49, 18);
             this.label3.TabIndex = 38;
             this.label3.Text = "NOME";
             // 
             // mbCnpj
             // 
+            this.mbCnpj.BackColor = System.Drawing.Color.AliceBlue;
             this.mbCnpj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbCnpj.Location = new System.Drawing.Point(680, 57);
             this.mbCnpj.Mask = "##.###.###/####-##";
@@ -260,20 +279,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label2.Location = new System.Drawing.Point(676, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 20);
+            this.label2.Size = new System.Drawing.Size(41, 18);
             this.label2.TabIndex = 36;
             this.label2.Text = "CNPJ";
             // 
             // bSairForn
             // 
-            this.bSairForn.BackColor = System.Drawing.Color.LightGray;
+            this.bSairForn.BackColor = System.Drawing.Color.DodgerBlue;
             this.bSairForn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bSairForn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bSairForn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bSairForn.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.bSairForn.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.bSairForn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bSairForn.Location = new System.Drawing.Point(966, 552);
             this.bSairForn.Name = "bSairForn";
             this.bSairForn.Size = new System.Drawing.Size(128, 56);
@@ -284,11 +305,12 @@
             // 
             // bConsultaForn
             // 
-            this.bConsultaForn.BackColor = System.Drawing.Color.LightGray;
+            this.bConsultaForn.BackColor = System.Drawing.Color.DodgerBlue;
             this.bConsultaForn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bConsultaForn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bConsultaForn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bConsultaForn.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.bConsultaForn.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.bConsultaForn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bConsultaForn.Location = new System.Drawing.Point(966, 266);
             this.bConsultaForn.Name = "bConsultaForn";
             this.bConsultaForn.Size = new System.Drawing.Size(128, 56);
@@ -299,11 +321,12 @@
             // 
             // bExcluiForn
             // 
-            this.bExcluiForn.BackColor = System.Drawing.Color.LightGray;
+            this.bExcluiForn.BackColor = System.Drawing.Color.DodgerBlue;
             this.bExcluiForn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bExcluiForn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bExcluiForn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bExcluiForn.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.bExcluiForn.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.bExcluiForn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bExcluiForn.Location = new System.Drawing.Point(966, 204);
             this.bExcluiForn.Name = "bExcluiForn";
             this.bExcluiForn.Size = new System.Drawing.Size(128, 56);
@@ -314,11 +337,12 @@
             // 
             // bAlteraForn
             // 
-            this.bAlteraForn.BackColor = System.Drawing.Color.LightGray;
+            this.bAlteraForn.BackColor = System.Drawing.Color.DodgerBlue;
             this.bAlteraForn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bAlteraForn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bAlteraForn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bAlteraForn.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.bAlteraForn.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.bAlteraForn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bAlteraForn.Location = new System.Drawing.Point(966, 142);
             this.bAlteraForn.Name = "bAlteraForn";
             this.bAlteraForn.Size = new System.Drawing.Size(128, 56);
@@ -329,11 +353,12 @@
             // 
             // bNovoForn
             // 
-            this.bNovoForn.BackColor = System.Drawing.Color.LightGray;
+            this.bNovoForn.BackColor = System.Drawing.Color.DodgerBlue;
             this.bNovoForn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bNovoForn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bNovoForn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bNovoForn.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.bNovoForn.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.bNovoForn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bNovoForn.Location = new System.Drawing.Point(966, 18);
             this.bNovoForn.Name = "bNovoForn";
             this.bNovoForn.Size = new System.Drawing.Size(128, 56);
@@ -344,11 +369,12 @@
             // 
             // bCadastraForn
             // 
-            this.bCadastraForn.BackColor = System.Drawing.Color.LightGray;
+            this.bCadastraForn.BackColor = System.Drawing.Color.DodgerBlue;
             this.bCadastraForn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bCadastraForn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bCadastraForn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bCadastraForn.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.bCadastraForn.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.bCadastraForn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bCadastraForn.Location = new System.Drawing.Point(966, 80);
             this.bCadastraForn.Name = "bCadastraForn";
             this.bCadastraForn.Size = new System.Drawing.Size(128, 56);
@@ -360,6 +386,7 @@
             // fornecedor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1108, 635);
             this.Controls.Add(this.bSairForn);
             this.Controls.Add(this.bConsultaForn);

@@ -160,8 +160,9 @@ namespace Farmácia_de_Manipulação
                     quantidade = v.quantidade,
                     valor_venda = v.valor_venda
                 }))
-                    MessageBox.Show("Venda Realizada com sucesso");
+                { }    
             }
+            MessageBox.Show("Venda Realizada com sucesso");
             limpar();
         }
         private void maskCpfCliVenda_KeyDown(object sender, KeyEventArgs e)

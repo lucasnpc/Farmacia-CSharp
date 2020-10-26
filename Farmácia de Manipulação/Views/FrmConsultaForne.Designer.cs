@@ -48,27 +48,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label1.Location = new System.Drawing.Point(5, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(310, 22);
+            this.label1.Size = new System.Drawing.Size(409, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "Entre com o nome do fornecedor desejado:";
             // 
             // tbPesqFornc
             // 
             this.tbPesqFornc.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPesqFornc.Location = new System.Drawing.Point(325, 12);
+            this.tbPesqFornc.Location = new System.Drawing.Point(416, 8);
             this.tbPesqFornc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPesqFornc.Name = "tbPesqFornc";
-            this.tbPesqFornc.Size = new System.Drawing.Size(571, 27);
+            this.tbPesqFornc.Size = new System.Drawing.Size(487, 27);
             this.tbPesqFornc.TabIndex = 6;
             this.tbPesqFornc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPesqFornc_KeyDown);
             // 
             // consultaFornc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(912, 444);
             this.Controls.Add(this.gridConsultaFornc);
             this.Controls.Add(this.label1);

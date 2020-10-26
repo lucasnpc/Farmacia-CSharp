@@ -35,6 +35,8 @@
             this.bNovoProduto = new System.Windows.Forms.Button();
             this.bCadastraProduto = new System.Windows.Forms.Button();
             this.gbProdutos = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbQuantidade = new System.Windows.Forms.TextBox();
             this.tbVlrCusto = new System.Windows.Forms.TextBox();
             this.tbVlrVenda = new System.Windows.Forms.TextBox();
             this.mbMargem = new System.Windows.Forms.MaskedTextBox();
@@ -62,18 +64,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbDesc = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.tbQuantidade = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.gbProdutos.SuspendLayout();
             this.SuspendLayout();
             // 
             // bSairProduto
             // 
-            this.bSairProduto.BackColor = System.Drawing.Color.LightGray;
+            this.bSairProduto.BackColor = System.Drawing.Color.DodgerBlue;
             this.bSairProduto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bSairProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bSairProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bSairProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSairProduto.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bSairProduto.Location = new System.Drawing.Point(967, 563);
             this.bSairProduto.Name = "bSairProduto";
             this.bSairProduto.Size = new System.Drawing.Size(129, 43);
@@ -84,11 +85,12 @@
             // 
             // bConsultaProduto
             // 
-            this.bConsultaProduto.BackColor = System.Drawing.Color.LightGray;
+            this.bConsultaProduto.BackColor = System.Drawing.Color.DodgerBlue;
             this.bConsultaProduto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bConsultaProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bConsultaProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bConsultaProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bConsultaProduto.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bConsultaProduto.Location = new System.Drawing.Point(967, 284);
             this.bConsultaProduto.Name = "bConsultaProduto";
             this.bConsultaProduto.Size = new System.Drawing.Size(129, 43);
@@ -99,11 +101,12 @@
             // 
             // bExcluiProduto
             // 
-            this.bExcluiProduto.BackColor = System.Drawing.Color.LightGray;
+            this.bExcluiProduto.BackColor = System.Drawing.Color.DodgerBlue;
             this.bExcluiProduto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bExcluiProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bExcluiProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bExcluiProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bExcluiProduto.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bExcluiProduto.Location = new System.Drawing.Point(967, 235);
             this.bExcluiProduto.Name = "bExcluiProduto";
             this.bExcluiProduto.Size = new System.Drawing.Size(129, 43);
@@ -114,11 +117,12 @@
             // 
             // bAlteraProduto
             // 
-            this.bAlteraProduto.BackColor = System.Drawing.Color.LightGray;
+            this.bAlteraProduto.BackColor = System.Drawing.Color.DodgerBlue;
             this.bAlteraProduto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bAlteraProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bAlteraProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bAlteraProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bAlteraProduto.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bAlteraProduto.Location = new System.Drawing.Point(967, 186);
             this.bAlteraProduto.Name = "bAlteraProduto";
             this.bAlteraProduto.Size = new System.Drawing.Size(129, 43);
@@ -129,11 +133,12 @@
             // 
             // bNovoProduto
             // 
-            this.bNovoProduto.BackColor = System.Drawing.Color.LightGray;
+            this.bNovoProduto.BackColor = System.Drawing.Color.DodgerBlue;
             this.bNovoProduto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bNovoProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bNovoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bNovoProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bNovoProduto.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bNovoProduto.Location = new System.Drawing.Point(967, 19);
             this.bNovoProduto.Name = "bNovoProduto";
             this.bNovoProduto.Size = new System.Drawing.Size(129, 43);
@@ -144,11 +149,12 @@
             // 
             // bCadastraProduto
             // 
-            this.bCadastraProduto.BackColor = System.Drawing.Color.LightGray;
+            this.bCadastraProduto.BackColor = System.Drawing.Color.DodgerBlue;
             this.bCadastraProduto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bCadastraProduto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bCadastraProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bCadastraProduto.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bCadastraProduto.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bCadastraProduto.Location = new System.Drawing.Point(967, 137);
             this.bCadastraProduto.Name = "bCadastraProduto";
             this.bCadastraProduto.Size = new System.Drawing.Size(129, 43);
@@ -187,7 +193,8 @@
             this.gbProdutos.Controls.Add(this.cbFornecedor);
             this.gbProdutos.Controls.Add(this.label1);
             this.gbProdutos.Controls.Add(this.tbDesc);
-            this.gbProdutos.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbProdutos.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbProdutos.ForeColor = System.Drawing.Color.DodgerBlue;
             this.gbProdutos.Location = new System.Drawing.Point(9, 12);
             this.gbProdutos.Name = "gbProdutos";
             this.gbProdutos.Size = new System.Drawing.Size(948, 605);
@@ -195,22 +202,43 @@
             this.gbProdutos.TabStop = false;
             this.gbProdutos.Text = "Dados Produto";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(673, 190);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 18);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "QUANTIDADE";
+            // 
+            // tbQuantidade
+            // 
+            this.tbQuantidade.BackColor = System.Drawing.Color.AliceBlue;
+            this.tbQuantidade.Location = new System.Drawing.Point(676, 212);
+            this.tbQuantidade.Name = "tbQuantidade";
+            this.tbQuantidade.Size = new System.Drawing.Size(188, 26);
+            this.tbQuantidade.TabIndex = 9;
+            // 
             // tbVlrCusto
             // 
+            this.tbVlrCusto.BackColor = System.Drawing.Color.AliceBlue;
             this.tbVlrCusto.Location = new System.Drawing.Point(15, 263);
             this.tbVlrCusto.Name = "tbVlrCusto";
-            this.tbVlrCusto.Size = new System.Drawing.Size(172, 27);
+            this.tbVlrCusto.Size = new System.Drawing.Size(172, 26);
             this.tbVlrCusto.TabIndex = 7;
             // 
             // tbVlrVenda
             // 
+            this.tbVlrVenda.BackColor = System.Drawing.Color.AliceBlue;
             this.tbVlrVenda.Location = new System.Drawing.Point(258, 266);
             this.tbVlrVenda.Name = "tbVlrVenda";
-            this.tbVlrVenda.Size = new System.Drawing.Size(172, 27);
+            this.tbVlrVenda.Size = new System.Drawing.Size(172, 26);
             this.tbVlrVenda.TabIndex = 8;
             // 
             // mbMargem
             // 
+            this.mbMargem.BackColor = System.Drawing.Color.AliceBlue;
             this.mbMargem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbMargem.Location = new System.Drawing.Point(676, 264);
             this.mbMargem.Mask = "##%";
@@ -222,25 +250,26 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(673, 245);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(179, 17);
+            this.label15.Size = new System.Drawing.Size(174, 18);
             this.label15.TabIndex = 41;
             this.label15.Text = "MARGEM DE LUCRO (%)";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(673, 352);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(206, 17);
+            this.label14.Size = new System.Drawing.Size(205, 18);
             this.label14.TabIndex = 39;
             this.label14.Text = "ESTOQUE MÁXIMO(KG/UND)";
             // 
             // tbEstoqueMax
             // 
+            this.tbEstoqueMax.BackColor = System.Drawing.Color.AliceBlue;
             this.tbEstoqueMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEstoqueMax.Location = new System.Drawing.Point(676, 373);
             this.tbEstoqueMax.Name = "tbEstoqueMax";
@@ -250,15 +279,16 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(673, 299);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(201, 17);
+            this.label13.Size = new System.Drawing.Size(203, 18);
             this.label13.TabIndex = 37;
             this.label13.Text = "ESTOQUE MÍNIMO(KG/UND)";
             // 
             // tbEstoqueMin
             // 
+            this.tbEstoqueMin.BackColor = System.Drawing.Color.AliceBlue;
             this.tbEstoqueMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEstoqueMin.Location = new System.Drawing.Point(676, 320);
             this.tbEstoqueMin.Name = "tbEstoqueMin";
@@ -268,15 +298,16 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(12, 298);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(146, 17);
+            this.label12.Size = new System.Drawing.Size(130, 18);
             this.label12.TabIndex = 31;
             this.label12.Text = "RECOMENDAÇÕES";
             // 
             // tbRecomendacoes
             // 
+            this.tbRecomendacoes.BackColor = System.Drawing.Color.AliceBlue;
             this.tbRecomendacoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbRecomendacoes.Location = new System.Drawing.Point(15, 320);
             this.tbRecomendacoes.Multiline = true;
@@ -287,35 +318,36 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(255, 244);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(141, 17);
+            this.label11.Size = new System.Drawing.Size(138, 18);
             this.label11.TabIndex = 27;
             this.label11.Text = "VALOR VENDA (R$)";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(12, 244);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(145, 17);
+            this.label10.Size = new System.Drawing.Size(140, 18);
             this.label10.TabIndex = 25;
             this.label10.Text = "VALOR CUSTO (R$)";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(12, 190);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 17);
+            this.label8.Size = new System.Drawing.Size(101, 18);
             this.label8.TabIndex = 15;
             this.label8.Text = "SEGUIMENTO";
             // 
             // cbSeguimento
             // 
+            this.cbSeguimento.BackColor = System.Drawing.Color.AliceBlue;
             this.cbSeguimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSeguimento.FormattingEnabled = true;
             this.cbSeguimento.Items.AddRange(new object[] {
@@ -330,15 +362,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(673, 81);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(141, 17);
+            this.label7.Size = new System.Drawing.Size(142, 18);
             this.label7.TabIndex = 13;
             this.label7.Text = "DATA DE VALIDADE";
             // 
             // mbDataValidade
             // 
+            this.mbDataValidade.BackColor = System.Drawing.Color.AliceBlue;
             this.mbDataValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbDataValidade.Location = new System.Drawing.Point(676, 104);
             this.mbDataValidade.Mask = "##-##-####";
@@ -349,15 +382,16 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(255, 140);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 17);
+            this.label6.Size = new System.Drawing.Size(162, 18);
             this.label6.TabIndex = 11;
             this.label6.Text = "DATA DE FABRICAÇÃO";
             // 
             // mbDataFabri
             // 
+            this.mbDataFabri.BackColor = System.Drawing.Color.AliceBlue;
             this.mbDataFabri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbDataFabri.Location = new System.Drawing.Point(258, 162);
             this.mbDataFabri.Mask = "##-##-####";
@@ -368,15 +402,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 140);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 17);
+            this.label5.Size = new System.Drawing.Size(44, 18);
             this.label5.TabIndex = 9;
             this.label5.Text = "LOTE";
             // 
             // tbLote
             // 
+            this.tbLote.BackColor = System.Drawing.Color.AliceBlue;
             this.tbLote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbLote.Location = new System.Drawing.Point(15, 162);
             this.tbLote.Name = "tbLote";
@@ -386,15 +421,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(673, 33);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 17);
+            this.label4.Size = new System.Drawing.Size(65, 18);
             this.label4.TabIndex = 7;
             this.label4.Text = "CÓDIGO";
             // 
             // tbCod
             // 
+            this.tbCod.BackColor = System.Drawing.Color.AliceBlue;
             this.tbCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCod.Location = new System.Drawing.Point(676, 54);
             this.tbCod.Name = "tbCod";
@@ -404,15 +440,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 17);
+            this.label2.Size = new System.Drawing.Size(173, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "NOME DO FORNECEDOR";
             // 
             // cbFornecedor
             // 
+            this.cbFornecedor.BackColor = System.Drawing.Color.AliceBlue;
             this.cbFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFornecedor.FormattingEnabled = true;
             this.cbFornecedor.Location = new System.Drawing.Point(15, 54);
@@ -425,15 +462,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 91);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(87, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "DESCRIÇÃO";
             // 
             // tbDesc
             // 
+            this.tbDesc.BackColor = System.Drawing.Color.AliceBlue;
             this.tbDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDesc.Location = new System.Drawing.Point(15, 112);
             this.tbDesc.Name = "tbDesc";
@@ -442,11 +480,12 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.LightGray;
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.button1.Location = new System.Drawing.Point(967, 68);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 63);
@@ -454,26 +493,10 @@
             this.button1.Text = "ADICIONAR ESTOQUE";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // tbQuantidade
-            // 
-            this.tbQuantidade.Location = new System.Drawing.Point(676, 212);
-            this.tbQuantidade.Name = "tbQuantidade";
-            this.tbQuantidade.Size = new System.Drawing.Size(188, 27);
-            this.tbQuantidade.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9F);
-            this.label3.Location = new System.Drawing.Point(673, 190);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 17);
-            this.label3.TabIndex = 46;
-            this.label3.Text = "QUANTIDADE";
-            // 
-            // produtos
+            // produto
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1108, 635);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gbProdutos);
@@ -485,7 +508,7 @@
             this.Controls.Add(this.bCadastraProduto);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.Name = "produtos";
+            this.Name = "produto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de produtos";
             this.Load += new System.EventHandler(this.produtos_Load);

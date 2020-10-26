@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.bFim = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button1 = new System.Windows.Forms.Button();
@@ -37,21 +36,6 @@
             this.btnVenda = new System.Windows.Forms.Button();
             this.btnRelatorio = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // bFim
-            // 
-            this.bFim.BackColor = System.Drawing.Color.PapayaWhip;
-            this.bFim.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bFim.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bFim.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bFim.Location = new System.Drawing.Point(1044, 636);
-            this.bFim.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bFim.Name = "bFim";
-            this.bFim.Size = new System.Drawing.Size(120, 47);
-            this.bFim.TabIndex = 16;
-            this.bFim.Text = "SAIR";
-            this.bFim.UseVisualStyleBackColor = false;
-            this.bFim.Click += new System.EventHandler(this.bFim_Click);
             // 
             // timer1
             // 
@@ -120,12 +104,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1179, 690);
             this.Controls.Add(this.btnRelatorio);
             this.Controls.Add(this.btnVenda);
             this.Controls.Add(this.btnCad);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.bFim);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -136,7 +120,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button bFim;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button button1;

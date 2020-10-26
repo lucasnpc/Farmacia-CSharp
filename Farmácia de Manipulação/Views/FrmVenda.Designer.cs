@@ -63,11 +63,8 @@
             // 
             // gbReceitaFormProd
             // 
-            this.gbReceitaFormProd.Controls.Add(this.label4);
-            this.gbReceitaFormProd.Controls.Add(this.tbPesqProdutos);
             this.gbReceitaFormProd.Controls.Add(this.lvProdutos);
             this.gbReceitaFormProd.Controls.Add(this.maskCpfCliVenda);
-            this.gbReceitaFormProd.Controls.Add(this.gridProdutos);
             this.gbReceitaFormProd.Controls.Add(this.label1);
             this.gbReceitaFormProd.Controls.Add(this.lblProduto);
             this.gbReceitaFormProd.Controls.Add(this.label8);
@@ -78,10 +75,11 @@
             this.gbReceitaFormProd.Controls.Add(this.tbSubTotal);
             this.gbReceitaFormProd.Controls.Add(this.tbNomeCliente);
             this.gbReceitaFormProd.Controls.Add(this.label2);
-            this.gbReceitaFormProd.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbReceitaFormProd.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbReceitaFormProd.ForeColor = System.Drawing.Color.DodgerBlue;
             this.gbReceitaFormProd.Location = new System.Drawing.Point(9, 91);
             this.gbReceitaFormProd.Name = "gbReceitaFormProd";
-            this.gbReceitaFormProd.Size = new System.Drawing.Size(1087, 441);
+            this.gbReceitaFormProd.Size = new System.Drawing.Size(705, 441);
             this.gbReceitaFormProd.TabIndex = 0;
             this.gbReceitaFormProd.TabStop = false;
             this.gbReceitaFormProd.Text = "Dados da Venda";
@@ -89,17 +87,19 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(714, 22);
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label4.Location = new System.Drawing.Point(717, 114);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(182, 17);
+            this.label4.Size = new System.Drawing.Size(167, 18);
             this.label4.TabIndex = 30;
             this.label4.Text = "PESQUISAR PRODUTOS";
             // 
             // tbPesqProdutos
             // 
+            this.tbPesqProdutos.BackColor = System.Drawing.Color.AliceBlue;
             this.tbPesqProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPesqProdutos.Location = new System.Drawing.Point(717, 45);
+            this.tbPesqProdutos.Location = new System.Drawing.Point(720, 133);
             this.tbPesqProdutos.Name = "tbPesqProdutos";
             this.tbPesqProdutos.Size = new System.Drawing.Size(352, 24);
             this.tbPesqProdutos.TabIndex = 29;
@@ -107,6 +107,7 @@
             // 
             // lvProdutos
             // 
+            this.lvProdutos.BackColor = System.Drawing.Color.AliceBlue;
             this.lvProdutos.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvProdutos.HideSelection = false;
             this.lvProdutos.Location = new System.Drawing.Point(11, 202);
@@ -117,6 +118,7 @@
             // 
             // maskCpfCliVenda
             // 
+            this.maskCpfCliVenda.BackColor = System.Drawing.Color.AliceBlue;
             this.maskCpfCliVenda.Font = new System.Drawing.Font("Arial", 10F);
             this.maskCpfCliVenda.Location = new System.Drawing.Point(11, 99);
             this.maskCpfCliVenda.Mask = "000.000.000-00";
@@ -128,7 +130,7 @@
             // gridProdutos
             // 
             this.gridProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridProdutos.Location = new System.Drawing.Point(717, 75);
+            this.gridProdutos.Location = new System.Drawing.Point(720, 164);
             this.gridProdutos.Name = "gridProdutos";
             this.gridProdutos.RowHeadersWidth = 51;
             this.gridProdutos.Size = new System.Drawing.Size(352, 250);
@@ -138,45 +140,46 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9F);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(8, 79);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 17);
+            this.label1.Size = new System.Drawing.Size(96, 18);
             this.label1.TabIndex = 26;
             this.label1.Text = "CPF CLIENTE";
             // 
             // lblProduto
             // 
             this.lblProduto.AutoSize = true;
-            this.lblProduto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProduto.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProduto.Location = new System.Drawing.Point(273, 311);
             this.lblProduto.Name = "lblProduto";
-            this.lblProduto.Size = new System.Drawing.Size(173, 23);
+            this.lblProduto.Size = new System.Drawing.Size(213, 29);
             this.lblProduto.TabIndex = 24;
             this.lblProduto.Text = "NOME PRODUTO";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(385, 23);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 17);
+            this.label8.Size = new System.Drawing.Size(101, 18);
             this.label8.TabIndex = 20;
             this.label8.Text = "QUANTIDADE";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(7, 26);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(147, 17);
+            this.label7.Size = new System.Drawing.Size(139, 18);
             this.label7.TabIndex = 21;
             this.label7.Text = "CÓDIGO PRODUTO";
             // 
             // tbQuantidade
             // 
+            this.tbQuantidade.BackColor = System.Drawing.Color.AliceBlue;
             this.tbQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbQuantidade.Location = new System.Drawing.Point(388, 42);
             this.tbQuantidade.Name = "tbQuantidade";
@@ -187,15 +190,16 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(274, 365);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 17);
+            this.label6.Size = new System.Drawing.Size(87, 18);
             this.label6.TabIndex = 17;
             this.label6.Text = "SUB-TOTAL";
             // 
             // tbCodProduto
             // 
+            this.tbCodProduto.BackColor = System.Drawing.Color.AliceBlue;
             this.tbCodProduto.Enabled = false;
             this.tbCodProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCodProduto.Location = new System.Drawing.Point(11, 45);
@@ -205,6 +209,7 @@
             // 
             // tbSubTotal
             // 
+            this.tbSubTotal.BackColor = System.Drawing.Color.AliceBlue;
             this.tbSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSubTotal.Location = new System.Drawing.Point(277, 384);
             this.tbSubTotal.Name = "tbSubTotal";
@@ -214,6 +219,7 @@
             // 
             // tbNomeCliente
             // 
+            this.tbNomeCliente.BackColor = System.Drawing.Color.AliceBlue;
             this.tbNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNomeCliente.Location = new System.Drawing.Point(11, 155);
             this.tbNomeCliente.Name = "tbNomeCliente";
@@ -224,15 +230,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(8, 135);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 17);
+            this.label2.Size = new System.Drawing.Size(138, 18);
             this.label2.TabIndex = 2;
             this.label2.Text = "NOME DO CLIENTE";
             // 
             // tbDesconto
             // 
+            this.tbDesconto.BackColor = System.Drawing.Color.AliceBlue;
             this.tbDesconto.Location = new System.Drawing.Point(329, 573);
             this.tbDesconto.Name = "tbDesconto";
             this.tbDesconto.ReadOnly = true;
@@ -242,25 +249,28 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label15.Location = new System.Drawing.Point(326, 555);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(93, 17);
+            this.label15.Size = new System.Drawing.Size(85, 18);
             this.label15.TabIndex = 25;
             this.label15.Text = "DESCONTO";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label16.Location = new System.Drawing.Point(631, 555);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(112, 17);
+            this.label16.Size = new System.Drawing.Size(105, 18);
             this.label16.TabIndex = 26;
             this.label16.Text = "PREÇO TOTAL";
             // 
             // tbTotal
             // 
+            this.tbTotal.BackColor = System.Drawing.Color.AliceBlue;
             this.tbTotal.Location = new System.Drawing.Point(634, 574);
             this.tbTotal.Name = "tbTotal";
             this.tbTotal.Size = new System.Drawing.Size(141, 24);
@@ -268,31 +278,38 @@
             // 
             // bRealizaPedido
             // 
+            this.bRealizaPedido.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bRealizaPedido.FlatAppearance.BorderSize = 0;
             this.bRealizaPedido.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bRealizaPedido.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bRealizaPedido.Location = new System.Drawing.Point(949, 558);
             this.bRealizaPedido.Name = "bRealizaPedido";
             this.bRealizaPedido.Size = new System.Drawing.Size(147, 40);
             this.bRealizaPedido.TabIndex = 28;
             this.bRealizaPedido.Text = "REALIZAR VENDA";
-            this.bRealizaPedido.UseVisualStyleBackColor = true;
+            this.bRealizaPedido.UseVisualStyleBackColor = false;
             this.bRealizaPedido.Click += new System.EventHandler(this.bRealizaPedido_Click);
             // 
             // bSair
             // 
+            this.bSair.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bSair.FlatAppearance.BorderSize = 0;
             this.bSair.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSair.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bSair.Location = new System.Drawing.Point(9, 555);
             this.bSair.Name = "bSair";
             this.bSair.Size = new System.Drawing.Size(147, 40);
             this.bSair.TabIndex = 29;
             this.bSair.Text = "SAIR";
-            this.bSair.UseVisualStyleBackColor = true;
+            this.bSair.UseVisualStyleBackColor = false;
             this.bSair.Click += new System.EventHandler(this.bSair_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tbNomeFuncionario);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.DodgerBlue;
             this.groupBox1.Location = new System.Drawing.Point(9, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1087, 70);
@@ -302,6 +319,7 @@
             // 
             // tbNomeFuncionario
             // 
+            this.tbNomeFuncionario.BackColor = System.Drawing.Color.AliceBlue;
             this.tbNomeFuncionario.Enabled = false;
             this.tbNomeFuncionario.Font = new System.Drawing.Font("Arial", 10F);
             this.tbNomeFuncionario.Location = new System.Drawing.Point(202, 26);
@@ -312,21 +330,25 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9F);
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 17);
+            this.label3.Size = new System.Drawing.Size(179, 18);
             this.label3.TabIndex = 0;
             this.label3.Text = "NOME DO FUNCIONÁRIO";
             // 
             // venda
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1108, 635);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.tbPesqProdutos);
             this.Controls.Add(this.bSair);
             this.Controls.Add(this.bRealizaPedido);
             this.Controls.Add(this.tbTotal);
+            this.Controls.Add(this.gridProdutos);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.tbDesconto);

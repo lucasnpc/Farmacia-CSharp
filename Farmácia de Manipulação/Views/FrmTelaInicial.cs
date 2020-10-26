@@ -25,37 +25,6 @@ namespace Farmácia_de_Manipulação
         private void menubom_Load(object sender, EventArgs e)
         {
         }
-        //Menus strips
-        private void funcionáriosToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            new funcionario().ShowDialog();
-        }
-
-        private void clientesToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-
-            new cliente().ShowDialog();
-        }
-
-
-        private void fornecedorToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-
-            fornecedor fornc = new fornecedor();
-            fornc.ShowDialog();
-        }
-
-        private void produtosToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-
-            produto produto = new produto();
-            produto.ShowDialog();
-        }
-
-        private void bFim_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {

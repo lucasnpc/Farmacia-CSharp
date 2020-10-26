@@ -54,10 +54,6 @@ namespace Farmácia_de_Manipulação
         {
             tbUser.Focus();
         }
-        private void bEncerra_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         private void bEntra_Click(object sender, EventArgs e)
         {
             try
