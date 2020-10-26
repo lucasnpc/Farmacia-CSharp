@@ -175,6 +175,8 @@ namespace Farmácia_de_Manipulação
                             tbEstoqueMin.Text = produto.estoqueminimo.ToString();
                             tbQuantidade.Text = produto.quantidade.ToString();
                             tbRecomendacoes.Text = produto.recomendacoes;
+                            tbVlrCusto.Text = produto.valor_custo.ToString();
+                            tbVlrVenda.Text = produto.valor_venda.ToString();
                             mbDataFabri.Text = produto.data_fabricacao;
                             mbDataValidade.Text = produto.data_validade;
                             statusAlter();
@@ -193,7 +195,7 @@ namespace Farmácia_de_Manipulação
         {
             if (new ProdutoDAO().Atualiza(new Produto
             {
-                descricao = tbDesc.Text.Trim(),
+                descricao = tbDesc.Text.Trim().ToUpper(),
                 codigo = tbCod.Text.Trim(),
                 lote = tbLote.Text.Trim(),
                 data_fabricacao = Convert.ToDateTime(mbDataFabri.Text).ToShortDateString(),

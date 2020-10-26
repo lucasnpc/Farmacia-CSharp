@@ -45,20 +45,17 @@ namespace Farmácia_de_Manipulação.Controladores
             try
             {
                 AcessoBD.fecharConexao();
-                string sql = "INSERT INTO vendas(cod_venda," +
-                    "fk_produto," +
+                string sql = "INSERT INTO vendas(fk_produto," +
                     "fk_cliente," +
                     "fk_funcionario," +
                     "quantidade," +
-                    "valor_venda) values(@cod_venda," +
-                    "@fk-produto," +
+                    "valor_venda) values(@fk_produto," +
                     "@fk_cliente," +
                     "@fk_funcionario," +
                     "@quantidade," +
                     "@valor_venda)";
                 AcessoBD.abrirConexao();
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.comando.Parameters.AddWithValue("@cod_venda", venda.cod_venda);
                 AcessoBD.comando.Parameters.AddWithValue("@fk_produto", venda.cod_produto);
                 AcessoBD.comando.Parameters.AddWithValue("@fk_cliente", venda.cod_cliente) ;
                 AcessoBD.comando.Parameters.AddWithValue("@fk_funcionario", venda.cod_funcionario);

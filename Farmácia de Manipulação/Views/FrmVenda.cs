@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
+using Farmácia_de_Manipulação.Controladores;
+using Farmácia_de_Manipulação.Models;
 using Npgsql;
 
 namespace Farmácia_de_Manipulação
@@ -13,14 +17,19 @@ namespace Farmácia_de_Manipulação
         }
 
         double valor = 0, valorTotal;
-        public static double valorFormula = 0;
-        double qtd = 0;
-        string idProduto = "";
-        public static int idFormula = 0;
-        int idPedido = 0;
-        public static string cpfCli = "", nomeCli = "", nomeFormula = "";
-        int I = 0;
+        List<Produto> produtos = new List<Produto>();
+        List<Venda> vendas = new List<Venda>();
 
+        private void limpar()
+        {
+            tbNomeCliente.Text = "";
+            tbCodProduto.Text = "";
+            tbQuantidade.Text = "";
+            tbSubTotal.Text = "";
+            gbReceitaFormProd.Enabled = false;
+            valor = 0;
+            valorTotal = 0;
+        }
         private void calcularPreco(double valor,double qtd, int acesso)
         {
             try
@@ -28,236 +37,156 @@ namespace Farmácia_de_Manipulação
                 if (acesso == 0)
                 {
                     tbSubTotal.Text = Convert.ToString(string.Format("{0:n}", (valor * qtd)));
-                    valorFormula += Convert.ToDouble(tbSubTotal.Text);
-                    valorTotal += valorFormula;
                 }
                 if (acesso == 1)
                 {
-                    valorTotal += valorFormula;
+                    
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
-
         private void addProduto(string codProduto,string nomeProduto,double preco)
         {
             try
             {
-                ListViewItem lt = new ListViewItem(codProduto);
-                lt.SubItems.Add(nomeProduto);
-                lt.SubItems.Add(tbDosagem.Text);
-                lt.SubItems.Add(Convert.ToString(string.Format("{0:n}", preco)));
+                ListViewItem lt1 = new ListViewItem(codProduto);
+                ListViewItem lt2 = new ListViewItem(nomeProduto);
+                ListViewItem lt3 = new ListViewItem(string.Format("{0:n}", preco));
+                lvProdutos.Items.AddRange(new ListViewItem[] { lt1,lt2,lt3 });
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+        private void carregaProduto()
+        {
+            produtos = new ProdutoDAO().GetProdutos();
 
-        private void limpar()
-        {
-            tbNomePaciente.Text = "";
-            tbCodProduto.Text = "";
-            tbDosagem.Text = "";
-            tbSubTotal.Text = "";
-            gbReceitaFormProd.Enabled = false;
-            valor = 0;
-            valorFormula = 0;
-            valorTotal = 0;
-        }
-        private void limparPedido()
-        {
-            try
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Código", typeof(string));
+            dt.Columns.Add("Descrição", typeof(string));
+            dt.Columns.Add("Preço", typeof(string));
+
+            foreach (Produto p in produtos)
             {
-                tbPgtoAntecipado.Text = "";
-                tbTotal.Text = "";
-                gbReceitaFormProd.Enabled = true;
-                gridProdutos.DataSource = null;
-                idPedido = 0;
+                DataRow dr = dt.NewRow();
+                dr["Código"] = p.codigo;
+                dr["Descrição"] = p.descricao;
+                dr["Preço"] = p.valor_venda;
 
+                dt.Rows.Add(dr);
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+            gridProdutos.DataSource = dt;
+            gridProdutos.Update();
         }
-
-        private void carregaProduto(int ID)
+        private void gridProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            tbCodProduto.Text = gridProdutos.CurrentRow.Cells[0].Value.ToString();
+            lblProduto.Text = gridProdutos.CurrentRow.Cells[1].Value.ToString();
+            valor = int.Parse(gridProdutos.CurrentRow.Cells[2].Value.ToString());
+        }
+        private void tbPesqProdutos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                AcessoBD.fecharConexao();
-                string sql = "SELECT DISTINCT codigo, descricao, valor_venda FROM produto,receita_formula_produto " +
-                "WHERE receita_formula_produto.cod_produto = produto.codigo AND " +
-                "receita_formula_produto.id_formula = @id;";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.comando.Parameters.AddWithValue("@id", ID);
-                AcessoBD.comando.ExecuteNonQuery();
-                NpgsqlDataReader leitor = AcessoBD.comando.ExecuteReader();
-
-                DataTable dt = new DataTable();
-                dt.Columns.Add("Código", typeof(string));
-                dt.Columns.Add("Descrição", typeof(string));
-                dt.Columns.Add("Preço", typeof(string));
-
-                while (leitor.Read())
+                if (tbPesqProdutos.Text != string.Empty)
                 {
-                    DataRow dr = dt.NewRow();
-                    dr["Código"] = leitor["codigo"].ToString();
-                    dr["Descrição"] = leitor["descricao"].ToString();
-                    dr["Preço"] = leitor["valor_venda"].ToString();
+                    IEnumerable<Produto> consultaProduto =
+                        from produto in produtos
+                        where produto.descricao.Contains(tbPesqProdutos.Text.ToUpper())
+                        select produto;
 
-                    dt.Rows.Add(dr);
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("Código", typeof(string));
+                    dt.Columns.Add("Descrição", typeof(string));
+                    dt.Columns.Add("Preço", typeof(string));
+
+                    foreach (Produto p in consultaProduto)
+                    {
+                        DataRow dr = dt.NewRow();
+                        dr["Código"] = p.codigo;
+                        dr["Descrição"] = p.descricao;
+                        dr["Preço"] = p.valor_venda;
+
+                        dt.Rows.Add(dr);
+                    }
+
+                    gridProdutos.DataSource = dt;
+                    gridProdutos.Update();
                 }
-
-                gridProdutos.DataSource = dt;
-                gridProdutos.Update();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-
-        }
-
-        //REGISTRA O PEDIDO
-        private void registraPedido()
-        {
-            try
-            {
-                AcessoBD.fecharConexao();
-                string sql = "INSERT INTO pedido(fk_funcionario," +
-                    "fk_cliente," +
-                    "fk_receita," +
-                    "data_encomenda," +
-                    "data_retirada," +
-                    "pgto_antecipado," +
-                    "preco_total) VALUES(@fk_funcionario," +
-                    "@fk_cliente," +
-                    "@fk_receita," +
-                    "@data_encomenda," +
-                    "@data_retirada," +
-                    "@pgto_antecipado," +
-                    "@preco_total)";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.comando.Parameters.AddWithValue("@fk_funcionario", CpfFuncionario.cpfFunc);
-                AcessoBD.comando.Parameters.AddWithValue("@pgto_antecipado", double.Parse(tbPgtoAntecipado.Text));
-                AcessoBD.comando.Parameters.AddWithValue("@preco_total", double.Parse(tbTotal.Text));
-
-                AcessoBD.comando.ExecuteNonQuery();
-
-                MessageBox.Show("Pedido realizado com sucesso.");
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
+                else
+                    carregaProduto();
             }
         }
-        private void trasIdPedido()
+        private void tbQuantidade_KeyDown(object sender, KeyEventArgs e)
         {
-            try
+            maskCpfCliVenda.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (e.KeyCode == Keys.Enter)
             {
-                AcessoBD.fecharConexao();
-                string sql = "SELECT MAX(id_pedido)AS id_pedido FROM pedido";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
-                if (AcessoBD.leitor.Read())
-                    idPedido = int.Parse(AcessoBD.leitor["id_pedido"].ToString());
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-        private void registraPedidoCliente(int id)
-        {
-            try
-            {
-                AcessoBD.fecharConexao();
-                string sql = "INSERT INTO pedido_cliente(fk_cliente,fk_pedido) values(@fk_cliente,@fk_pedido)";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.comando.Parameters.AddWithValue("@fk_pedido", id);
-                AcessoBD.comando.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }
-        //fim
-
-        #region
-            //baixa estoque
-       /* private void baixaEstoque()
-        {
-            string cod;
-            try
-            {
-                double estoqueAtual = 0;
-                conexao.fecharConexao();
-                string sql = "SELECT codigo,quantidade FROM produto,formula,receita_formula_produto " +
-                    "WHERE formula.id = receita_formula_produto.id_formula AND " +
-                    "receita_formula_produto.cod_produto = produto.codigo;";
-                conexao.abrirConexao();
-                conexao.comando = new MySqlCommand(sql, conexao.conecta);
-                conexao.leitor = conexao.comando.ExecuteReader();
-                while (conexao.leitor.Read())
+                if (int.Parse(tbQuantidade.Text) > 0 && tbQuantidade.Text != "")
                 {
-                    cod = conexao.leitor["codigo"].ToString();
-                    estoqueAtual = int.Parse(conexao.leitor["quantidade"].ToString());
-                    estoqueAtual = estoqueAtual - qtdParaEstoque[I];
-                    conexao.fecharConexao();          
-                    conexao.abrirConexao();
-                    I++;
+                    calcularPreco(valor, int.Parse(tbQuantidade.Text), 0);
+                    addProduto(tbCodProduto.Text, lblProduto.Text, valor);
+                    vendas.Add(new Venda
+                    {
+                        cod_cliente = maskCpfCliVenda.Text,
+                        cod_funcionario = CpfFuncionario.cpfFunc,
+                        cod_produto = tbCodProduto.Text,
+                        quantidade = int.Parse(tbQuantidade.Text),
+                        valor_venda = double.Parse(tbSubTotal.Text)
+                    });
+
+                    lblProduto.Text = "";
+                    tbCodProduto.Text = "";
+                    tbQuantidade.Text = "";
+                    tbQuantidade.Focus();
+
+                    valorTotal += double.Parse(tbSubTotal.Text);
+
+                    if (tbDesconto.Text != "")
+                        valorTotal -= (valorTotal * 0.1);
+                    tbTotal.Text = valorTotal.ToString();
                 }
             }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }*/
-        
-#endregion;
-
-        //Trazer informacoes do produto
-        private void tbCodProduto_KeyDown(object sender, KeyEventArgs e)
-        {
         }
-
+        private void bRealizaPedido_Click(object sender, EventArgs e)
+        {
+            foreach (Venda v in vendas)
+            {
+                if (new VendaDAO().Insere(new Venda
+                {
+                    cod_cliente = v.cod_cliente,
+                    cod_funcionario = v.cod_funcionario,
+                    cod_produto = v.cod_produto,
+                    quantidade = v.quantidade,
+                    valor_venda = v.valor_venda
+                }))
+                    MessageBox.Show("Venda Realizada com sucesso");
+            }
+            limpar();
+        }
+        private void maskCpfCliVenda_KeyDown(object sender, KeyEventArgs e)
+        {
+            maskCpfCliVenda.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (e.KeyCode == Keys.Enter)
+            {
+                tbNomeCliente.Text = new CpfFuncionario().getNomeCliente(maskCpfCliVenda.Text);
+                if (tbNomeCliente.Text == "")
+                {
+                    MessageBox.Show("Nenhum Cliente encontrado.");
+                }
+                else
+                    tbDesconto.Text = "10%";
+            }
+        }
         private void bSair_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void venda_Load(object sender, EventArgs e)
         {
             tbNomeFuncionario.Text = new CpfFuncionario().GetNomeFuncionario(CpfFuncionario.cpfFunc);
+            carregaProduto();
+            maskCpfCliVenda.Focus();
         }
-
-        private void bRealizaPedido_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cbFormulas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tbPgtoAntecipado.Focus();
-        }
-
-        //Define o preço
-        private void tbDosagem_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
-            {
-                if (int.Parse(tbDosagem.Text) > 0 && tbDosagem.Text != "")
-                {
-                    qtd = double.Parse(tbDosagem.Text);
-                    calcularPreco(valor, qtd, 0);
-                    addProduto(tbCodProduto.Text, lblProduto.Text, valor);
-                    I++;
-
-                    lblProduto.Text = "";
-                    tbCodProduto.Text = "";
-                    tbDosagem.Text = "";
-                    tbCodProduto.Focus();
-                }
-            }
-        }
-        //fim
     }
 }

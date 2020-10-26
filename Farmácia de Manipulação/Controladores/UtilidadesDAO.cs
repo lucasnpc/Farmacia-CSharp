@@ -78,5 +78,29 @@ namespace Farmácia_de_Manipulação
                 throw;
             }
         }
+
+        public string getNomeCliente(string cpfCli)
+        {
+            try
+            {
+                AcessoBD.fecharConexao();
+                string sql = "select nome from clientes where cpf = @cpf";
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@cpf", cpfCli);
+                AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
+                if (AcessoBD.leitor.Read())
+                {
+                    return AcessoBD.leitor["nome"].ToString();
+                }
+                else
+                    return "";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
