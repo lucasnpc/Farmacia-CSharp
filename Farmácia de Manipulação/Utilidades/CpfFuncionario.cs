@@ -6,15 +6,17 @@ namespace Farmácia_de_Manipulação
 {
     class CpfFuncionario
     {
-        //Usar nome do funcionario nas telas de cadastro
         public static string cpfFunc;
-        public string trasNomeFunc(string cpf)
+        public static bool administrador = false;
+
+        //Usar nome do funcionario nas telas de cadastro
+        public string GetNomeFuncionario(string cpf)
         {
             string nomeFunc = "";
             try
             {
                 AcessoBD.fecharConexao();
-                string sql = "select nome from funcionario where cpf = @cpf";
+                string sql = "select nome from funcionarios where cpf = @cpf";
                 AcessoBD.abrirConexao();
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
                 AcessoBD.comando.Parameters.AddWithValue("@cpf", cpf);
@@ -31,13 +33,13 @@ namespace Farmácia_de_Manipulação
         }
 
         //Usar nome do fornecedor na tela de produtos
-        public static string pegaNomeCnpjFornc(string nomeFornc)
+        public string GetCnpjFornecedor(string nomeFornc)
         {
             string cnpj;
             try
             {
                 AcessoBD.fecharConexao();
-                string sql = "SELECT * FROM fornecedor WHERE nome = @nome";
+                string sql = "SELECT * FROM fornecedores WHERE nome = @nome";
                 AcessoBD.abrirConexao();
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
                 AcessoBD.comando.Parameters.AddWithValue("@nome", nomeFornc);
@@ -51,6 +53,30 @@ namespace Farmácia_de_Manipulação
                     return "";
             }
             catch (Exception) { throw; }
+        }
+
+        //Trazer CPF do funcionario
+        public void GetCpfFunc(string usuario)
+        {
+            try
+            {
+                AcessoBD.fecharConexao();
+                string sql = "select cpf from funcionarios where usuario = @usuario";
+                AcessoBD.abrirConexao();
+                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
+                AcessoBD.comando.Parameters.AddWithValue("@usuario", usuario);
+                AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
+
+                if (AcessoBD.leitor.Read())
+                {
+                    cpfFunc = AcessoBD.leitor["cpf"].ToString();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

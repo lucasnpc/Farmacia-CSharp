@@ -70,7 +70,7 @@
             this.bSairCli.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bSairCli.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSairCli.Location = new System.Drawing.Point(968, 554);
-            this.bSairCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bSairCli.Margin = new System.Windows.Forms.Padding(4);
             this.bSairCli.Name = "bSairCli";
             this.bSairCli.Size = new System.Drawing.Size(128, 56);
             this.bSairCli.TabIndex = 27;
@@ -86,7 +86,7 @@
             this.bConsultaCli.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bConsultaCli.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bConsultaCli.Location = new System.Drawing.Point(972, 279);
-            this.bConsultaCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bConsultaCli.Margin = new System.Windows.Forms.Padding(4);
             this.bConsultaCli.Name = "bConsultaCli";
             this.bConsultaCli.Size = new System.Drawing.Size(128, 56);
             this.bConsultaCli.TabIndex = 26;
@@ -102,7 +102,7 @@
             this.bExcluiCli.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bExcluiCli.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bExcluiCli.Location = new System.Drawing.Point(972, 215);
-            this.bExcluiCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bExcluiCli.Margin = new System.Windows.Forms.Padding(4);
             this.bExcluiCli.Name = "bExcluiCli";
             this.bExcluiCli.Size = new System.Drawing.Size(128, 56);
             this.bExcluiCli.TabIndex = 25;
@@ -118,7 +118,7 @@
             this.bAlteraCli.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bAlteraCli.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAlteraCli.Location = new System.Drawing.Point(972, 149);
-            this.bAlteraCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bAlteraCli.Margin = new System.Windows.Forms.Padding(4);
             this.bAlteraCli.Name = "bAlteraCli";
             this.bAlteraCli.Size = new System.Drawing.Size(128, 56);
             this.bAlteraCli.TabIndex = 24;
@@ -134,7 +134,7 @@
             this.bNovoCli.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bNovoCli.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bNovoCli.Location = new System.Drawing.Point(972, 21);
-            this.bNovoCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bNovoCli.Margin = new System.Windows.Forms.Padding(4);
             this.bNovoCli.Name = "bNovoCli";
             this.bNovoCli.Size = new System.Drawing.Size(128, 56);
             this.bNovoCli.TabIndex = 22;
@@ -150,7 +150,7 @@
             this.bCadastraCli.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bCadastraCli.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bCadastraCli.Location = new System.Drawing.Point(972, 85);
-            this.bCadastraCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bCadastraCli.Margin = new System.Windows.Forms.Padding(4);
             this.bCadastraCli.Name = "bCadastraCli";
             this.bCadastraCli.Size = new System.Drawing.Size(128, 56);
             this.bCadastraCli.TabIndex = 23;
@@ -177,9 +177,9 @@
             this.gbCli.Controls.Add(this.mbCpf);
             this.gbCli.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCli.Location = new System.Drawing.Point(12, 16);
-            this.gbCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCli.Margin = new System.Windows.Forms.Padding(4);
             this.gbCli.Name = "gbCli";
-            this.gbCli.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCli.Padding = new System.Windows.Forms.Padding(4);
             this.gbCli.Size = new System.Drawing.Size(948, 605);
             this.gbCli.TabIndex = 21;
             this.gbCli.TabStop = false;
@@ -187,12 +187,12 @@
             // 
             // tbNomeFuncAtende
             // 
-            this.tbNomeFuncAtende.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNomeFuncAtende.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNomeFuncAtende.Location = new System.Drawing.Point(20, 69);
-            this.tbNomeFuncAtende.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNomeFuncAtende.Margin = new System.Windows.Forms.Padding(4);
             this.tbNomeFuncAtende.Name = "tbNomeFuncAtende";
             this.tbNomeFuncAtende.ReadOnly = true;
-            this.tbNomeFuncAtende.Size = new System.Drawing.Size(677, 26);
+            this.tbNomeFuncAtende.Size = new System.Drawing.Size(677, 27);
             this.tbNomeFuncAtende.TabIndex = 17;
             // 
             // label11
@@ -210,7 +210,7 @@
             // 
             this.tbMailCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMailCli.Location = new System.Drawing.Point(20, 397);
-            this.tbMailCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMailCli.Margin = new System.Windows.Forms.Padding(4);
             this.tbMailCli.Name = "tbMailCli";
             this.tbMailCli.Size = new System.Drawing.Size(677, 26);
             this.tbMailCli.TabIndex = 11;
@@ -230,7 +230,7 @@
             // 
             this.mbTel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbTel2.Location = new System.Drawing.Point(724, 290);
-            this.mbTel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbTel2.Margin = new System.Windows.Forms.Padding(4);
             this.mbTel2.Mask = "(00)00000-0000";
             this.mbTel2.Name = "mbTel2";
             this.mbTel2.Size = new System.Drawing.Size(216, 26);
@@ -251,7 +251,7 @@
             // 
             this.mbTel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbTel1.Location = new System.Drawing.Point(724, 211);
-            this.mbTel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbTel1.Margin = new System.Windows.Forms.Padding(4);
             this.mbTel1.Mask = "(00)00000-0000";
             this.mbTel1.Name = "mbTel1";
             this.mbTel1.Size = new System.Drawing.Size(216, 26);
@@ -280,9 +280,9 @@
             this.gbEndereco.Controls.Add(this.label4);
             this.gbEndereco.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEndereco.Location = new System.Drawing.Point(20, 171);
-            this.gbEndereco.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbEndereco.Margin = new System.Windows.Forms.Padding(4);
             this.gbEndereco.Name = "gbEndereco";
-            this.gbEndereco.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbEndereco.Padding = new System.Windows.Forms.Padding(4);
             this.gbEndereco.Size = new System.Drawing.Size(679, 197);
             this.gbEndereco.TabIndex = 6;
             this.gbEndereco.TabStop = false;
@@ -292,7 +292,7 @@
             // 
             this.tbCidadeCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCidadeCli.Location = new System.Drawing.Point(356, 146);
-            this.tbCidadeCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCidadeCli.Margin = new System.Windows.Forms.Padding(4);
             this.tbCidadeCli.Name = "tbCidadeCli";
             this.tbCidadeCli.Size = new System.Drawing.Size(296, 26);
             this.tbCidadeCli.TabIndex = 10;
@@ -301,7 +301,7 @@
             // 
             this.tbBairroCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBairroCli.Location = new System.Drawing.Point(356, 61);
-            this.tbBairroCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbBairroCli.Margin = new System.Windows.Forms.Padding(4);
             this.tbBairroCli.Name = "tbBairroCli";
             this.tbBairroCli.Size = new System.Drawing.Size(296, 26);
             this.tbBairroCli.TabIndex = 8;
@@ -310,7 +310,7 @@
             // 
             this.tbRuaCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbRuaCli.Location = new System.Drawing.Point(12, 146);
-            this.tbRuaCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbRuaCli.Margin = new System.Windows.Forms.Padding(4);
             this.tbRuaCli.Name = "tbRuaCli";
             this.tbRuaCli.Size = new System.Drawing.Size(296, 26);
             this.tbRuaCli.TabIndex = 9;
@@ -319,7 +319,7 @@
             // 
             this.tbNumeroCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNumeroCli.Location = new System.Drawing.Point(12, 57);
-            this.tbNumeroCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNumeroCli.Margin = new System.Windows.Forms.Padding(4);
             this.tbNumeroCli.Name = "tbNumeroCli";
             this.tbNumeroCli.Size = new System.Drawing.Size(296, 26);
             this.tbNumeroCli.TabIndex = 7;
@@ -372,7 +372,7 @@
             // 
             this.mbDataNasc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbDataNasc.Location = new System.Drawing.Point(724, 134);
-            this.mbDataNasc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbDataNasc.Margin = new System.Windows.Forms.Padding(4);
             this.mbDataNasc.Mask = "##-##-####";
             this.mbDataNasc.Name = "mbDataNasc";
             this.mbDataNasc.Size = new System.Drawing.Size(216, 26);
@@ -393,7 +393,7 @@
             // 
             this.tbNomeCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNomeCli.Location = new System.Drawing.Point(20, 134);
-            this.tbNomeCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNomeCli.Margin = new System.Windows.Forms.Padding(4);
             this.tbNomeCli.Name = "tbNomeCli";
             this.tbNomeCli.Size = new System.Drawing.Size(677, 26);
             this.tbNomeCli.TabIndex = 1;
@@ -424,7 +424,7 @@
             // 
             this.mbCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbCpf.Location = new System.Drawing.Point(724, 70);
-            this.mbCpf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mbCpf.Margin = new System.Windows.Forms.Padding(4);
             this.mbCpf.Mask = "000.000.000-00";
             this.mbCpf.Name = "mbCpf";
             this.mbCpf.Size = new System.Drawing.Size(216, 26);
@@ -444,7 +444,7 @@
             this.Controls.Add(this.bCadastraCli);
             this.Controls.Add(this.gbCli);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "cliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Clientes";

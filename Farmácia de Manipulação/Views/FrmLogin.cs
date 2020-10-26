@@ -9,38 +9,32 @@ namespace Farmácia_de_Manipulação
         {
             InitializeComponent();
         }
-        private string cpfFunc;
 
-        private void retornaNomeFunc(string usuario)
-        {
-            try
+        private bool verificaAdmin() {
+            AcessoBD.fecharConexao();
+            string sql = "SELECT * FROM administrador WHERE usuario = @usuario and senha = @senha";
+            AcessoBD.abrirConexao();
+
+            AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
+            AcessoBD.comando.Parameters.AddWithValue("@usuario", tbUser.Text);
+            AcessoBD.comando.Parameters.AddWithValue("@senha", tbPw.Text);
+
+            AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
+
+            if (AcessoBD.leitor.Read())
             {
-                AcessoBD.fecharConexao();
-                string sql = "select cpf from funcionario where usuario = @usuario";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.comando.Parameters.AddWithValue("@usuario", usuario);
-                AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
-
-                if (AcessoBD.leitor.Read())
-                {
-                    cpfFunc = AcessoBD.leitor["cpf"].ToString();
-                }
+                CpfFuncionario.administrador = true;
+                return true;
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            else
+                return false;
         }
-
         private bool verificaUsuario()
         {
-            int I = 0;
             try
             {
                 AcessoBD.fecharConexao();
-                string sql = "SELECT * FROM funcionario WHERE usuario = @usuario and senha = @senha";
+                string sql = "SELECT * FROM funcionarios WHERE usuario = @usuario and senha = @senha";
                 AcessoBD.abrirConexao();
 
                 AcessoBD.comando = new Npgsql.NpgsqlCommand(sql, AcessoBD.conecta);
@@ -49,11 +43,7 @@ namespace Farmácia_de_Manipulação
 
                 AcessoBD.leitor = AcessoBD.comando.ExecuteReader();
 
-                while (AcessoBD.leitor.Read())
-                {
-                    I = I + 1;
-                }
-                if (I > 0)
+                if (AcessoBD.leitor.Read())
                     return true;
                 else
                     return false;
@@ -64,12 +54,10 @@ namespace Farmácia_de_Manipulação
         {
             tbUser.Focus();
         }
-
         private void bEncerra_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void bEntra_Click(object sender, EventArgs e)
         {
             try
@@ -85,7 +73,6 @@ namespace Farmácia_de_Manipulação
             }
             catch (Exception) { }
         }
-
         private void tbPw_KeyDown(object sender, KeyEventArgs e)
         {
             if (tbPw.Text != "")
@@ -94,10 +81,14 @@ namespace Farmácia_de_Manipulação
                 {
                     try
                     {
-                        if (verificaUsuario())
+                        if (verificaAdmin())
                         {
-                            retornaNomeFunc(tbUser.Text);
-                            CpfFuncionario.cpfFunc = cpfFunc;
+                            menu menu = new menu();
+                            menu.ShowDialog();
+                        }
+                        else if (verificaUsuario()) 
+                        {
+                            new CpfFuncionario().GetCpfFunc(tbUser.Text);
                             menu menu = new menu();
                             menu.ShowDialog();
                         }

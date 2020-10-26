@@ -2,21 +2,18 @@
 using Npgsql;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Farmácia_de_Manipulação.Controladores
 {
     class ProdutoDAO
     {
-        public bool Insere(Models.Produto produto)
+        public bool Insere(Produto produto)
         {
             try
             {
                 AcessoBD.fecharConexao();
-                string sql = "INSERT INTO produto(descricao," +
+                string sql = "INSERT INTO produtos(descricao," +
                     "codigo," +
                     "lote," +
                     "data_fabricacao," +
@@ -67,21 +64,21 @@ namespace Farmácia_de_Manipulação.Controladores
             }
         }
 
-        public List<Models.Produto> GetProdutos()
+        public List<Produto> GetProdutos()
         {
-            List<Models.Produto> list = new List<Models.Produto>();
+            List<Produto> list = new List<Produto>();
 
             try
             {
                 AcessoBD.fecharConexao();
                 AcessoBD.abrirConexao();
-                string sql = "select * from produto";
+                string sql = "select * from produtos";
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
                 AcessoBD.comando.ExecuteNonQuery();
                 NpgsqlDataReader dataReader = AcessoBD.comando.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    list.Add(new Models.Produto
+                    list.Add(new Produto
                     {
                         codigo = dataReader["codigo"].ToString(),
                         descricao = dataReader["descricao"].ToString(),
@@ -107,12 +104,12 @@ namespace Farmácia_de_Manipulação.Controladores
             return list;
         }
 
-        public bool Atualiza(Models.Produto produto)
+        public bool Atualiza(Produto produto)
         {
             try
             {
                 AcessoBD.fecharConexao();
-                string sql = "UPDATE produto SET descricao = @descricao," +
+                string sql = "UPDATE produtos SET descricao = @descricao," +
                     "data_fabricacao = @data_fabricacao," +
                     "data_validade = @data_validade," +
                     "recomendacoes = @recomendacoes," +
@@ -158,7 +155,7 @@ namespace Farmácia_de_Manipulação.Controladores
             {
                 AcessoBD.fecharConexao();
                 AcessoBD.abrirConexao();
-                string sql = "DELETE FROM produto WHERE codigo = @codigo";
+                string sql = "DELETE FROM produtos WHERE codigo = @codigo";
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
                 AcessoBD.comando.Parameters.AddWithValue("@codigo", codProduto);
                 if (AcessoBD.comando.ExecuteNonQuery() == 1)

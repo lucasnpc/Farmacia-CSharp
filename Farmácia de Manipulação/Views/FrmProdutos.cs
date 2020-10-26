@@ -75,7 +75,7 @@ namespace Farmácia_de_Manipulação
             try
             {
                 AcessoBD.fecharConexao();
-                string sql = "select nome,cnpj from fornecedor " +
+                string sql = "select nome,cnpj from fornecedores " +
                     "order by nome";
                 AcessoBD.abrirConexao();
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
@@ -118,7 +118,7 @@ namespace Farmácia_de_Manipulação
         {
 
             string nomedoFornecedor = cbFornecedor.Text;
-            CpfFuncionario.pegaNomeCnpjFornc(nomedoFornecedor);
+            new CpfFuncionario().GetCnpjFornecedor(nomedoFornecedor);
         }
 
         private void bNovoCli_Click(object sender, EventArgs e)
@@ -130,9 +130,9 @@ namespace Farmácia_de_Manipulação
         {
             if (tbDesc.Text != "" && tbCod.Text != "" && mbDataFabri.Text != "    -  -" && mbDataValidade.Text != "    -  -")
             {
-                if (new ProdutoDAO().Insere(new Models.Produto
+                if (new ProdutoDAO().Insere(new Produto
                 {
-                    descricao = tbDesc.Text.Trim(),
+                    descricao = tbDesc.Text.Trim().ToUpper(),
                     codigo = tbCod.Text.Trim(),
                     lote = tbLote.Text.Trim(),
                     data_fabricacao = Convert.ToDateTime(mbDataFabri.Text).ToShortDateString(),
@@ -144,7 +144,7 @@ namespace Farmácia_de_Manipulação
                     estoquemaximo = int.Parse(tbEstoqueMax.Text),
                     valor_custo = double.Parse(tbVlrCusto.Text),
                     valor_venda = double.Parse(tbVlrVenda.Text),
-                    cnpjfornecedor = CpfFuncionario.pegaNomeCnpjFornc(cbFornecedor.Text)
+                    cnpjfornecedor = new CpfFuncionario().GetCnpjFornecedor(cbFornecedor.Text)
                 }))
                     MessageBox.Show("Produto registrado com sucesso.");
                 limpar();
@@ -159,11 +159,11 @@ namespace Farmácia_de_Manipulação
             consulta.ShowDialog();
             if (codProduto != null)
             {
-                List<produto> produtos = new ProdutoDAO().GetProdutos();
+                List<Produto> produtos = new ProdutoDAO().GetProdutos();
 
                 if (produtos != null)
                 {
-                    foreach (produto produto in produtos)
+                    foreach (Produto produto in produtos)
                     {
                         if (produto.codigo.Equals(codProduto))
                         {
@@ -191,7 +191,7 @@ namespace Farmácia_de_Manipulação
 
         private void bAlteraProduto_Click(object sender, EventArgs e)
         {
-            if (new ProdutoDAO().Atualiza(new Models.Produto
+            if (new ProdutoDAO().Atualiza(new Produto
             {
                 descricao = tbDesc.Text.Trim(),
                 codigo = tbCod.Text.Trim(),
@@ -205,7 +205,7 @@ namespace Farmácia_de_Manipulação
                 estoquemaximo = int.Parse(tbEstoqueMax.Text),
                 valor_custo = double.Parse(tbVlrCusto.Text),
                 valor_venda = double.Parse(tbVlrVenda.Text),
-                cnpjfornecedor = CpfFuncionario.pegaNomeCnpjFornc(cbFornecedor.Text)
+                cnpjfornecedor = new CpfFuncionario().GetCnpjFornecedor(cbFornecedor.Text)
 
             }))
                 MessageBox.Show("Produto atualizado com sucesso.");

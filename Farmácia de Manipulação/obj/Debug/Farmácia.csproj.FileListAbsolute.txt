@@ -691,7 +691,6 @@ C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\D
 C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\Debug\Farmácia_de_Manipulação.funcionario.resources
 C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\Debug\Farmácia_de_Manipulação.login.resources
 C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\Debug\Farmácia_de_Manipulação.menu.resources
-C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\Debug\Farmácia_de_Manipulação.produtos.resources
 C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\Debug\Farmácia_de_Manipulação.Properties.Resources.resources
 C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\Debug\Farmácia.csproj.GenerateResource.cache
 C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\Debug\Farmácia.csproj.CoreCompileInputs.cache
@@ -705,3 +704,4 @@ C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\bin\D
 C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\bin\Debug\System.Reflection.TypeExtensions.dll
 C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\bin\Debug\System.Security.AccessControl.dll
 C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Lucas\Documents\GitHub\Farmacia-CSharp\Farmácia de Manipulação\obj\Debug\Farmácia_de_Manipulação.produto.resources

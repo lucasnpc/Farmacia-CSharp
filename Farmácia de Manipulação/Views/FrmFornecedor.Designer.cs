@@ -48,8 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.mbCnpj = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbNomeFunc = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.bSairForn = new System.Windows.Forms.Button();
             this.bConsultaForn = new System.Windows.Forms.Button();
             this.bExcluiForn = new System.Windows.Forms.Button();
@@ -73,8 +71,6 @@
             this.gbFornecedor.Controls.Add(this.label3);
             this.gbFornecedor.Controls.Add(this.mbCnpj);
             this.gbFornecedor.Controls.Add(this.label2);
-            this.gbFornecedor.Controls.Add(this.tbNomeFunc);
-            this.gbFornecedor.Controls.Add(this.label1);
             this.gbFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFornecedor.Location = new System.Drawing.Point(12, 12);
             this.gbFornecedor.Name = "gbFornecedor";
@@ -86,7 +82,7 @@
             // tbMailFornc
             // 
             this.tbMailFornc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMailFornc.Location = new System.Drawing.Point(21, 327);
+            this.tbMailFornc.Location = new System.Drawing.Point(31, 269);
             this.tbMailFornc.Name = "tbMailFornc";
             this.tbMailFornc.Size = new System.Drawing.Size(573, 26);
             this.tbMailFornc.TabIndex = 10;
@@ -95,7 +91,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(18, 306);
+            this.label10.Location = new System.Drawing.Point(28, 248);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label10.Size = new System.Drawing.Size(65, 20);
@@ -150,7 +146,7 @@
             this.gbEndereco.Controls.Add(this.label5);
             this.gbEndereco.Controls.Add(this.tbRuaFornc);
             this.gbEndereco.Controls.Add(this.label4);
-            this.gbEndereco.Location = new System.Drawing.Point(21, 155);
+            this.gbEndereco.Location = new System.Drawing.Point(31, 97);
             this.gbEndereco.Name = "gbEndereco";
             this.gbEndereco.Size = new System.Drawing.Size(573, 137);
             this.gbEndereco.TabIndex = 3;
@@ -236,7 +232,7 @@
             // tbNomeFornc
             // 
             this.tbNomeFornc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNomeFornc.Location = new System.Drawing.Point(21, 115);
+            this.tbNomeFornc.Location = new System.Drawing.Point(31, 57);
             this.tbNomeFornc.Name = "tbNomeFornc";
             this.tbNomeFornc.Size = new System.Drawing.Size(573, 26);
             this.tbNomeFornc.TabIndex = 1;
@@ -245,7 +241,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 94);
+            this.label3.Location = new System.Drawing.Point(28, 36);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label3.Size = new System.Drawing.Size(59, 20);
@@ -270,26 +266,6 @@
             this.label2.Size = new System.Drawing.Size(53, 20);
             this.label2.TabIndex = 36;
             this.label2.Text = "CNPJ";
-            // 
-            // tbNomeFunc
-            // 
-            this.tbNomeFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNomeFunc.Location = new System.Drawing.Point(21, 57);
-            this.tbNomeFunc.Name = "tbNomeFunc";
-            this.tbNomeFunc.ReadOnly = true;
-            this.tbNomeFunc.Size = new System.Drawing.Size(573, 26);
-            this.tbNomeFunc.TabIndex = 17;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 36);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(124, 20);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "FUNCIONÁRIO";
             // 
             // bSairForn
             // 
@@ -415,8 +391,6 @@
         private System.Windows.Forms.Button bAlteraForn;
         private System.Windows.Forms.Button bNovoForn;
         private System.Windows.Forms.Button bCadastraForn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbNomeFunc;
         private System.Windows.Forms.MaskedTextBox mbCnpj;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gbEndereco;

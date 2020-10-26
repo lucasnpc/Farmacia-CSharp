@@ -8,7 +8,7 @@ namespace Farmácia_de_Manipulação
     {
 
         // DEFINE UMA STRING DE CONEXAO COM O SQL SERVER
-        public static NpgsqlConnection conecta = new NpgsqlConnection("Server=127.0.0.1;Port=5432;User Id=postgres;Password=0211a;Database=farmacia;");
+        public static NpgsqlConnection conecta = new NpgsqlConnection("Server=127.0.0.1;Port=5432;User Id=postgres;Password=0211*;Database=farmacia;");
         // DEFINE DUAS VARIVES PARA EXECUTAR COMANDOS SQL
         public static NpgsqlCommand comando;
         public static NpgsqlDataReader leitor;

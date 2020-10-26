@@ -17,7 +17,7 @@ namespace Farmácia_de_Manipulação.Controladores
             {
                 AcessoBD.fecharConexao();
                 AcessoBD.abrirConexao();
-                string sql = "select * from fornecedor";
+                string sql = "select * from fornecedores";
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
                 AcessoBD.comando.ExecuteNonQuery();
                 NpgsqlDataReader reader = AcessoBD.comando.ExecuteReader();
@@ -34,7 +34,6 @@ namespace Farmácia_de_Manipulação.Controladores
                         bairro = reader["bairro"].ToString(),
                         cidade = reader["cidade"].ToString(),
                         email = reader["email"].ToString(),
-                        cpf_funcionario = reader["fk_funcionario"].ToString()
                     });
                 }
                 reader.Close();
@@ -51,7 +50,7 @@ namespace Farmácia_de_Manipulação.Controladores
             try
             {
                 AcessoBD.fecharConexao();
-                string sql = "INSERT INTO fornecedor(cnpj," +
+                string sql = "INSERT INTO fornecedores(cnpj," +
                     "nome," +
                     "rua," +
                     "numero," +
@@ -59,8 +58,8 @@ namespace Farmácia_de_Manipulação.Controladores
                     "cidade," +
                     "tel1," +
                     "tel2," +
-                    "email," +
-                    "fk_funcionario) values(@cnpj," +
+                    "email)" +
+                    " values(@cnpj," +
                     "@nome," +
                     "@rua," +
                     "@numero," +
@@ -68,8 +67,7 @@ namespace Farmácia_de_Manipulação.Controladores
                     "@cidade," +
                     "@tel1," +
                     "@tel2," +
-                    "@email," +
-                    "@fk_funcionario)";
+                    "@email)";
                 AcessoBD.fecharConexao();
                 AcessoBD.abrirConexao();
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
@@ -82,7 +80,6 @@ namespace Farmácia_de_Manipulação.Controladores
                 AcessoBD.comando.Parameters.AddWithValue("@tel1", fornecedor.tel1);
                 AcessoBD.comando.Parameters.AddWithValue("@tel2", fornecedor.tel2);
                 AcessoBD.comando.Parameters.AddWithValue("@email", fornecedor.email);
-                AcessoBD.comando.Parameters.AddWithValue("@fk_funcionario", fornecedor.cpf_funcionario);
 
                 if (AcessoBD.comando.ExecuteNonQuery() == 1)
                     return true;
@@ -100,7 +97,7 @@ namespace Farmácia_de_Manipulação.Controladores
             try
             {
                 AcessoBD.fecharConexao();
-                string sql = "UPDATE fornecedor SET nome = @nome," +
+                string sql = "UPDATE fornecedores SET nome = @nome," +
                     "numero = @numero," +
                     "rua = @rua," +
                     "bairro = @bairro," +
@@ -136,7 +133,7 @@ namespace Farmácia_de_Manipulação.Controladores
             try
             {
                 AcessoBD.fecharConexao();
-                string sql = "DELETE FROM fornecedor WHERE cnpj = @cnpj";
+                string sql = "DELETE FROM fornecedores WHERE cnpj = @cnpj";
                 AcessoBD.abrirConexao();
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
                 AcessoBD.comando.Parameters.AddWithValue("@cnpj", cnpj);

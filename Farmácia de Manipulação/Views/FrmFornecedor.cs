@@ -37,7 +37,6 @@ namespace Farmácia_de_Manipulação
             bExcluiForn.Enabled = false;
             bConsultaForn.Enabled = true;
             bSairForn.Enabled = true;
-            tbNomeFunc.Text = new CpfFuncionario().trasNomeFunc(CpfFuncionario.cpfFunc);
             tbNomeFornc.Focus();
         }
         private void limpar()
@@ -52,7 +51,6 @@ namespace Farmácia_de_Manipulação
             mbTel1.Clear();
             mbTel2.Clear();
             statusInicial();
-            tbNomeFunc.Clear();
         }
         private void statusAlter()
         {
@@ -132,7 +130,6 @@ namespace Farmácia_de_Manipulação
                             mbTel2.Text = fornecedor.tel2;
                             tbMailFornc.Text = fornecedor.email;
                             mbCnpj.Text = fornecedor.cnpj;
-                            tbNomeFunc.Text = new CpfFuncionario().trasNomeFunc(fornecedor.cpf_funcionario);
                             statusAlter();
                         }
                     }

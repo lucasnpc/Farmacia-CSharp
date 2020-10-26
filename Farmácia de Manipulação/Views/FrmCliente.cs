@@ -39,7 +39,7 @@ namespace Farmácia_de_Manipulação
             bExcluiCli.Enabled = false;
             bConsultaCli.Enabled = true;
             bSairCli.Enabled = true;
-            tbNomeFuncAtende.Text = new CpfFuncionario().trasNomeFunc(CpfFuncionario.cpfFunc);
+            tbNomeFuncAtende.Text = new CpfFuncionario().GetNomeFuncionario(CpfFuncionario.cpfFunc);
             tbNomeCli.Focus();
         }
         private void limpar()
@@ -135,7 +135,7 @@ namespace Farmácia_de_Manipulação
                             tbBairroCli.Text = cliente.bairro;
                             tbCidadeCli.Text = cliente.cidade;
                             tbMailCli.Text = cliente.email;
-                            tbNomeFuncAtende.Text = new CpfFuncionario().trasNomeFunc(cliente.cpffunc);
+                            tbNomeFuncAtende.Text = new CpfFuncionario().GetNomeFuncionario(cliente.cpffunc);
                             statusAlter();
                         }
                     }

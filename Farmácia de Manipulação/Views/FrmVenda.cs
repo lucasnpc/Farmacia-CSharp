@@ -54,7 +54,6 @@ namespace Farmácia_de_Manipulação
         private void limpar()
         {
             tbNomePaciente.Text = "";
-            tbInfo.Text = "";
             tbCodProduto.Text = "";
             tbDosagem.Text = "";
             tbSubTotal.Text = "";
@@ -76,8 +75,6 @@ namespace Farmácia_de_Manipulação
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
-
-       
 
         private void carregaProduto(int ID)
         {
@@ -114,46 +111,6 @@ namespace Farmácia_de_Manipulação
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
         }
-
-        //Cadastro de receita
-        private void cadastraReceita()
-        {
-            try
-            {
-                AcessoBD.fecharConexao();
-                string sql = "INSERT INTO receita(numero_requisicao)"+
-                    " values(@numero_requisicao)";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.comando.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void atualizaReceita()
-        {
-            try
-            {
-                AcessoBD.fecharConexao();
-                string sql = "UPDATE receita SET nome_paciente = @nome_paciente, nome_medico = @nome_medico," +
-                    "informacoes = @informacoes, fk_cliente = @fk_cliente WHERE numero_requisicao = @numero_requisicao";
-                AcessoBD.abrirConexao();
-                AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
-                AcessoBD.comando.Parameters.AddWithValue("@nome_paciente", tbNomePaciente.Text);
-                AcessoBD.comando.Parameters.AddWithValue("@informacoes", tbInfo.Text);
-                AcessoBD.comando.Parameters.AddWithValue("@fk_cliente", cpfCli);
-                AcessoBD.comando.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        //fim
 
         //REGISTRA O PEDIDO
         private void registraPedido()
@@ -257,10 +214,6 @@ namespace Farmácia_de_Manipulação
         
 #endregion;
 
-        private void pedido_Load(object sender, EventArgs e)
-        {
-        }
-
         //Trazer informacoes do produto
         private void tbCodProduto_KeyDown(object sender, KeyEventArgs e)
         {
@@ -269,6 +222,11 @@ namespace Farmácia_de_Manipulação
         private void bSair_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void venda_Load(object sender, EventArgs e)
+        {
+            tbNomeFuncionario.Text = new CpfFuncionario().GetNomeFuncionario(CpfFuncionario.cpfFunc);
         }
 
         private void bRealizaPedido_Click(object sender, EventArgs e)

@@ -13,7 +13,7 @@ namespace Farmácia_de_Manipulação.Controladores
             try
             {
                 AcessoBD.fecharConexao();
-                string sql = "INSERT INTO funcionario(cpf," +
+                string sql = "INSERT INTO funcionarios(cpf," +
                        "nome," +
                        "data_nasc," +
                        "numero," +
@@ -76,7 +76,7 @@ namespace Farmácia_de_Manipulação.Controladores
             {
                 AcessoBD.fecharConexao();
                 AcessoBD.abrirConexao();
-                string sql = "select * from funcionario";
+                string sql = "select * from funcionarios";
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
                 AcessoBD.comando.ExecuteNonQuery();
                 NpgsqlDataReader dataReader = AcessoBD.comando.ExecuteReader();
@@ -115,7 +115,7 @@ namespace Farmácia_de_Manipulação.Controladores
             {
                 AcessoBD.fecharConexao();
                 AcessoBD.abrirConexao();
-                string sql = "update funcionario set nome = @nome," +
+                string sql = "update funcionarios set nome = @nome," +
                        "data_nasc = @data_nasc," +
                        "numero = @numero," +
                        "rua = @rua," +
@@ -164,7 +164,7 @@ namespace Farmácia_de_Manipulação.Controladores
             {
                 AcessoBD.fecharConexao();
                 AcessoBD.abrirConexao();
-                string sql = "DELETE FROM funcionario WHERE cpf = @cpf";
+                string sql = "DELETE FROM funcionarios WHERE cpf = @cpf";
                 AcessoBD.comando = new NpgsqlCommand(sql, AcessoBD.conecta);
                 AcessoBD.comando.Parameters.AddWithValue("@cpf", cpf);
                 if (AcessoBD.comando.ExecuteNonQuery() == 1)

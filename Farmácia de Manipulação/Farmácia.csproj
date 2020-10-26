@@ -154,6 +154,7 @@
     <Compile Include="Controladores\VendaDAO.cs" />
     <Compile Include="Models\Fornecedor.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Venda.cs" />
     <Compile Include="Utilidades\CalcMargemLucro.cs" />
     <Compile Include="Views\FrmAtalhos.cs">
       <SubType>Form</SubType>
